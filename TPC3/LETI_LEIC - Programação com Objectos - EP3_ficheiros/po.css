@@ -1,0 +1,63 @@
+/* Definição da fonte */
+body {
+   font-family: arial, helvetica, sans-serif;
+   font-style: normal;
+   font-weight: normal;
+   font-size: 10pt;
+   color: black;
+}
+
+table {
+   font-family: arial, helvetica, sans-serif;
+   font-style: normal;
+   font-weight: normal;
+   font-size: 10pt;
+   color: black;
+}
+
+
+H2 {font-weight: bold; text-align: center; text-decoration:underline; color: #0000FF}
+H3 {font-weight: bold; text-align: center; color: #0000FF}
+H4 {font-weight: bold; color: navy}
+H5 {font-weight: bold; color: navy}
+
+
+/* Definição da fonte e cor dos links */
+a:link       { color: #990000; text-decoration: none}
+a:visited    { color: #990000; text-decoration: none}
+a:hover      { color: #FF0000}
+a:active     { color: #FF0000}
+
+
+
+/* Garante espaço à direita e à esquerda */
+.hspace      { 
+    margin-left: 20pt;
+    margin-right: 20pt
+}
+
+
+.corR   { color=#FF0000 } /* cor destaque  */
+.corT   { color=#000080 } /* cor destaque  */
+
+
+.titulo {
+    font-variant: small-caps;
+    word-spacing: 5px;
+    letter-spacing: 2px;
+    background-color: #EEEEEE;
+    color: #0000FF;
+ }
+ 
+
+.dobro {
+    color: #DDDDDD;
+    height: 12px;
+    border-left-width: 0pt;
+    border-right-width: 0pt;
+}
+
+.destaque {
+    font-weight: bold;
+    color: navy;
+}

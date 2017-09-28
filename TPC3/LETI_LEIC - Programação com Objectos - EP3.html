@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
+<html><head>
+  <meta name="copyright" content="Copyright © 2014 by Programação com Objectos">
+  <meta http-equiv="content-type" content="text/html; charset=windows-1252">
+  <script src="LETI_LEIC%20-%20Programa%C3%A7%C3%A3o%20com%20Objectos%20-%20EP3_ficheiros/po.js" type="text/javascript" language="JavaScript"></script>
+  <link rel="stylesheet" href="LETI_LEIC%20-%20Programa%C3%A7%C3%A3o%20com%20Objectos%20-%20EP3_ficheiros/po.css" type="text/css">
+  <link rel="SHORTCUT ICON" href="http://groups.ist.utl.pt/po-tagus/ep/favicon.ico">
+  <title>LETI/LEIC - Programação com Objectos - EP3</title>
+</head>
+<body style="background-color: rgb(255, 255, 255);">
+<script type="text/javascript" language="JavaScript">
+<!-- 
+   Cabecalho(1,'EP3', 2, 2, 2, 2, 2);
+   Separador('Objectivos');
+//-->
+</script><h2>PROGRAMAÇÃO COM OBJECTOS 2017/2018</h2>
+<h3>Exercício de Avaliação EP3</h3>
+<center>
+<table cellspacing="2" cellpadding="0" border="0" bgcolor="#F0F0F0">
+<tbody><tr>
+<td height="30pt"> <b><font color="navy"> &nbsp;&nbsp;&nbsp;&nbsp;A realizar: </font></b></td>
+<td><img src="LETI_LEIC%20-%20Programa%C3%A7%C3%A3o%20com%20Objectos%20-%20EP3_ficheiros/boxE.jpg" alt="Empty checkbox" align="bottom" width="20pt" border="0">&nbsp;&nbsp; </td>
+<td>
+individualmente&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</td>
+<td><img src="LETI_LEIC%20-%20Programa%C3%A7%C3%A3o%20com%20Objectos%20-%20EP3_ficheiros/boxF.jpg" alt="Empty checkbox" align="bottom" width="20pt" border="0">&nbsp;&nbsp; </td>
+<td>
+<b><font color="red">
+em grupo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</font></b>
+</td></tr>
+<tr>
+<td height="30pt"> <b><font color="navy"> &nbsp;&nbsp;&nbsp;&nbsp;Local de trabalho: </font></b></td>
+<td><img src="LETI_LEIC%20-%20Programa%C3%A7%C3%A3o%20com%20Objectos%20-%20EP3_ficheiros/boxE.jpg" alt="Empty checkbox" align="bottom" width="20pt" border="0">&nbsp;&nbsp; </td>
+<td>
+aula prática&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</td>
+<td><img src="LETI_LEIC%20-%20Programa%C3%A7%C3%A3o%20com%20Objectos%20-%20EP3_ficheiros/boxF.jpg" alt="Empty checkbox" align="bottom" width="20pt" border="0">&nbsp;&nbsp; </td>
+<td>
+<b><font color="red">
+casa (TPC)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</font></b>
+</td></tr>
+<tr>
+<td height="30pt"> <b><font color="navy"> &nbsp;&nbsp;&nbsp;&nbsp;Local de entrega: </font></b></td>
+<td><img src="LETI_LEIC%20-%20Programa%C3%A7%C3%A3o%20com%20Objectos%20-%20EP3_ficheiros/boxE.jpg" alt="Empty checkbox" align="bottom" width="20pt" border="0">&nbsp;&nbsp; </td>
+<td>
+aula prática&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</td>
+<td><img src="LETI_LEIC%20-%20Programa%C3%A7%C3%A3o%20com%20Objectos%20-%20EP3_ficheiros/boxF.jpg" alt="Empty checkbox" align="bottom" width="20pt" border="0">&nbsp;&nbsp; </td>
+<td>
+<b><font color="red">
+submissão electrónica&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</font></b>
+</td></tr>
+<tr>
+<td height="30pt"> <b><font color="navy">  &nbsp;&nbsp;&nbsp;&nbsp;Data limite entrega:&nbsp;&nbsp;&nbsp;</font></b></td>
+<td colspan="4"> <b><font color="red">   Até ao início da aula prática número 3
+</font></b></td>
+</tr>
+</tbody></table>
+</center>
+<p>&nbsp;</p>
+<hr color="#000080" size="2pt">
+<b><font class="titulo">Objectivos</font></b>
+<hr color="#000080" size="2pt">
+
+<ul>
+  <li>Concepção de uma classe em Java.</li>
+  <li>Utilização das ferramentas que permitem compilar
+(<i>javac</i>) e executar (<i>java</i>) código Java. </li>
+</ul>
+<script type="text/javascript" language="JavaScript">
+<!-- 
+   Separador('Enunciado');
+//-->
+</script><hr color="#000080" size="2pt">
+<b><font class="titulo">Enunciado</font></b>
+<hr color="#000080" size="2pt">
+
+<p>Concretize a classe <i></i> cuja funcionalidade se descreve
+de seguida:
+</p>
+<ol>
+  <li>Esta classe representa uma garrafa. Uma garrafa tem uma
+  determinada cor e pode guardar no máximo 100 centilitros.</li>
+
+  <li>Quando é criada uma garrafa, tem que ser indicada a sua
+  cor. Uma garrafa criada está sempre vazia. </li>
+
+  <li>Deve ser possível acrescentar mais líquido a uma garrafa
+ até a garrafa ficar cheia. Esta funcionalidade deve indicar a
+ quantidade de líquido (medido em centilitros) a acrescentar à garrafa. </li>
+  <li>Não é possível alterar a cor da garrafa mas deverá ser
+ possível obter a sua cor. </li>
+  <li>Deverá ser possível saber se uma garrafa está vazia ou não. O
+ método responsável por esta funcionalidade não deve 
+ devolver a quantidade de líquido presente na garrafa. Deve devolver um valor do tipo <i>boolean</i> que
+ indicará se a garrafa está vazia ou não. </li> 
+  <li>Finalmente, duas garrafas são consideradas iguais se tiverem a
+ mesma quantidade de líquido e a mesma cor. O
+  método responsável por esta funcionalidade deverá devolver um
+  valor do tipo <i>boolean</i>.
+  </li>
+
+  <!--li>Todas as classes referidas devem ter na sua interface um
+m&eacute;todo p&uacute;blico est&aacute;tico <i>obtemAutoria</i>. Este
+m&eacute;todo
+n&atilde;o deve receber qualquer par&acirc;metro e deve devolver um
+vector de inteiros (tipo int[]). O primeiro elemento do vector deve
+estar preenchido com o n&uacute;mero do grupo que realizou o
+exerc&iacute;cio e os restantes elementos devem corresponder aos
+n&uacute;meros dos alunos que realmente colaboraram na
+execu&ccedil;&atilde;o deste trabalho. Se este trabalho tiver sido
+executado por um &uacute;nico aluno, este m&eacute;todo deve devolver
+um vector com dois inteiros.</li-->
+</ol>
+<script type="text/javascript" language="JavaScript">
+<!--
+  RegrasSubmissaoEP('ep');
+  Separador('Crit&eacute;rios de avalia&ccedil;&atilde;o');
+//-->
+</script><hr color="#000080" size="2pt">
+<b><font class="titulo">Submissão</font></b>
+<hr color="#000080" size="2pt">
+<p>Após obter as classes que obedeçam às
+especificações fornecidas, crie um ficheiro jar,
+denominado ep.jar ", contendo apenas os ficheiros fonte (.java) de
+todas as classes concretizadas. Se todas as classes estiverem
+no mesmo directório, deve ser dado o seguinte comando:</p>
+<blockquote>
+  <pre>       jar -cvf ep.jar *.java<br> </pre>
+</blockquote>
+<p> Usando o <a href="https://fenix.ist.utl.pt/publico/executionCourse.do?sectionID=5259&amp;executionCourseID=46510&amp;method=section">sistema de submissões</a>, enviar o ficheiro "ep.jar" para avaliação.<br>
+O trabalho pode ser submetido várias vezes, até à data limite de entrega. Será apenas
+avaliada a última versão entregue. </p>
+<hr color="#000080" size="2pt">
+<b><font class="titulo">Critérios de avaliação</font></b>
+<hr color="#000080" size="2pt">
+
+<p>Na avaliação será tido em conta: a correcta concretização desta classe.
+
+Serão aplicadas as penalizações genéricas associadas ao processo de submissão.
+
+
+</p></body></html>
