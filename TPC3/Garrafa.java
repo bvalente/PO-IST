@@ -8,6 +8,10 @@
  * Esta funcionalidade deve indicar a quantidade de líquido 
  * (medido em centilitros) a acrescentar à garrafa."
  * Q: addQuantidade dever mostrar a quantidade de liquido na garrafa?  
+ * 
+ * A: Acho que deve ser para fazer return da quantidade de liquido que realmente entrou na garrafa
+ * Exemplo, garrafa tem 60,  adicionas 50, faz return de 40 ( porque fica cheio )
+ * vou fazer esse codigo, depois vemos como fica
  */
  
 public class Garrafa{
@@ -22,38 +26,67 @@ public class Garrafa{
 		
 	}
 	
-	public static void main(String[] args){
-		/*Garrafa teste = new Garrafa("blue");
-		Garrafa prova = new Garrafa("blue");
-
-		addQuantidade(teste, 5);
-		//System.out.println(teste._cor);
-		printCor(teste);
-		printQt(teste);
-
-		compareGarrafa(teste, prova);
-		addQuantidade(prova, 5);
-		compareGarrafa(teste,prova);
-	*/
+	public void printCor( ){
+		System.out.println( _cor );
 	}
-	static public void printCor(Garrafa a ){
-		System.out.println(a._cor);
+	
+	public void printQt( ){
+		System.out.println( _quantidade );
 	}
-	static public void printQt(Garrafa a ){
-		System.out.println(a._quantidade);
-	}
-	static public boolean compareGarrafa ( Garrafa a , Garrafa b){
+	
+	public boolean compareGarrafa ( Garrafa b ){
+		/*
 		if ( a._cor.equals(b._cor)){//maneira correta de verificar se duas strings sao iguais
 			return ( a._quantidade == b._quantidade )
 		}
+		*/
+		return _cor.equals( b._cor ) && _quantidade == b._quantidade;
+		
 	}
 				
-	static public void addQuantidade ( Garrafa a , int x ){
-		if (a._quantidade <= 100) 
-			a._quantidade += x;
+	public int addQuantidade ( int x ){
+		int adicionado;
+		if ( _quantidade + x > 100 ) {
+			adicionado = 100 - _quantidade;
+			_quantidade = 100;
+			return adicionado;
+		}
+		else {
+			adicionado = x;
+			_quantidade += adicionado;
+			return adicionado;
+		}
 	}
-	static public boolean emptyGarrafa ( Garrafa a ){
-		return (a._quantidade == 0);
+	
+	public void emptyGarrafa ( ){
+		_quantidade = 0;
+	}
+	
+	public boolean isEmpty ( ){
+		return _quantidade == 0;
+	}
+	
+	/* DEVELOPING HELP */
+	
+	public static void main (String[] args){
+		Garrafa a = new Garrafa("azul");
+		Garrafa b = new Garrafa("vermelho");
+		Garrafa c = new Garrafa("vermelho");
+		
+		a.printCor();
+		a.printQt();
+		
+		System.out.println( a.isEmpty() );
+		System.out.println( a.addQuantidade( 60 ) );
+		System.out.println( a.addQuantidade( 60 ) );
+		System.out.println( a.isEmpty() );
+		
+		b.addQuantidade( 50 );
+		c.addQuantidade( 50 );
+		
+		System.out.println( b.compareGarrafa( c ) );
+		
+		
 	}
 
 }
