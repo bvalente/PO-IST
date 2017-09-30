@@ -34,14 +34,13 @@ public class Garrafa{
 		System.out.println( _quantidade );
 	}
 	
+	public String getCor( ){
+		return new String(_cor);
+		//assim devolvemos a cor, mas nao comprometemos o ponteiro privado da classe
+	}
+	
 	public boolean compareGarrafa ( Garrafa b ){
-		/*
-		if ( a._cor.equals(b._cor)){//maneira correta de verificar se duas strings sao iguais
-			return ( a._quantidade == b._quantidade )
-		}
-		*/
-		return _cor.equals( b._cor ) && _quantidade == b._quantidade;
-		
+		return _cor.equals( b._cor ) && _quantidade == b._quantidade;		
 	}
 				
 	public int addQuantidade ( int x ){
@@ -88,5 +87,6 @@ public class Garrafa{
 		
 		
 	}
+	/* */
 
 }
