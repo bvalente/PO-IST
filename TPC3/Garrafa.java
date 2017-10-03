@@ -2,16 +2,6 @@
  * 
  * Bernardo Valente
  * Francisco Chan Machado
- *
- * Unica cena que não percebo e pode faltar:
- * "Deve ser possível acrescentar mais líquido a uma garrafa até a garrafa ficar cheia. 
- * Esta funcionalidade deve indicar a quantidade de líquido 
- * (medido em centilitros) a acrescentar à garrafa."
- * Q: addQuantidade dever mostrar a quantidade de liquido na garrafa?  
- * 
- * A: Acho que deve ser para fazer return da quantidade de liquido que realmente entrou na garrafa
- * Exemplo, garrafa tem 60,  adicionas 50, faz return de 40 ( porque fica cheio )
- * vou fazer esse codigo, depois vemos como fica
  */
  
 public class Garrafa{
@@ -64,29 +54,5 @@ public class Garrafa{
 	public boolean isEmpty ( ){
 		return _quantidade == 0;
 	}
-	
-	/* DEVELOPING HELP */
-	
-	public static void main (String[] args){
-		Garrafa a = new Garrafa("azul");
-		Garrafa b = new Garrafa("vermelho");
-		Garrafa c = new Garrafa("vermelho");
-		
-		a.printCor();
-		a.printQt();
-		
-		System.out.println( a.isEmpty() );
-		System.out.println( a.addQuantidade( 60 ) );
-		System.out.println( a.addQuantidade( 60 ) );
-		System.out.println( a.isEmpty() );
-		
-		b.addQuantidade( 50 );
-		c.addQuantidade( 50 );
-		
-		System.out.println( b.compareGarrafa( c ) );
-		
-		
-	}
-	/* */
 
 }
