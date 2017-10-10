@@ -1,36 +1,28 @@
-public class NandGate{
+public class NandGate extends PortaLogica{
 
-	private boolean _entrada1;
-	private boolean _entrada2;
-	
-	public NandGate( boolean value1, boolean value2 ){
-		_entrada1 = value1;
-		_entrada2 = value2;
-		
-	}
-	
-	public void changeE1( boolean valor ){
-		_entrada1 = valor;
-	}
-	
-	public void changeE2( boolean valor ){
-		_entrada2 = valor;
-	}
+  private final String operacao;
+  private boolean output;
 
-	public boolean getOutput(){
-		return ! (_entrada1 && _entrada2);
-	}
+  public NandGate (boolean value1, boolean value2) {
+    super( value1, value2 );
+    operacao = "NAND"; //'!&&' ?
+  }
 
-	public String printResultado(){
-		String value1 = Boolean.toString(_entrada1);
-		String value2 = Boolean.toString(_entrada2);
-		String result = Boolean.toString(this.getOutput());
-		
-		return value1 + " NAND " + value2 + " = " + result;
-	}
-		
-	public static void main(String[] args){
-		NandGate a = new NandGate();
-		System.out.println(a.printResultado);
-	}
+  public boolean getOuput () {
+    output = !( getE1() && getE2() );
+    /*if  (output == true){
+      System.out.println("aasdsad");
+    }*/
+    return output ;
+  }
+
+  public String toString() {
+    return super.toString( operacao, output );
+  }
+
+  /*public static void main(String[] args) {
+     new NandGate(true, false);
+    toString(operacao, getOutput());
+    System.out.println("cona");
+  }*/
 }
