@@ -3,7 +3,7 @@ public abstract class PortaLogica {
   protected boolean _entrada1;
   protected boolean _entrada2;
   protected String operation;
-  protected boolean output;
+  //protected boolean output;
 
   public boolean getE1 () {
     return _entrada1 ;
