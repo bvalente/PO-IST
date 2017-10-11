@@ -1,17 +1,14 @@
-public class PortaLogica {
+public abstract class PortaLogica {
 
-  private boolean _entrada1;
-  private boolean _entrada2;
-
-  public PortaLogica ( boolean value1, boolean value2 ) {
-    setE1 ( value1 ) ;
-    setE2 ( value2 ) ;
-  }
+  protected boolean _entrada1;
+  protected boolean _entrada2;
+  protected String operation;
+  protected boolean output;
 
   public boolean getE1 () {
     return _entrada1 ;
   }
-  
+
   public  boolean getE2 () {
     return _entrada2 ;
   }
@@ -24,7 +21,10 @@ public class PortaLogica {
 		_entrada2 = value ;
 	}
 
-  protected String toString ( String operacao, boolean result ) {
-    return "" + getE1() + " " + operacao + " " + getE2() + " = " + "" + result;
+  public abstract boolean getOutput();
+
+  public String toString () {
+    return "" + getE1() + " " + operation + " " + getE2() + " = " + "" + getOutput();
   }
+
 }
