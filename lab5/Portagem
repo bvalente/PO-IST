@@ -2,7 +2,7 @@ public class Portagem{
 
     private int _numVeic;
     private int _numCobr;
-    private int[] _cabines = new int[10];
+    private int[] _cabines = new int[10]; 
 
     public Portagem(){
         _numVeic = 0;
@@ -35,5 +35,5 @@ public class Portagem{
         return _cabine[cabine];
     }
 
-    
+
 }
