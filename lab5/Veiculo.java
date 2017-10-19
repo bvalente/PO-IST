@@ -1,9 +1,11 @@
 public class Veiculo{
-	
-	private String _brand;
 
-	public Veiculo(String brand){
+	protected String _brand;
+    protected Portagem _portagem;
+
+	public Veiculo(String brand, Portagem p){
 		_brand = new String(brand);
+        _portagem = p;
 	}
 
 	public void acelera(){
@@ -18,9 +20,14 @@ public class Veiculo{
 		System.out.println("PII PII");
 	}
 
-	public Boolean pagaPortagem(){
-		return true;
-	}
+
+    public String obtemMarca(){
+        return new String (_brand);
+    }
+
+    public void passaPortagem(int cabine){
+        _portagem.contabilizaPassagemPaga(cabine);
+    }
 
 
 }

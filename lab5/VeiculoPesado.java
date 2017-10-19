@@ -1,7 +1,11 @@
 public class VeiculoPesado extends Veiculo{
 
 	private int _nPassagens;
-	
+
+	public VeiculoPesado(String brand, Portagem p){
+		super(brand, p);
+	}
+
 	@Override
 	public void buzina (){
 		System.out.println("POO POO");
@@ -12,8 +16,7 @@ public class VeiculoPesado extends Veiculo{
 	}
 
 	@Override
-	public Boolean pagaPortagem(){
-		return false;
+	public void passaPortagem(int cabine){
+        _portagem.contabilizaPassagemGratuita(cabine);
 	}
-	
 }
