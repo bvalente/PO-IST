@@ -1,41 +1,43 @@
-//hello :)
+package number;
 
-public class NumeroComMemoria {
-	
-	private Numero _atual;
-	private Numero _anterior;
-	
-	public NumeroComMemoria(int x){
-		_atual = new Numero( x );
+/**
+ * Esta classe representa um Numero Com Memoria. <p>
+ *
+ * Inclui todas as funcionalidades de Numero.  <p>
+ * É possivel desfazer a ultima alteração realizada. Se utilizarmos esta funcionalidade duas vezes o numero fica inalterado.
+ *
+ * Caso não exista valor anterior é devolvido o próprio valor do número.
+ * 
+ * @author Bernardo Valente & Francisco Machado
+ * @version 1.0
+ */
+
+public class NumeroComMemoria extends Numero{
+	private int _valorAnterior;
+
+	public void alteraValor(int n) {
+		_valorAnterior = obtemValor();
+		super.alteraValor(n);
 	}
-	
-	public NumeroComMemoria( ){
-		_atual = new Numero( );
+
+	public void desfazer() {
+		alteraValor(_valorAnterior);
 	}
-	
-	public void alterarNumero ( int x ){
-		if ( _anterior == null ){
-			_anterior = new Numero( _atual);
-		}
-		else{
-			_anterior.changeNum( _atual );
-		}
-		
-		_atual.changeNum(x);
+
+	public int obtemValorAnterior() {
+		return _valorAnterior;
 	}
-	
-	public void desfazer (){
-		if (_anterior != null){
-			Numero auxiliar = new Numero(_atual);
-			_atual.changeNum(_anterior);
-			_anterior.changeNum(auxiliar);
-		}
+
+	public static void main(String[] args) {
+		NumeroComMemoria n1 = new NumeroComMemoria();
+
+		n1.alteraValor(4);
+		System.out.println("n1 = " + n1 );
+
+		n1.desfazer();
+		System.out.println("n1 = " + n1 );
+
+		n1.desfazer();
+		System.out.println("n1 = " + n1 );
 	}
-	
-	public Numero getAnterior (){
-		if (_anterior != null)
-			return _atual;
-		else
-			return _anterior;
 	}
-}
