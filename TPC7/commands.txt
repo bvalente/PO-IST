@@ -1,0 +1,3 @@
+javadoc -d number/HTML number
+
+jar -cvf ep7.jar number
