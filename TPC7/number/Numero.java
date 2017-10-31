@@ -1,8 +1,11 @@
 package number;
 /**
-* Cria um numero 
-*
-*/
+ * This class represents a number. <p>
+ *
+ * @author Francisco Machado
+ * @author Bernardo Valente
+ * @version 1.0
+ */
 
 public class Numero {
 
@@ -12,7 +15,7 @@ public class Numero {
 	private int _valor;
 
 	  /**
-	  *	Construtor que nao recebe argumentos e inicia o numero a 0 
+	  *	Construtor que nao recebe argumentos e inicia o numero a 0
 	  */
 	  public Numero() {
 	  	_valor = 0;
@@ -31,7 +34,7 @@ public class Numero {
 	  public void alteraValor(int n) {
 	    _valor = n;
 	  }
-	  
+
 	  /**
 	  *	Retorna o valor do numero
 	  */
@@ -65,4 +68,4 @@ public class Numero {
 	    System.out.println("n1 = " + n1 + " n2 = " + n2);
 	    System.out.println("n1 == n2 -> " + n1.eIgual(n2));
 	  }
-} 
+}
