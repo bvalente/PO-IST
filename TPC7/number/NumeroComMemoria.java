@@ -13,18 +13,34 @@ package number;
  */
 
 public class NumeroComMemoria extends Numero{
-	
+
+	/** int _valorAnterior guarda o ultimo valor de Numero
+	*/
 	private int _valorAnterior;
 
-	public void alteraValor(int n) {
+	/** {@inheritDoc}
+	O ultimo valor é preservado.
+	*
+	* @param n Novo valor a atribuir a numero.
+	*/
+	@Override
+
+	public void changeNum(int n) {
 		_valorAnterior = obtemValor();
-		super.alteraValor(n);
+		super.changeNum(n);
 	}
 
+	/** Metodo atribui a Numero o valor que tinha antes de ser alterado.
+	*/
 	public void desfazer() {
 		alteraValor(_valorAnterior);
 	}
 
+	/** Metodo retorna o valor que NumeroComMemoria tinha antes de ser alterado
+	*
+	* @return valor Anterior
+	*
+	*/
 	public int obtemValorAnterior() {
 		return _valorAnterior;
 	}

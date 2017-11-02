@@ -44,6 +44,8 @@ public class Numero{
 
 	/** Metodo retorna o valor inteiro de um Numero.
 	* A este metodo não são passados quaisquer argumentos.
+	*
+	* @return valor inteiro de Numero
 	*/
 	public int getNum(){
 		return _num;
@@ -77,6 +79,7 @@ public class Numero{
 	* Retorna um valor booleano.
 	*
 	* @param x Numero a comparar.
+	* @return Valor inteiro de um Numero x
 	*/
 	public boolean compareNum(Numero x){
 		return _num == x.getNum();
