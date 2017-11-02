@@ -2,9 +2,9 @@ package number;
 
 /**
  * Esta classe representa um Numero inteiro. <p>
- * É possivel saber o valor representado pelo número bem como alterá-lo. <p>
- * As funcionalidades desta classe ainda permitem representar um número numa
- * String e comparar dois números. <p>
+ * E possivel saber o valor representado pelo numero bem como alterá-lo. <p>
+ * As funcionalidades desta classe ainda permitem representar um numero numa
+ * String e comparar dois numeros. <p>
  *
  * @author Bernardo Valente & Francisco Machado
  * @version 1.0
@@ -16,9 +16,9 @@ public class Numero{
 	*/
 	private int _num;
 
-	/** Construtor de um Número
+	/** Construtor de um Numero
 	*
-	*  @param num é o valor atribuido ao numero.
+	*  @param num E o valor atribuido ao numero.
 	*/
 	public Numero(int num){
 		_num = num;
@@ -31,7 +31,7 @@ public class Numero{
 
 	/** Constructor de um Numero
 	*
-	*  @param x._num é o valor atribuido ao numero.
+	*  @param x._num E o valor atribuido ao numero.
 	*/
 	public Numero(Numero x){
 		_num = x._num;
@@ -43,7 +43,7 @@ public class Numero{
 	}
 
 	/** Metodo retorna o valor inteiro de um Numero.
-	* A este metodo não são passados quaisquer argumentos.
+	* A este metodo nao sao passados quaisquer argumentos.
 	*
 	* @return valor inteiro de Numero
 	*/
@@ -51,7 +51,7 @@ public class Numero{
 		return _num;
 	}
 	/** Metodo altera o valor de um Numero.
-	* É passado como argumento um inteiro, este valor será atribuido ao Numero.
+	* E passado como argumento um inteiro, este valor sera atribuido ao Numero.
 	*
 	* @param newNum valor atribuido ao Numero.
 	*/
@@ -60,15 +60,15 @@ public class Numero{
 	}
 
 	/** Metodo altera o valor de um Numero.
-	* É passado como argumento um Numero com um valor que é atribuido ao Numero.
+	* E passado como argumento um Numero com um valor que E atribuido ao Numero.
 	*
-	* @param newNum Numero com um valor que é atribuido ao Numero.
+	* @param newNum Numero com um valor que E atribuido ao Numero.
 	*/
 	public void changeNum(Numero newNum){
 		_num = newNum._num;
 	}
 
-	/** Devolve o número representado por uma dada instância como uma String.
+	/** Devolve o numero representado por uma dada instância como uma String.
 	*
 	*/
 	public void printNum(){

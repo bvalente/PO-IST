@@ -4,9 +4,9 @@ package number;
  * Esta classe representa um Numero Com Memoria. <p>
  *
  * Inclui todas as funcionalidades de Numero.  <p>
- * É possivel desfazer a ultima alteração realizada. Se utilizarmos esta funcionalidade duas vezes o numero fica inalterado.
+ * e possivel desfazer a ultima alteracao realizada. Se utilizarmos esta funcionalidade duas vezes o numero fica inalterado.
  *
- * Caso não exista valor anterior é devolvido o próprio valor do número.
+ * Caso nao exista valor anterior e devolvido o proprio valor do numero.
  *
  * @author Bernardo Valente & Francisco Machado
  * @version 1.0
@@ -19,21 +19,21 @@ public class NumeroComMemoria extends Numero{
 	private int _valorAnterior;
 
 	/** {@inheritDoc}
-	O ultimo valor é preservado.
+	O ultimo valor e preservado.
 	*
 	* @param n Novo valor a atribuir a numero.
 	*/
 	@Override
 
 	public void changeNum(int n) {
-		_valorAnterior = obtemValor();
+		_valorAnterior = getNum();
 		super.changeNum(n);
 	}
 
 	/** Metodo atribui a Numero o valor que tinha antes de ser alterado.
 	*/
 	public void desfazer() {
-		alteraValor(_valorAnterior);
+		changeNum(_valorAnterior);
 	}
 
 	/** Metodo retorna o valor que NumeroComMemoria tinha antes de ser alterado
@@ -48,7 +48,7 @@ public class NumeroComMemoria extends Numero{
 	public static void main(String[] args) {
 		NumeroComMemoria n1 = new NumeroComMemoria();
 
-		n1.alteraValor(4);
+		n1.changeNum(4);
 		System.out.println("n1 = " + n1 );
 
 		n1.desfazer();
