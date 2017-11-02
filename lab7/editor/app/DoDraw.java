@@ -28,7 +28,11 @@ public class DoDraw extends Command<Editor> {
     @Override
     @SuppressWarnings("nls")
     public final void execute() {
-        _display.addLine("" + _receiver.draw());
+
+
+        for (Form form : _receiver.getForms()){
+            _display.addLine(form.draw());
+        }
         _display.display();
     }
 }
