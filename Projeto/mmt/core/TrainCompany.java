@@ -11,6 +11,8 @@ import mmt.core.exceptions.NoSuchStationNameException;
 import mmt.core.exceptions.NoSuchItineraryChoiceException;
 import mmt.core.exceptions.NonUniquePassengerNameException;
 
+
+
 //FIXME import other classes if necessary
 
 /**
@@ -22,7 +24,8 @@ public class TrainCompany implements java.io.Serializable {
   /** Serial number for serialization. */
   private static final long serialVersionUID = 201708301010L;
 
-  //FIXME define fields
+  //creates a service list
+  List<Service> serviceList = new ArrayList<Service>;
 
   void importFile(String filename) {
     //FIXME implement function
@@ -33,6 +36,14 @@ public class TrainCompany implements java.io.Serializable {
    *   registerPassenger, changePassengerName
    *   searchItineraries, commitItinerary
    */
+   public void searchServiceId(){
+       for ( Service s : serviceList ){ // search in service list
+               if (s.showServiceId() = id){
+                   return requestServiceId() + id;
+               }
+           } throw NoSuchServiceIdException;
+       }
+   }
 
   //FIXME implement other functions if necessary
 
