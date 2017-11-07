@@ -11,3 +11,4 @@ public class Frequent extends Category {
     public float getDiscount(){
         return 0.5;
     }
+}
