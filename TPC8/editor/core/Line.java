@@ -1,5 +1,6 @@
 package editor.core;
 
+import java.util.Comparator;
 /**
  * Class representing a line. A line is represented by two point. The first point
  * is represented by the origin of a form.
@@ -63,5 +64,17 @@ public class Line extends Form {
   public void move(int x, int y) {
     super.move(x, y);
     _end.move(x, y);
+  }
+
+  public static class LineComparator implements Comparator<Line>{
+
+      public int compare(Line l1, Line l2){
+          Point o1 = l1._origin;
+          Point o2 = l2._origin;
+
+          return ( o1.getX() * o1.getY() - o2.getX() * o2.getY());
+
+      }
+
   }
 }

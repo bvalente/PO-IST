@@ -9,7 +9,7 @@ import editor.core.Line;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import editor.core.LineComparator;
+//import editor.core.LineComparator;
 
 /**
  * Command for drawing all forms held by the editor.
@@ -43,7 +43,7 @@ public class DoDrawLines extends Command<Editor> {
             }
     	}
         //ordenar a list
-        Collections.sort(list, new LineComparator());
+        Collections.sort(list, new Line.LineComparator());
 
 
         //juntar todos ao display
