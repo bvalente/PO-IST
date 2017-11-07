@@ -38,7 +38,7 @@ public class TrainCompany implements java.io.Serializable {
    */
    public void searchServiceId(){
        for ( Service s : serviceList ){ // search in service list
-               if (s.showServiceId() = id){
+               if (s.showServiceId() == id){
                    return requestServiceId() + id;
                }
            } throw NoSuchServiceIdException;
