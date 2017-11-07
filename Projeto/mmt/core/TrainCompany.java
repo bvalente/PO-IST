@@ -36,13 +36,14 @@ public class TrainCompany implements java.io.Serializable {
    *   registerPassenger, changePassengerName
    *   searchItineraries, commitItinerary
    */
-   public void searchServiceId(){
+   public Service searchServiceId() throws NoSuchServiceIdException{
        for ( Service s : serviceList ){ // search in service list
                if (s.showServiceId() == id){
-                   return requestServiceId() + id;
+                   return s;
                }
-           } throw NoSuchServiceIdException;
+           }
        }
+       return NoSuchServiceIdException;
    }
 
   //FIXME implement other functions if necessary
