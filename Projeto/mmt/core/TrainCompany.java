@@ -38,12 +38,11 @@ public class TrainCompany implements java.io.Serializable {
    */
    public Service searchServiceId() throws NoSuchServiceIdException{
        for ( Service s : serviceList ){ // search in service list
-               if (s.showServiceId() == id){
-                   return s;
-               }
+           if (s.showServiceId() == id){
+               return s;
            }
        }
-       return NoSuchServiceIdException;
+       throw new NoSuchServiceIdException();
    }
 
   //FIXME implement other functions if necessary
