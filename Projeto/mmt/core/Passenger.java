@@ -4,6 +4,7 @@ import mmt.core.category.*;
 
 import java.util.List;
 import java.util.SequentialList;
+//state design pattern (wikialameda)
 
 public class Passenger {
 
@@ -20,7 +21,7 @@ public class Passenger {
         _travels = new ArrayList<Itenerary>();
     }
 
-    public void addItenerary(Itenerary itin){
+    void addItenerary(Itenerary itin){
         int sum = 0;
         int size = _travels.size();
 
@@ -40,6 +41,8 @@ public class Passenger {
             _discount = new Frequent();
         }
 
+        int dis = _discount.applydiscount(sum);
+        
         _totalMoneySpent += _discount.getDiscount() * itin.getCost();
         _travels.add(itin);
     }

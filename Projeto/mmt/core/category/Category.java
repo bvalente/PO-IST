@@ -2,10 +2,10 @@ package mmt.core.category;
 
 public abstract class Category{
     /*
-    public abstract Discount(){}
+    abstract Discount(){}
     */
 
-    abstract public String getNome();
+    abstract String getNome();
 
-    abstract public float getDiscount();
+    abstract float getDiscount();
 }
