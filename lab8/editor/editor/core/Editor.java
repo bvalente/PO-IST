@@ -9,6 +9,7 @@ import java.util.Collection;
 import java.util.Collections;
 
 import editor.core.NoSuchIdentifierException;
+import java.io.Serializible;
 
 /**
  * Form editor: allows the creation and manipulation of graphical forms such as
@@ -18,8 +19,21 @@ import editor.core.NoSuchIdentifierException;
  * @version 3.1
  */
 
-public class Editor {
+public class Editor implements Serializible {
 
+
+    public static Editor editorLoad(String filename){
+        Editor obj;
+        ObjectInputStream inob = new ObjectInputStream(new FileInputStream(filename));
+        obj = (Editor)inob.readObject();
+        return obj;
+    }
+    public editorSave(String filename){
+
+        ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(filename));
+        out.writeObject(this);
+        out.close();
+    }
   /**
    * The forms held by the editor indexed by unique identifier.
    */
