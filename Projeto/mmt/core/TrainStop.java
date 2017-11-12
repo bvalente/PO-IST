@@ -15,10 +15,10 @@ class TrainStop {
 
     }
 
-    public LocalTime getTime(){ return _time; }
+    LocalTime getTime(){ return _time; }
 
-    public Station getStation(){ return _station; }
+    Station getStation(){ return _station; }
 
-    public Service getService(){ return _service; }
+    Service getService(){ return _service; }
 
 }

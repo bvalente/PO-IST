@@ -13,8 +13,9 @@ public class NewParser {
 
   private TrainCompany _trainCompany;
 
-  public void parseFile(String fileName) throws ImportFileException {
+  public TrainCompany parseFile(String fileName) throws ImportFileException {
     // _trainCompany = criar TrainCompany
+    _trainCompany = new TrainCompany();
 
     try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
       String line;
@@ -56,7 +57,7 @@ public class NewParser {
 
     String passengerName = components[1];
 
-    // criar o passageiro registá-lo na TrainCompany
+    _trainCompany.registerPassenger(passengerName);
   }
 
   private void parseService(String[] components) {
@@ -74,7 +75,7 @@ public class NewParser {
     }
   }
 
-  private void parseItinerary(String[] components) {
+  private void parseItinerary(String[] components) throws ImportFileException{
     if (components.length < 4)
       throw new ImportFileException("Invalid number of elements in itinerary line: " + components.length);
 

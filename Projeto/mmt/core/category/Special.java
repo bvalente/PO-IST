@@ -1,14 +1,14 @@
 package mmt.core;
 
-class Normal extends Category{
+class Special extends Category {
 
     @Override
     String getNome(){
-        return "Normal";
+        return "Specials";
     }
 
     @Override
     float getDiscount(){
-        return 1f;
+        return 0.5f;
     }
 }

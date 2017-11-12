@@ -4,17 +4,17 @@ public class Segment{
     TrainStop _firstStop;
     TrainStop _lastStop;
 
-    public Segment(TrainStop firstStop, TrainStop lastStop){
+    Segment(TrainStop firstStop, TrainStop lastStop){
         _firstStop = firstStop;
         _lastStop = lastStop;
 
     }
 
-    public getFirstStop(){
+    TrainStop getFirstStop(){
         return _firstStop;
     }
 
-    public getLastStop(){
+    TrainStop getLastStop(){
         return _lastStop;
     }
 

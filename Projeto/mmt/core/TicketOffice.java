@@ -48,17 +48,31 @@ public class TicketOffice {
   }
 
   //FIXME complete and implement the itinerary search (and pre-commit store) method
-  public /*FIXME choose return type */ searchItineraries(int passengerId, String departureStation, String arrivalStation, String departureDate,
+  public Itinerary /*FIXME choose return type */ searchItineraries(int passengerId, String departureStation, String arrivalStation, String departureDate,
                                               String departureTime) /*FIXME define thrown exceptions */ {
     //FIXME implement method
+    return new Itinerary();
   }
 
   //FIXME complete and implement the itinerary commit method
-  public /*FIXME choose return type */ commitItinerary(int passengerId, int itineraryNumber) /*FIXME define thrown exceptions */ {
+  public Itinerary /*FIXME choose return type */ commitItinerary(int passengerId, int itineraryNumber) /*FIXME define thrown exceptions */ {
     //FIXME implement method
+    return new Itinerary();
   }
 
+
   //FIXME add methods for passenger registration and passenger name update
+  public void registerPassenger(String name){
+        _trainCompany.registerPassenger(name);
+  }
+
+  public void changePassengerName(int id,String name) throws NoSuchPassengerIdException{
+      try{
+        _trainCompany.changePassengerName(id, name);
+    } catch (NoSuchPassengerIdException e){
+        
+    }
+  }
 
   //FIXME add other functions if necessary
 

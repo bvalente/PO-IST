@@ -1,6 +1,9 @@
 package mmt.core;
 
-import mmt.app.NoSuchServiceException;
+import mmt.app.exceptions.NoSuchServiceException;
+
+import java.util.List;
+import java.util.LinkedList;
 
 class Service {
 
@@ -20,6 +23,7 @@ class Service {
         list.add(ts);
     }
 
-    void showServiceId(int id){
-        return id;
+    int showServiceId(){
+        return _id;
     }
+}

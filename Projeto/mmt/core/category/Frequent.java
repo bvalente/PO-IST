@@ -1,6 +1,6 @@
-package mmt.core.category;
+package mmt.core;
 
-public class Frequent extends Category {
+class Frequent extends Category {
 
     @Override
     public String getNome(){
@@ -9,9 +9,7 @@ public class Frequent extends Category {
 
     @Override
     public float getDiscount(){
-        return 0.85;
-
+        return 0.85f;
     }
-
 
 }

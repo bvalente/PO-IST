@@ -1,6 +1,6 @@
-package mmt.core.category;
+package mmt.core;
 
-public abstract class Category{
+abstract class Category{
     /*
     abstract Discount(){}
     */

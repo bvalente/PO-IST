@@ -3,25 +3,25 @@ package mmt.core;
 import mmt.core.category.*;
 
 import java.util.List;
-import java.util.SequentialList;
+import java.util.ArrayList;
 //state design pattern (wikialameda)
 
-public class Passenger {
+class Passenger {
 
     String _name;
     int _id;
     Category _discount;
-    List<Itenerary> _travels; // ??
+    List<Itinerary> _travels; // ??
     int _totalMoneySpent;
 
-    public Passenger(String name, int id){
+    Passenger(String name, int id){
         _id = id;
         _name = name;
         _discount = new Normal();
-        _travels = new ArrayList<Itenerary>();
+        _travels = new ArrayList<Itinerary>();
     }
 
-    void addItenerary(Itenerary itin){
+    void addItenerary(Itinerary itin){
         int sum = 0;
         int size = _travels.size();
 
@@ -30,7 +30,7 @@ public class Passenger {
             for (int i = 0; i <10 ; i++)
                 sum += _travels.get(size-i).getCost();
         } else {
-            for (Itenerary i : _travels)
+            for (Itinerary i : _travels)
                 sum += i.getCost();
         }
 
@@ -41,12 +41,19 @@ public class Passenger {
             _discount = new Frequent();
         }
 
-        int dis = _discount.applydiscount(sum);
-        
+        //atualizar o desconto com _discount.update
+        //receber o valor do desconto que pode ter mudado ou nao _disount.getDiscount
+
         _totalMoneySpent += _discount.getDiscount() * itin.getCost();
         _travels.add(itin);
     }
 
+    int getID(){
+        return _id;
+    }
+    void changeName(String name){
+        _name = new String(name);
+    }
 
     public String toString(){
         return new String(_name);
