@@ -8,7 +8,7 @@ class TrainStop {
     Station _station;
     Service _service;
 
-    TrainStop (LocalTime time, Station station, Service service) {
+    TrainStop (Station station, LocalTime time,  Service service) {
         _time = time;
         _station = station;
         _service = service;

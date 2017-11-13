@@ -6,8 +6,12 @@ class Station{
     int _id;
 
     Station(String name, int id){
-        _name = name;
+        _name = new String(name);
         _id = id;
 
+    }
+
+    Boolean compareName(String name){
+        return _name.equals(name);
     }
 }

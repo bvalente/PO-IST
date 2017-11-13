@@ -8,10 +8,10 @@ import java.util.LinkedList;
 class Service {
 
     int _id;
-    int _totalCost;
+    double _totalCost;
     List<TrainStop> list;
 
-    Service (int id, int totalCost){
+    Service (int id, double totalCost){
         _id = id;
         _totalCost = totalCost;
 
@@ -23,7 +23,7 @@ class Service {
         list.add(ts);
     }
 
-    int showServiceId(){
+    int getID(){
         return _id;
     }
 }

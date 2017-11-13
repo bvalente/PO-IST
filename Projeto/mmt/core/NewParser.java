@@ -9,6 +9,8 @@ import java.time.LocalDate;
 
 import mmt.core.exceptions.ImportFileException;
 
+import mmt.core.exceptions.NoSuchStationNameException;
+
 public class NewParser {
 
   private TrainCompany _trainCompany;
@@ -63,8 +65,11 @@ public class NewParser {
   private void parseService(String[] components) {
     double cost = Double.parseDouble(components[2]);
     int serviceId = Integer.parseInt(components[1]);
+    TrainStop trainstop;
+    Station station;
 
     // criar o serviço com o id e custo e associar ao TrainCompany
+    Service service = new Service(serviceId, cost);
 
     for (int i = 3; i < components.length; i += 2) {
       String time = components[i];
@@ -72,6 +77,25 @@ public class NewParser {
       LocalTime ltime = LocalTime.parse(time);
 
       // adicionar TrainStop com ltime e Station com o nome stationName
+
+      //primeiro ver se ja existe uma Station com stationName
+      //se nao existir, criamos a Station
+      try{
+          station = _trainCompany.searchStationName(stationName);
+      } catch (NoSuchStationNameException e){
+          //temos de mandar o traincompany criar a station e retornar o ponteiro
+          station = _trainCompany.registerStation(stationName);
+      }
+
+      //adicionar TrainStop a estacao
+
+
+      //crimaos a trainStop com a estacao
+      trainstop = new TrainStop(station, ltime, service);
+
+      //adicionamos o trainstop ao servico
+      service.addTrainStop(trainstop);
+
     }
   }
 

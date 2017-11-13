@@ -18,7 +18,6 @@ import pt.tecnico.po.ui.Input;
  */
 public class DoChangerPassengerName extends Command<TicketOffice> {
 
-  //FIXME define input fields
   private Input<String> _name;
   private Input<Integer> _id;
 

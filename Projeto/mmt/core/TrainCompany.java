@@ -26,10 +26,12 @@ class TrainCompany implements java.io.Serializable {
   private static final long serialVersionUID = 201708301010L;
 
   private int nextPassengerID = 0; //static?
+  private int nextStationID = 0;
 
   //creates lists
   List<Service> serviceList = new ArrayList<Service>();
   List<Passenger> passengerList = new ArrayList<Passenger>();
+  List<Station> stationList = new ArrayList<Station>();
 
   void importFile(String filename) {
     //FIXME implement function
@@ -45,6 +47,11 @@ class TrainCompany implements java.io.Serializable {
        passengerList.add(new Passenger(name, nextPassengerID++));
    }
 
+   Station registerStation (String name){
+       stationList.add(new Station(name, nextStationID++));
+   }
+
+   // void ou Passenger ??
    void changePassengerName(int id, String name) throws NoSuchPassengerIdException{
        for (Passenger p :passengerList){
            if (p.getID() == id){
@@ -57,12 +64,26 @@ class TrainCompany implements java.io.Serializable {
 
    Service searchServiceId(int id) throws NoSuchServiceIdException{
        for ( Service s : serviceList ){ // search in service list
-           if (s.showServiceId() == id){
+           if (s.getID() == id){
                return s;
            }
        }
        throw new NoSuchServiceIdException( id );
    }
+
+   Station searchStationName(String name) throws NoSuchStationNameException{
+
+       //acho que temos de utilizar excepcoes aqui
+       //NoSuchStationNameException
+       for(Station s : stationList){
+           if (s.compareName(name))
+            return s;
+       }
+       throw new NoSuchStationNameException(name);
+
+   }
+
+
 
   //FIXME implement other functions if necessary
 
