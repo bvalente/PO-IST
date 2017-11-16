@@ -5,8 +5,8 @@ import java.io.Serializable;
 
 abstract class Category implements Serializable{
 
-    private Passenger _passenger;
-    abstract Category (Passenger passenger){    
+    protected Passenger _passenger;
+    Category (Passenger passenger){
         _passenger = passenger;
     }
 

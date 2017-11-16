@@ -20,6 +20,7 @@ import mmt.core.exceptions.NoSuchItineraryChoiceException;
 import mmt.core.exceptions.NonUniquePassengerNameException;
 
 //FIXME import other classes if necessary
+import java.io.File;
 
 /**
  * Façade for handling persistence and other functions.
@@ -35,10 +36,19 @@ public class TicketOffice {
     //FIXME implement this function
   }
 
-  public void save(String filename) /*FIXME add thrown exceptions*/ {
-      ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(filename));
-      out.writeObject(_trainCompany);
-      out.close();
+  public void save(String filename) throws IOException {
+      try{
+          ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(filename));
+          out.writeObject(_trainCompany);
+          out.close();
+      } catch (FileNotFoundException e) {
+          File file = new File(filename);
+          file.createNewFile();
+          ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(filename));
+          out.writeObject(_trainCompany);
+          out.close();
+
+      }
   }
 
   public void load(String filename) throws FileNotFoundException, IOException, ClassNotFoundException {

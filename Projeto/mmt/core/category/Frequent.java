@@ -2,6 +2,10 @@ package mmt.core;
 
 class Frequent extends Category {
 
+    Frequent(Passenger passenger){
+        super(passenger);
+    }
+
     @Override
     String getNome(){
         return "Frequent";
@@ -13,12 +17,12 @@ class Frequent extends Category {
     }
 
     @Override
-    void update ( Passenger p, int sum ) {
+    void update ( int sum ) {
         if ( sum <= 250 ){
-            p._discount = new Normal();
+            _passenger._discount = new Normal(_passenger);
         }
         else if ( sum >= 2500 ) {
-            p._discount = new Special();
+            _passenger._discount = new Special(_passenger);
         }
     }
 

@@ -28,14 +28,9 @@ public class DoRegisterPassenger extends Command<TicketOffice> {
 
   /** @see pt.tecnico.po.ui.Command#execute() */
   @Override
-  public final void execute() throws DialogException {
-    try{
+  public final void execute() {
+
         _receiver.registerPassenger(_name.toString());
-    } catch (InvalidPassengerNameException e){
-        throw new BadPassengerNameException( e.getName() );
-    } catch (NonUniquePassengerNameException e){
-        throw new DuplicatePassengerNameException( e.getName() );
-    }
   }
 
 }

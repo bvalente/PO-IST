@@ -38,11 +38,6 @@ public class DoChangerPassengerName extends Command<TicketOffice> {
           _receiver.changePassengerName(_id.value(), _name.toString());
       } catch (NoSuchPassengerIdException e){
           throw new NoSuchPassengerException( e.getId() );
-      } catch (NonUniquePassengerNameException e){
-          throw new DuplicatePassengerNameException( e.getName() );
-      } catch (InvalidPassengerNameException e){
-          throw new BadPassengerNameException( e.getName() );
       }
-
   }
 }
