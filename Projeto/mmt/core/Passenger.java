@@ -37,7 +37,7 @@ public class Passenger {
 
         //atualizar o desconto com _discount.update
         _discount.update(this, sum);
-        
+
         //receber o valor do desconto que pode ter mudado ou nao _discount.getDiscount
 
         _totalMoneySpent += _discount.getDiscount() * itin.getCost();
@@ -46,6 +46,9 @@ public class Passenger {
 
     int getID(){
         return _id;
+    }
+    String getName(){
+        return _name;
     }
     void changeName(String name){
         _name = new String(name);
