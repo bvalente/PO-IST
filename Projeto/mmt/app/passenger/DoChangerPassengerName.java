@@ -12,7 +12,7 @@ import pt.tecnico.po.ui.DialogException;
 import pt.tecnico.po.ui.Input;
 
 //FIXME import other classes if necessary
-import mmt.core.Passenger;
+//import mmt.core.Passenger;
 
 /**
  * §3.3.4. Change passenger name.

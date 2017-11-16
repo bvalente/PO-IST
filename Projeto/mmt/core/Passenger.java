@@ -4,24 +4,26 @@ import java.io.Serializable;
 
 
 import mmt.core.category.*;
-
+import java.time.LocalTime;
 import java.util.List;
 import java.util.ArrayList;
 //state design pattern (wikialameda)
 
-public class Passenger implements Serializable{
+class Passenger implements Serializable{
 
     private String _name;
     private int _id;
     Category _discount;
     private List<Itinerary> _travels; // ??
     private int _totalMoneySpent;
+    private LocalTime _totalTime;
 
     Passenger(String name, int id){
         _id = id;
         _name = name;
         _discount = new Normal(this);
         _travels = new ArrayList<Itinerary>();
+        _totalTime = LocalTime.MIN;
     }
 
     void addItenerary(Itinerary itin){
@@ -58,6 +60,8 @@ public class Passenger implements Serializable{
     }
 
     public String toString(){
-        return new String(_name);
+        //apresentar com duas casas decimais
+
+        return _id + "|" + _name.toString() + "|" + _travels.size() + "|" + String.format("%.2f",_totalMoneySpent) + "|" + _totalTime.toString()+"";
     }
 }
