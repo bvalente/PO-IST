@@ -1,12 +1,13 @@
 package mmt.core;
 
+import java.io.Serializable;
 import java.time.LocalTime;
 
-class TrainStop {
+class TrainStop implements Serializable{
 
-    LocalTime _time;
-    Station _station;
-    Service _service;
+    private LocalTime _time;
+    private Station _station;
+    private Service _service;
 
     TrainStop (Station station, LocalTime time,  Service service) {
         _time = time;

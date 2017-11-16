@@ -1,5 +1,6 @@
 package mmt.core;
 
+import java.io.Serializable;
 import mmt.core.exceptions.BadDateSpecificationException;
 import mmt.core.exceptions.BadEntryException;
 import mmt.core.exceptions.BadTimeSpecificationException;
@@ -20,7 +21,7 @@ import java.util.ArrayList;
  * A train company has schedules (services) for its trains and passengers that
  * acquire itineraries based on those schedules.
  */
-class TrainCompany implements java.io.Serializable {
+class TrainCompany implements Serializable {
 
   /** Serial number for serialization. */
   private static final long serialVersionUID = 201708301010L;

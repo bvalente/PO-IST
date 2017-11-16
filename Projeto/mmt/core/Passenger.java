@@ -1,12 +1,15 @@
 package mmt.core;
 
+import java.io.Serializable;
+
+
 import mmt.core.category.*;
 
 import java.util.List;
 import java.util.ArrayList;
 //state design pattern (wikialameda)
 
-public class Passenger {
+public class Passenger implements Serializable{
 
     private String _name;
     private int _id;
@@ -17,7 +20,7 @@ public class Passenger {
     Passenger(String name, int id){
         _id = id;
         _name = name;
-        _discount = new Normal();
+        _discount = new Normal(this);
         _travels = new ArrayList<Itinerary>();
     }
 
@@ -36,7 +39,7 @@ public class Passenger {
 
 
         //atualizar o desconto com _discount.update
-        _discount.update(this, sum);
+        _discount.update(sum);
 
         //receber o valor do desconto que pode ter mudado ou nao _discount.getDiscount
 

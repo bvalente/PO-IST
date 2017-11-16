@@ -1,13 +1,14 @@
 package mmt.core;
 
-public class Segment{
-    TrainStop _firstStop;
-    TrainStop _lastStop;
+import java.io.Serializable;
+
+class Segment implements Serializable{
+    private TrainStop _firstStop;
+    private TrainStop _lastStop;
 
     Segment(TrainStop firstStop, TrainStop lastStop){
         _firstStop = firstStop;
         _lastStop = lastStop;
-
     }
 
     TrainStop getFirstStop(){

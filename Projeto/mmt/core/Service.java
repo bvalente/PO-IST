@@ -1,15 +1,16 @@
 package mmt.core;
 
+import java.io.Serializable;
 import mmt.app.exceptions.NoSuchServiceException;
 
 import java.util.List;
 import java.util.LinkedList;
 
-class Service {
+class Service implements Serializable{
 
-    int _id;
-    double _totalCost;
-    List<TrainStop> _trainStopList;
+    private int _id;
+    private double _totalCost;
+    private List<TrainStop> _trainStopList;
 
     Service (int id, double totalCost){
         _id = id;

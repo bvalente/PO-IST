@@ -22,6 +22,6 @@ public class DoOpenServicesMenu extends Command<TicketOffice> {
   public final void execute() {
     Menu menu = new ServicesMenu(_receiver);
     menu.open();
-  }
+    }
 
 }

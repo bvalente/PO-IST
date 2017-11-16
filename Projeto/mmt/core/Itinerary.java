@@ -1,15 +1,16 @@
 package mmt.core;
+import java.io.Serializable;
 
-public class Itinerary{
+class Itinerary implements Serializable{
 
-    int _cost;
-    int _idItinerario;
+    private int _cost;
+    private int _idItinerario;
 
     Itinerary () {
 
-    }    
+    }
 
-    public int getCost(){
+    int getCost(){
         return _cost;
     }
 }

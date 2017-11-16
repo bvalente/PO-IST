@@ -1,14 +1,15 @@
 package mmt.core;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.ArrayList;
 import java.time.LocalTime;
 
 
-class Station{
+class Station implements Serializable{
 
-    String _name;
-    int _id;
+    private String _name;
+    private int _id;
 
     List<TrainStop> _trainStopList;
 
