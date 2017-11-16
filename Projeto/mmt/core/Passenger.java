@@ -35,14 +35,10 @@ public class Passenger {
         }
 
 
-        if (sum >= 2500){
-            _discount = new Special();
-        } else if (sum >= 250){
-            _discount = new Frequent();
-        }
-
         //atualizar o desconto com _discount.update
-        //receber o valor do desconto que pode ter mudado ou nao _disount.getDiscount
+        _discount.update(this, sum);
+        
+        //receber o valor do desconto que pode ter mudado ou nao _discount.getDiscount
 
         _totalMoneySpent += _discount.getDiscount() * itin.getCost();
         _travels.add(itin);
