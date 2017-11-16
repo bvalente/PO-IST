@@ -16,7 +16,7 @@ public class NewParser {
   private TrainCompany _trainCompany;
 
   public TrainCompany parseFile(String fileName) throws ImportFileException {
-    // _trainCompany = criar TrainCompany
+
     _trainCompany = new TrainCompany();
 
     try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
@@ -63,6 +63,7 @@ public class NewParser {
   }
 
   private void parseService(String[] components) {
+      // ImportFileException (?)
     double cost = Double.parseDouble(components[2]);
     int serviceId = Integer.parseInt(components[1]);
     TrainStop trainstop;

@@ -4,9 +4,9 @@ import mmt.core.TicketOffice;
 import mmt.app.exceptions.BadPassengerNameException;
 import mmt.app.exceptions.DuplicatePassengerNameException;
 import mmt.app.exceptions.NoSuchPassengerException;
-import mmt.core.exceptions.InvalidPassengerNameException;
-import mmt.core.exceptions.NoSuchPassengerIdException;
-import mmt.core.exceptions.NonUniquePassengerNameException;
+import mmt.core.exceptions.InvalidPassengerNameException; //BadPassengerNameException
+import mmt.core.exceptions.NoSuchPassengerIdException; //NoSuchPassengerException
+import mmt.core.exceptions.NonUniquePassengerNameException; //DuplicatePassengerNameException
 import pt.tecnico.po.ui.Command;
 import pt.tecnico.po.ui.DialogException;
 import pt.tecnico.po.ui.Input;
@@ -37,7 +37,12 @@ public class DoChangerPassengerName extends Command<TicketOffice> {
       try{
           _receiver.changePassengerName(_id.value(), _name.toString());
       } catch (NoSuchPassengerIdException e){
-          throw new NoSuchPassengerException( e.getId());
+          throw new NoSuchPassengerException( e.getId() );
+      } catch (NonUniquePassengerNameException e){
+          throw new DuplicatePassengerNameException( e.getName() );
+      } catch (InvalidPassengerNameException e){
+          throw new BadPassengerNameException( e.getName() );
       }
+
   }
 }

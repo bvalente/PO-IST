@@ -16,20 +16,26 @@ import pt.tecnico.po.ui.Input;
  */
 public class DoRegisterPassenger extends Command<TicketOffice> {
 
-  //FIXME define input fields
+  private Input<String> _name;
 
   /**
    * @param receiver
    */
   public DoRegisterPassenger(TicketOffice receiver) {
     super(Label.REGISTER_PASSENGER, receiver);
-    //FIXME initialize input fields
+    _name = _form.addStringInput(Message.requestPassengerName());
   }
 
   /** @see pt.tecnico.po.ui.Command#execute() */
   @Override
   public final void execute() throws DialogException {
-    //FIXME implement command
+    try{
+        _receiver.registerPassenger(_name.toString());
+    } catch (InvalidPassengerNameException e){
+        throw new BadPassengerNameException( e.getName() );
+    } catch (NonUniquePassengerNameException e){
+        throw new DuplicatePassengerNameException( e.getName() );
+    }
   }
 
 }
