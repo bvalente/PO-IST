@@ -25,13 +25,13 @@ class TrainCompany implements java.io.Serializable {
   /** Serial number for serialization. */
   private static final long serialVersionUID = 201708301010L;
 
-  private int nextPassengerID = 0; //static?
-  private int nextStationID = 0;
+  private int _nextPassengerID = 0; //static?
+  private int _nextStationID = 0;
 
   //creates lists
-  List<Service> serviceList = new ArrayList<Service>();
-  List<Passenger> passengerList = new ArrayList<Passenger>();
-  List<Station> stationList = new ArrayList<Station>();
+  List<Passenger> _passengerList = new ArrayList<Passenger>();
+  List<Station> _stationList = new ArrayList<Station>();
+  List<Service> _serviceList = new ArrayList<Service>();
 
   void importFile(String filename) {
     //FIXME implement function
@@ -44,16 +44,24 @@ class TrainCompany implements java.io.Serializable {
    */
 
    void registerPassenger(String name){
-       passengerList.add(new Passenger(name, nextPassengerID++));
+       _passengerList.add(new Passenger(name, _nextPassengerID++));
    }
 
    Station registerStation (String name){
-       stationList.add(new Station(name, nextStationID++));
+       Station station = new Station(name, _nextStationID++);
+       _stationList.add(station);
+       return station;
+   }
+
+   Service registerService (int serviceId,double cost){
+       Service service = new Service(serviceId, cost);
+       _serviceList.add(service);
+       return service;
    }
 
    // void ou Passenger ??
    void changePassengerName(int id, String name) throws NoSuchPassengerIdException{
-       for (Passenger p :passengerList){
+       for (Passenger p : _passengerList){
            if (p.getID() == id){
                p.changeName(name);
                return;
@@ -63,7 +71,7 @@ class TrainCompany implements java.io.Serializable {
    }
 
    Service searchServiceId(int id) throws NoSuchServiceIdException{
-       for ( Service s : serviceList ){ // search in service list
+       for ( Service s : _serviceList ){ // search in service list
            if (s.getID() == id){
                return s;
            }
@@ -75,7 +83,7 @@ class TrainCompany implements java.io.Serializable {
 
        //acho que temos de utilizar excepcoes aqui
        //NoSuchStationNameException
-       for(Station s : stationList){
+       for(Station s : _stationList){
            if (s.compareName(name))
             return s;
        }

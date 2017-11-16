@@ -6,13 +6,13 @@ import java.util.List;
 import java.util.ArrayList;
 //state design pattern (wikialameda)
 
-class Passenger {
+public class Passenger {
 
-    String _name;
-    int _id;
+    private String _name;
+    private int _id;
     Category _discount;
-    List<Itinerary> _travels; // ??
-    int _totalMoneySpent;
+    private List<Itinerary> _travels; // ??
+    private int _totalMoneySpent;
 
     Passenger(String name, int id){
         _id = id;

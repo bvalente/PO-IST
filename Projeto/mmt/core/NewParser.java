@@ -69,7 +69,7 @@ public class NewParser {
     Station station;
 
     // criar o serviço com o id e custo e associar ao TrainCompany
-    Service service = new Service(serviceId, cost);
+    Service service = _trainCompany.registerService(serviceId, cost);
 
     for (int i = 3; i < components.length; i += 2) {
       String time = components[i];
@@ -87,15 +87,8 @@ public class NewParser {
           station = _trainCompany.registerStation(stationName);
       }
 
-      //adicionar TrainStop a estacao
-
-
-      //crimaos a trainStop com a estacao
-      trainstop = new TrainStop(station, ltime, service);
-
-      //adicionamos o trainstop ao servico
-      service.addTrainStop(trainstop);
-
+      //registers the TrainStop in the Station and adds it to the service
+      station.registerTrainStop(ltime, service);
     }
   }
 

@@ -9,18 +9,18 @@ class Service {
 
     int _id;
     double _totalCost;
-    List<TrainStop> list;
+    List<TrainStop> _trainStopList;
 
     Service (int id, double totalCost){
         _id = id;
         _totalCost = totalCost;
 
-        list = new LinkedList<TrainStop>();
+        _trainStopList = new LinkedList<TrainStop>();
 
     }
 
     void addTrainStop(TrainStop ts){
-        list.add(ts);
+        _trainStopList.add(ts);
     }
 
     int getID(){

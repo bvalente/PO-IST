@@ -67,11 +67,7 @@ public class TicketOffice {
   }
 
   public void changePassengerName(int id,String name) throws NoSuchPassengerIdException{
-      try{
         _trainCompany.changePassengerName(id, name);
-    } catch (NoSuchPassengerIdException e){
-        
-    }
   }
 
   //FIXME add other functions if necessary
