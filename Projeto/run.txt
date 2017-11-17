@@ -1,1 +1,5 @@
-javac $(find mmt/core mmt/app/exceptions mmt/app/main mmt/app/passenger mmt/app/service -name "*.java")  mmt/app/App.java -d class/
+javac $(find . -name "*.java") -d class/
+
+cd class ; java mmt.app.App ; cd ..
+
+rm `find . -name "*.class"`
