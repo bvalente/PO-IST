@@ -15,7 +15,7 @@ class Passenger implements Serializable{
     private int _id;
     Category _discount;
     private List<Itinerary> _travels; // ??
-    private int _totalMoneySpent;
+    private float _totalMoneySpent;
     private LocalTime _totalTime;
 
     Passenger(String name, int id){
@@ -60,8 +60,10 @@ class Passenger implements Serializable{
     }
 
     public String toString(){
-        //apresentar com duas casas decimais
+        //id|nome|categoria|n´ umero-de-itiner´ arios|valor-pago|tempo-acumulado
 
-        return _id + "|" + _name.toString() + "|" + _travels.size() + "|" + String.format("%.2f",_totalMoneySpent) + "|" + _totalTime.toString()+"";
+        return  _id + "|" + _name.toString() + "|" + _discount.toString() +"|" +
+                _travels.size() + "|" + String.format("%.2f",_totalMoneySpent) + 
+                "|" + _totalTime.toString() ;
     }
 }

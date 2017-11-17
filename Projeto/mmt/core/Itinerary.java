@@ -3,14 +3,14 @@ import java.io.Serializable;
 
 class Itinerary implements Serializable{
 
-    private int _cost;
+    private float _cost;
     private int _idItinerario;
 
     Itinerary () {
 
     }
 
-    int getCost(){
+    float getCost(){
         return _cost;
     }
 }

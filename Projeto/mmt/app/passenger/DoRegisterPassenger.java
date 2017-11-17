@@ -12,25 +12,27 @@ import pt.tecnico.po.ui.Input;
 //FIXME import other classes if necessary
 
 /**
- * §3.3.3. Register passenger.
- */
+* §3.3.3. Register passenger.
+*/
 public class DoRegisterPassenger extends Command<TicketOffice> {
 
-  private Input<String> _name;
+    private Input<String> _name;
 
-  /**
-   * @param receiver
-   */
-  public DoRegisterPassenger(TicketOffice receiver) {
-    super(Label.REGISTER_PASSENGER, receiver);
-    _name = _form.addStringInput(Message.requestPassengerName());
-  }
+    /**
+    * @param receiver
+    */
+    public DoRegisterPassenger(TicketOffice receiver) {
+        super(Label.REGISTER_PASSENGER, receiver);
+        
+        _name = _form.addStringInput(Message.requestPassengerName());
+    }
 
-  /** @see pt.tecnico.po.ui.Command#execute() */
-  @Override
-  public final void execute() {
+    /** @see pt.tecnico.po.ui.Command#execute() */
+    @Override
+    public final void execute() {
+        _form.parse();
 
         _receiver.registerPassenger(_name.toString());
-  }
+    }
 
 }

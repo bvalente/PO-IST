@@ -7,8 +7,8 @@ class Special extends Category {
     }
 
     @Override
-    String getNome(){
-        return "Specials";
+    public String toString(){
+        return "ESPECIAL";
     }
 
     @Override

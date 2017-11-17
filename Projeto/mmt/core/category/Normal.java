@@ -7,8 +7,8 @@ class Normal extends Category{
     }
 
     @Override
-    String getNome(){
-        return "Normal";
+    public String toString(){
+        return "NORMAL";
     }
 
     @Override
