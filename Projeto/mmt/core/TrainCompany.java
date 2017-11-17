@@ -48,6 +48,7 @@ class TrainCompany implements Serializable {
        _passengerList.add(new Passenger(name, _nextPassengerID++));
    }
 
+
    Station registerStation (String name){
        Station station = new Station(name, _nextStationID++);
        _stationList.add(station);
@@ -71,6 +72,14 @@ class TrainCompany implements Serializable {
        throw new NoSuchPassengerIdException( id );
    }
 
+   Passenger searchPassengerId(int id) throws NoSuchPassengerIdException{
+       for (Passenger p : _passengerList){
+           if (p.getID() == id){
+               return p;
+           }
+       }
+       throw new NoSuchPassengerIdException( id );
+   }
    Service searchServiceId(int id) throws NoSuchServiceIdException{
        for ( Service s : _serviceList ){ // search in service list
            if (s.getID() == id){
