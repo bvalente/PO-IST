@@ -7,8 +7,8 @@ class Frequent extends Category {
     }
 
     @Override
-    String getNome(){
-        return "Frequent";
+    public String toString(){
+        return "FREQUENTE";
     }
 
     @Override

@@ -11,28 +11,34 @@ import pt.tecnico.po.ui.Display;
 //FIXME import other classes if necessary
 
 /**
- * §3.3.2. Show specific passenger.
- */
+* §3.3.2. Show specific passenger.
+*/
 public class DoShowPassengerById extends Command<TicketOffice> {
 
     private Input<Integer> _id;
 
-  /**
-   * @param receiver
-   */
-  public DoShowPassengerById(TicketOffice receiver) {
-    super(Label.SHOW_PASSENGER_BY_ID, receiver);
-    _id = _form.addIntegerInput(Message.requestPassengerId());
-  }
+    /**
+    * @param receiver
+    */
+    public DoShowPassengerById(TicketOffice receiver) {
+        super(Label.SHOW_PASSENGER_BY_ID, receiver);
 
-  /** @see pt.tecnico.po.ui.Command#execute() */
-  @Override
-  public final void execute() throws DialogException {
-     try{
-          _receiver.searchPassengerId( _id.value() );
-      } catch (NoSuchPassengerIdException e){
-          throw new NoSuchPassengerException( e.getId() );
-      }
-  }
+        _id = _form.addIntegerInput(Message.requestPassengerId());
+    }
+
+    /** @see pt.tecnico.po.ui.Command#execute() */
+    @Override
+    public final void execute() throws DialogException {
+        _form.parse();
+
+        String print;
+        try{
+            print = _receiver.searchPassengerId( _id.value() );
+            _display.addLine(print);
+            _display.display();
+        } catch (NoSuchPassengerIdException e){
+            throw new NoSuchPassengerException( e.getId() );
+        }
+    }
 
 }

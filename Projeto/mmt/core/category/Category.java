@@ -10,7 +10,7 @@ abstract class Category implements Serializable{
         _passenger = passenger;
     }
 
-    abstract String getNome();
+    abstract public String toString();
 
     abstract float getDiscount();
 

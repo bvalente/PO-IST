@@ -35,16 +35,6 @@ class TrainCompany implements Serializable {
   List<Station> _stationList = new ArrayList<Station>();
   List<Service> _serviceList = new ArrayList<Service>();
 
-  void importFile(String filename) {
-    //FIXME implement function
-  }
-
-  /*FIXME
-   * add methods for
-   *   registerPassenger, changePassengerName
-   *   searchItineraries, commitItinerary
-   */
-
    void registerPassenger(String name){
        _passengerList.add(new Passenger(name, _nextPassengerID++));
    }
@@ -73,10 +63,10 @@ class TrainCompany implements Serializable {
        throw new NoSuchPassengerIdException( id );
    }
 
-   Passenger searchPassengerId(int id) throws NoSuchPassengerIdException{
+   String searchPassengerId(int id) throws NoSuchPassengerIdException{
        for (Passenger p : _passengerList){
            if (p.getID() == id){
-               return p;
+               return p.toString();
            }
        }
        throw new NoSuchPassengerIdException( id );

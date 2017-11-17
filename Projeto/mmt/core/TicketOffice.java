@@ -23,68 +23,75 @@ import mmt.core.exceptions.NonUniquePassengerNameException;
 import java.io.File;
 
 /**
- * Façade for handling persistence and other functions.
- */
+* Façade for handling persistence and other functions.
+*/
 public class TicketOffice {
 
-  /** The object doing most of the actual work. */
-  private TrainCompany _trainCompany;
+    /** The object doing most of the actual work. */
+    private TrainCompany _trainCompany = new TrainCompany();
 
-  //FIXME define other fields
+    //FIXME define other fields
 
-  public void reset() {
-    //FIXME implement this function
-  }
+    public void reset() {
 
-  public void save(String filename) throws IOException {
-      try{
-          ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(filename));
-          out.writeObject(_trainCompany);
-          out.close();
-      } catch (FileNotFoundException e) {
-          File file = new File(filename);
-          file.createNewFile();
-          ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(filename));
-          out.writeObject(_trainCompany);
-          out.close();
+        _trainCompany = new TrainCompany();
+    }
 
-      }
-  }
+    public void save(String filename) throws IOException {
 
-  public void load(String filename) throws FileNotFoundException, IOException, ClassNotFoundException {
-    //FIXME implement this function
-  }
+        try{
+            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(filename));
+            out.writeObject(_trainCompany);
+            out.close();
 
-  public void importFile(String datafile) throws ImportFileException {
-    _trainCompany.importFile(datafile);
-  }
+        } catch (FileNotFoundException e) {
+            File file = new File(filename);
+            file.createNewFile();
+            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(filename));
+            out.writeObject(_trainCompany);
+            out.close();
+        }
+    }
 
-  //FIXME complete and implement the itinerary search (and pre-commit store) method
-  public Itinerary /*FIXME choose return type */ searchItineraries(int passengerId, String departureStation, String arrivalStation, String departureDate,
-                                              String departureTime) /*FIXME define thrown exceptions */ {
-    //FIXME implement method
-    return new Itinerary();
-  }
+    public void load(String filename) throws FileNotFoundException, IOException, ClassNotFoundException {
+        //FIXME implement this function
+    }
 
-  //FIXME complete and implement the itinerary commit method
-  public Itinerary /*FIXME choose return type */ commitItinerary(int passengerId, int itineraryNumber) /*FIXME define thrown exceptions */ {
-    //FIXME implement method
-    return new Itinerary();
-  }
+    public void importFile(String datafile) throws ImportFileException {
+
+        try{
+            _trainCompany = new NewParser().parseFile( datafile );
+        } catch (ImportFileException e){
+            //FIXME not done
+        }
+    }
+
+    //FIXME complete and implement the itinerary search (and pre-commit store) method
+    public Itinerary /*FIXME choose return type */ searchItineraries(int passengerId, String departureStation, String arrivalStation, String departureDate,
+    String departureTime) /*FIXME define thrown exceptions */ {
+        //FIXME implement method
+        return new Itinerary();
+    }
+
+    //FIXME complete and implement the itinerary commit method
+    public Itinerary /*FIXME choose return type */ commitItinerary(int passengerId, int itineraryNumber) /*FIXME define thrown exceptions */ {
+        //FIXME implement method
+        return new Itinerary();
+    }
 
 
-  //FIXME add methods for passenger registration and passenger name update
-  public void registerPassenger(String name){
+    //FIXME add methods for passenger registration and passenger name update
+    public void registerPassenger(String name){
         _trainCompany.registerPassenger(name);
-  }
+    }
 
-  public void changePassengerName(int id,String name) throws NoSuchPassengerIdException{
+    public void changePassengerName(int id,String name) throws NoSuchPassengerIdException{
         _trainCompany.changePassengerName(id, name);
-  }
+    }
 
-  public void searchPassengerId( int id ) throws NoSuchPassengerIdException{
-      _trainCompany.searchPassengerId(id);
-  }
+    public String searchPassengerId( int id ) throws NoSuchPassengerIdException{
+        return _trainCompany.searchPassengerId(id);
+    }
 
   public void showAllPassengers(List<Passenger> list){
       _trainCompany.showAllPassengers(List<Passenger> list);
@@ -92,6 +99,6 @@ public class TicketOffice {
   }
 
 
-  //FIXME add other functions if necessary
+    //FIXME add other functions if necessary
 
 }

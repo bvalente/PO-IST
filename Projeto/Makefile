@@ -4,7 +4,7 @@ default: mmt/app/App.java
 	javac `find . -name "*.java"` -d class/
 
 clean:
-	rm `find . -name "*.class"`
+	rm `find . -name "*.class"` -v
 
 run:
 	cd class ; java mmt.app.App ; cd ..
