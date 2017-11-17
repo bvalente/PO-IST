@@ -82,6 +82,11 @@ public class TicketOffice {
         _trainCompany.changePassengerName(id, name);
   }
 
+  public void searchPassengerId( int id ) throws NoSuchPassengerIdException{
+      _trainCompany.searchPassengerId(id);
+  }
+
+
   //FIXME add other functions if necessary
 
 }

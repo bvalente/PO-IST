@@ -28,11 +28,11 @@ public class DoShowPassengerById extends Command<TicketOffice> {
   /** @see pt.tecnico.po.ui.Command#execute() */
   @Override
   public final void execute() throws DialogException {
-     /* try{
+     try{
           _receiver.searchPassengerId( _id.value() );
       } catch (NoSuchPassengerIdException e){
-          throw new NoSuchPassengerException( e.getID() );
-      }*/
+          throw new NoSuchPassengerException( e.getId() );
+      }
   }
 
 }

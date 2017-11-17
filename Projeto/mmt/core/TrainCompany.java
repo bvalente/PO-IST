@@ -80,6 +80,7 @@ class TrainCompany implements Serializable {
        }
        throw new NoSuchPassengerIdException( id );
    }
+
    Service searchServiceId(int id) throws NoSuchServiceIdException{
        for ( Service s : _serviceList ){ // search in service list
            if (s.getID() == id){
