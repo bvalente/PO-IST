@@ -86,6 +86,11 @@ public class TicketOffice {
       _trainCompany.searchPassengerId(id);
   }
 
+  public void showAllPassengers(List<Passenger> list){
+      _trainCompany.showAllPassengers(List<Passenger> list);
+
+  }
+
 
   //FIXME add other functions if necessary
 

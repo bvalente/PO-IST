@@ -11,6 +11,7 @@ import mmt.core.exceptions.NoSuchServiceIdException;
 import mmt.core.exceptions.NoSuchStationNameException;
 import mmt.core.exceptions.NoSuchItineraryChoiceException;
 import mmt.core.exceptions.NonUniquePassengerNameException;
+import java.util.*;
 
 
 import java.util.List;
@@ -99,9 +100,13 @@ class TrainCompany implements Serializable {
             return s;
        }
        throw new NoSuchStationNameException(name);
-
    }
 
+   List<Passenger> showAllPassengers(List list){
+       //achar maneira de passar os 
+       immutablelist = new Collections.unmodifiableList(list);
+
+   }
 
 
   //FIXME implement other functions if necessary
