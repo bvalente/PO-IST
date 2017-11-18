@@ -1,0 +1,36 @@
+*** tests/A-05-01.out	2017-11-07 11:36:43.000000000 +0000
+--- tests/A-05-01.outhyp	2017-11-18 18:38:07.702047500 +0000
+***************
+*** 12,18 ****
+  3 - Mostrar serviços com início em estação
+  4 - Mostrar serviços com término em estação
+  0 - Sair
+! Escolha uma opção: Identificador do serviço: Serviço #694 @ 12.20
+  16:57 Évora
+  17:08 Casa Branca
+  17:22 Vendas Novas
+--- 12,18 ----
+  3 - Mostrar serviços com início em estação
+  4 - Mostrar serviços com término em estação
+  0 - Sair
+! Escolha uma opção: Identificador do serviço: Serviço #694 @ 12.2
+  16:57 Évora
+  17:08 Casa Branca
+  17:22 Vendas Novas
+***************
+*** 31,37 ****
+  3 - Mostrar serviços com início em estação
+  4 - Mostrar serviços com término em estação
+  0 - Sair
+! Escolha uma opção: Identificador do serviço: Serviço #6403 @ 9.50
+  05:41 Lisboa - Santa Apolónia
+  05:55 Lisboa - Entrecampos
+  05:58 Lisboa - Sete Rios
+--- 31,37 ----
+  3 - Mostrar serviços com início em estação
+  4 - Mostrar serviços com término em estação
+  0 - Sair
+! Escolha uma opção: Identificador do serviço: Serviço #6403 @ 9.5
+  05:41 Lisboa - Santa Apolónia
+  05:55 Lisboa - Entrecampos
+  05:58 Lisboa - Sete Rios
