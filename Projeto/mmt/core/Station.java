@@ -10,7 +10,6 @@ class Station implements Serializable{
 
     private String _name;
     private int _id;
-
     List<TrainStop> _trainStopList;
 
     Station(String name, int id){
@@ -18,6 +17,15 @@ class Station implements Serializable{
         _id = id;
         _trainStopList = new ArrayList<TrainStop>();
 
+    }
+
+    int getId(){
+        return _id;
+    }
+
+
+    Boolean compareStationId(Station station){
+        return this.getId() == station.getId();
     }
 
     TrainStop registerTrainStop(LocalTime ltime,Service service){

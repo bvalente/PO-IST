@@ -112,6 +112,20 @@ class TrainCompany implements Serializable {
         List<String> unmodifiableList = Collections.unmodifiableList(list);
         return unmodifiableList;
     }
+    
+    List<String> showServicesArrivingAtStation(String station){
+        s
+
+        List<String> list = new ArrayList<String>();
+
+        for (Service s : _serviceList){
+            if ( station.compareStationId( s.getLastStation() ) ){
+                list.addAll(s.showService());
+            }
+        }
+        List<String> unmodifiableList = Collections.unmodifiableList(list);
+        return unmodifiableList;
+    }
 
 
     //FIXME implement other functions if necessary

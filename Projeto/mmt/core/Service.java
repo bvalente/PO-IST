@@ -39,8 +39,6 @@ class Service implements Serializable{
     }
 
 
-
-
     public List<String> showService(){
         List<String> list = new ArrayList<String>();
 

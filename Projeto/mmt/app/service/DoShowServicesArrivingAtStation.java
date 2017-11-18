@@ -29,7 +29,9 @@ public class DoShowServicesArrivingAtStation extends Command<TicketOffice> {
     /** @see pt.tecnico.po.ui.Command#execute() */
     @Override
     public final void execute() throws DialogException {
+        _form.parse();
 
+        
     }
 
 }
