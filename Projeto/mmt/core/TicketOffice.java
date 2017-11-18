@@ -102,6 +102,10 @@ public class TicketOffice {
         return _trainCompany.showAllPassengers();
     }
 
+    public List<String> showAllServices(){
+        return _trainCompany.showAllServices();
+    }
+
 
     //FIXME add other functions if necessary
 

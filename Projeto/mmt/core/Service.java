@@ -6,6 +6,7 @@ import mmt.app.exceptions.NoSuchServiceException;
 import java.util.List;
 import java.util.LinkedList;
 import java.util.ArrayList;
+import java.util.Comparator;
 
 
 class Service implements Serializable{
@@ -31,7 +32,7 @@ class Service implements Serializable{
     }
 
 
-    public List<String> printService(){
+    public List<String> showService(){
         List<String> list = new ArrayList<String>();
 
         list.add("Serviço #" + _id + " @ " +_totalCost);
@@ -39,6 +40,12 @@ class Service implements Serializable{
             list.add( trainStop.toString() );
         }
         return list;
+    }
+
+    public static class ServiceComparator implements Comparator<Service>{
+        public int compare(Service s1, Service s2){
+            return (s1.getId() - s2.getId());
+        }
 
     }
 }
