@@ -10,7 +10,6 @@ import pt.tecnico.po.ui.DialogException;
 import pt.tecnico.po.ui.Input;
 
 //FIXME import other classes if necessary
-
 /**
 * §3.3.3. Register passenger.
 */
@@ -23,7 +22,7 @@ public class DoRegisterPassenger extends Command<TicketOffice> {
     */
     public DoRegisterPassenger(TicketOffice receiver) {
         super(Label.REGISTER_PASSENGER, receiver);
-        
+
         _name = _form.addStringInput(Message.requestPassengerName());
     }
 

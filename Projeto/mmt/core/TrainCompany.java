@@ -11,7 +11,7 @@ import mmt.core.exceptions.NoSuchServiceIdException;
 import mmt.core.exceptions.NoSuchStationNameException;
 import mmt.core.exceptions.NoSuchItineraryChoiceException;
 import mmt.core.exceptions.NonUniquePassengerNameException;
-import java.util.*;
+import java.util.Collections;
 
 
 import java.util.List;
@@ -92,10 +92,14 @@ class TrainCompany implements Serializable {
        throw new NoSuchStationNameException(name);
    }
 
-   List<Passenger> showAllPassengers(List list){
-       //achar maneira de passar os 
-       immutablelist = new Collections.unmodifiableList(list);
-
+   List<String> showAllPassengers(){
+//não é necessario ordenar passageiros. inseridos por ordem.
+       List<String> list = new ArrayList<String>();
+       for ( Passenger p : _passengerList ){
+           list.add( p.toString() );
+       }
+       List<String> unmodifiableList = Collections.unmodifiableList(list);
+       return unmodifiableList;
    }
 
 

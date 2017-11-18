@@ -21,6 +21,7 @@ import mmt.core.exceptions.NonUniquePassengerNameException;
 
 //FIXME import other classes if necessary
 import java.io.File;
+import java.util.List;
 
 /**
 * Façade for handling persistence and other functions.
@@ -93,10 +94,9 @@ public class TicketOffice {
         return _trainCompany.searchPassengerId(id);
     }
 
-  public void showAllPassengers(List<Passenger> list){
-      _trainCompany.showAllPassengers(List<Passenger> list);
-
-  }
+    public List<String> showAllPassengers(){
+        return _trainCompany.showAllPassengers();
+    }
 
 
     //FIXME add other functions if necessary
