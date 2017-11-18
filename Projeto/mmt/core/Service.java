@@ -31,11 +31,20 @@ class Service implements Serializable{
         return _id;
     }
 
+    Station getFirstStation(){
+        return _trainStopList.get(0).getStation();
+    }
+    Station getLastStation(){
+        return _trainStopList.get(_trainStopList.size()-1).getStation();
+    }
+
+
+
 
     public List<String> showService(){
         List<String> list = new ArrayList<String>();
 
-        list.add("Serviço #" + _id + " @ " +_totalCost);
+        list.add("Serviço #" + _id + " @ " +String.format("%.2f",_totalCost));
         for (TrainStop trainStop : _trainStopList){
             list.add( trainStop.toString() );
         }

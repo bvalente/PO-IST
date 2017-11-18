@@ -12,24 +12,24 @@ import pt.tecnico.po.ui.Display;
 //FIXME import other classes if necessary
 
 /**
- * 3.2.4 Show services arriving at station.
- */
+* 3.2.4 Show services arriving at station.
+*/
 public class DoShowServicesArrivingAtStation extends Command<TicketOffice> {
 
-  //FIXME define input fields
+    private Input<String> _station;
 
-  /**
-   * @param receiver
-   */
-  public DoShowServicesArrivingAtStation(TicketOffice receiver) {
-    super(Label.SHOW_SERVICES_ARRIVING_AT_STATION, receiver);
-    //FIXME initialize input fields
-  }
+    /**
+    * @param receiver
+    */
+    public DoShowServicesArrivingAtStation(TicketOffice receiver) {
+        super(Label.SHOW_SERVICES_ARRIVING_AT_STATION, receiver);
+        _station = _form.addStringInput(Message.requestStationName());
+    }
 
-  /** @see pt.tecnico.po.ui.Command#execute() */
-  @Override
-  public final void execute() throws DialogException {
-    //FIXME implement command
-  }
+    /** @see pt.tecnico.po.ui.Command#execute() */
+    @Override
+    public final void execute() throws DialogException {
+
+    }
 
 }

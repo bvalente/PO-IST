@@ -26,4 +26,5 @@ class TrainStop implements Serializable{
         return _time + " " + _station.toString();
     }
 
+
 }
