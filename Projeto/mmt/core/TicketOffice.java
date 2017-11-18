@@ -94,6 +94,10 @@ public class TicketOffice {
         return _trainCompany.searchPassengerId(id);
     }
 
+    public List<String> searchServiceId( int id ) throws NoSuchServiceIdException{
+        return _trainCompany.searchServiceId(id);
+    }
+
     public List<String> showAllPassengers(){
         return _trainCompany.showAllPassengers();
     }

@@ -5,6 +5,8 @@ import mmt.app.exceptions.NoSuchServiceException;
 
 import java.util.List;
 import java.util.LinkedList;
+import java.util.ArrayList;
+
 
 class Service implements Serializable{
 
@@ -24,7 +26,19 @@ class Service implements Serializable{
         _trainStopList.add(ts);
     }
 
-    int getID(){
+    int getId(){
         return _id;
+    }
+
+
+    public List<String> printService(){
+        List<String> list = new ArrayList<String>();
+
+        list.add("Serviço #" + _id + " @ " +_totalCost);
+        for (TrainStop trainStop : _trainStopList){
+            list.add( trainStop.toString() );
+        }
+        return list;
+
     }
 }

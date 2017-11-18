@@ -22,4 +22,8 @@ class TrainStop implements Serializable{
 
     Service getService(){ return _service; }
 
+    public String toString(){
+        return _time + " " + _station.toString();
+    }
+
 }

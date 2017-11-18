@@ -29,4 +29,8 @@ class Station implements Serializable{
     Boolean compareName(String name){
         return _name.equals(name);
     }
+
+    public String toString(){
+        return _name;
+    }
 }
