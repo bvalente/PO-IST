@@ -1,5 +1,5 @@
 *** tests/A-04-04.out	2017-11-07 10:49:24.000000000 +0000
---- tests/A-04-04.outhyp	2017-11-19 11:49:37.533285100 +0000
+--- tests/A-04-04.outhyp	2017-11-19 11:58:33.593338400 +0000
 ***************
 *** 6,12 ****
   5 - Gestão de passageiros
@@ -116,26 +116,34 @@
   2 - Mostrar passageiro
   3 - Registar passageiro
 ***************
-*** 84,91 ****
+*** 76,91 ****
   5 - Gestão de passageiros
   6 - Gestão de itinerários
   0 - Sair
+! Escolha uma opção: Menu principal
+! 1 - Reiniciar
+! 2 - Abrir
+! 3 - Guardar
+! 4 - Consulta de serviços
+! 5 - Gestão de passageiros
+! 6 - Gestão de itinerários
+! 0 - Sair
 ! Escolha uma opção: Ficheiro a abrir: O ficheiro não existe.
 ! Menu principal
   1 - Reiniciar
   2 - Abrir
   3 - Guardar
---- 79,85 ----
+--- 71,77 ----
   5 - Gestão de passageiros
   6 - Gestão de itinerários
   0 - Sair
-! Escolha uma opção: Menu principal
+! Escolha uma opção: Guardar ficheiro como: Menu principal
   1 - Reiniciar
   2 - Abrir
   3 - Guardar
 ***************
 *** 93,96 ****
---- 87,91 ----
+--- 79,83 ----
   5 - Gestão de passageiros
   6 - Gestão de itinerários
   0 - Sair
