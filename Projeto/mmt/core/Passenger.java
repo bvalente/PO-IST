@@ -7,36 +7,39 @@ import java.util.List;
 import java.util.ArrayList;
 
 /**
- * Class que representa um passageiro.
+ * This class represents a passenger.
+ * A Passenger has an numeric identifier (assigned automatically and sequentially) and a name.
+ *
  *
  * @author Bernardo Valente & Francisco Machado
  */
 
 class Passenger implements Serializable{
 
-    /** Nome do Passageiro. */
+    /** Passenger name. */
     private String _name;
 
-    /** Id do Passageiro. */
+    /** Passenger numeric identifier.
+    * The identifier is automatically assigned when a passenger is registered. the number 0 (zero) is attributed to the fisrt passenger.. */
     private int _id;
 
-    /** Categoria dos discontos do Passageiro. */
+    /** A Passenger has a category assigned depending on the total money spent in his last 10 trips. */
     Category _discount;
 
-    /** Lista de Itenerários que o Passageiro já realizou. */
+    /** Itinerary list that the passenger has already completed. */
     private List<Itinerary> _travels; // terceira entrega
 
-    /** Dinheiro total que o Passageiro já gastou em viagens. */
+    /** Total money spent by a passenger. */
     private float _totalMoneySpent;
 
-    /** Tempo total de vaigem do Passageiro. */
+    /** Travelling time that a passenger has completed . */
     private LocalTime _totalTime;
 
     /**
-     * Construtor.
+     * Constructor.
      *
-     * @param name nome do Passegeiro.
-     * @param id id do Passageiro.
+     * @param name passenger name.
+     * @param id passenger numeric identifier.
      */
     Passenger(String name, int id){
         _id = id;
@@ -47,16 +50,16 @@ class Passenger implements Serializable{
     }
 
     /**
-     * Adiciona um itenerário à lista de itenerários do passageiros.
+     * adds an itinerary to the passenger itinerary list .
      *
-     * @param itin itenerário a adicionar à lista.
+     * @param itin itinerary to be added.
      */
 
     void addItenerary(Itinerary itin){
         int sum = 0;
         int size = _travels.size();
 
-        //ver os ultimos 10 itenerários na lista
+        //check last 10 itinerarys completed
         if (size >= 10){
             for (int i = 0; i <10 ; i++)
             sum += _travels.get(size-i).getCost();
@@ -65,45 +68,45 @@ class Passenger implements Serializable{
             sum += i.getCost();
         }
 
-        //atualizar o desconto segundo o dinheiro gasto anterioramente
+        //updates discount according to the money spent on passengers last 10 trips
         _discount.update(sum);
 
-        //receber o valor do desconto que pode ter mudado ou nao
+        //updates itinerary cost (if possible) adding it to the total amount of money spent
         _totalMoneySpent += _discount.getDiscount() * itin.getCost();
         _travels.add(itin);
     }
 
     /**
-     * @return id do passageiro.
+     * @return passenger id.
      */
     int getID(){
         return _id;
     }
 
     /**
-     * @return nome do passageiro.
+     * @return passenger name.
      */
     String getName(){
         return _name;
     }
 
     /**
-     * Muda o nome do passageiro.
+     * Changes passenger name.
      *
-     * @param name nome a substituir.
+     * @param name name to be assigned.
      */
     void changeName(String name){
         _name = new String(name);
     }
 
     /**
-     * @return uma String com as informações do passageiro.
+     * @return a String with all passenger info.
      * @see java.lang.Object#toString()
      */
     @Override
     public String toString(){
-        // estrutura do String
-        // id|nome|categoria|n´ umero-de-itiner´ arios|valor-pago|tempo-acumulado
+
+        // id|name|category|number of itinerary|total Money Spent|Travelling time
 
         return  _id + "|" + _name.toString() + "|" + _discount.toString() +"|" +
         _travels.size() + "|" + String.format("%.2f",_totalMoneySpent) +
