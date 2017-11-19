@@ -9,8 +9,8 @@
     * A-03-07 Mudar nome de passageiro
 
     * A-04-01 Serialização de Serviços e Passageiros - Save
-* A-04-02 Serialização de Serviços e Passageiros - Load
-* A-04-03 Serialização de Serviços e Passageiros - Save duas vezes
+    * A-04-02 Serialização de Serviços e Passageiros - Load
+    * A-04-03 Serialização de Serviços e Passageiros - Save duas vezes
 * A-04-04 Serialização de Serviços e Passageiros - Load duas vezes, load file não existente, save depois de load
 
     * A-05-01 Listar serviço

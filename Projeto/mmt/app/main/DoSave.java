@@ -13,26 +13,30 @@ import pt.tecnico.po.ui.Input;
  */
 public class DoSave extends Command<TicketOffice> {
 
-  private Input<String> _filename;
+  static private Input<String> _filename;
 
   /**
    * @param receiver
    */
   public DoSave(TicketOffice receiver) {
     super(Label.SAVE, receiver);
-    _filename = _form.addStringInput(Message.saveAs());
+    _filename = _form.addStringInput(Message.newSaveAs());
   }
 
   /** @see pt.tecnico.po.ui.Command#execute() */
   @Override
   public final void execute() {
-      _form.parse();
-      
+
+      //"null"
+      if (_filename.toString().equals("null")) {  //create new file
+          _form.parse();
+      }
+
       try{
           _receiver.save(_filename.toString());
       }   catch (IOException e) {
-        // shouldn't happen in a controlled test setup
-        e.printStackTrace();
-    }
+          // shouldn't happen in a controlled test setup
+          e.printStackTrace();
+      }
   }
 }

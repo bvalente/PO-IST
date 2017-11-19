@@ -21,7 +21,7 @@ public class DoOpen extends Command<TicketOffice> {
     */
     public DoOpen(TicketOffice receiver) {
         super(Label.OPEN, receiver);
-        _filename = _form.addStringInput(Message.saveAs());
+        _filename = _form.addStringInput(Message.openFile());
     }
 
     /** @see pt.tecnico.po.ui.Command#execute() */
@@ -34,7 +34,7 @@ public class DoOpen extends Command<TicketOffice> {
 
         } catch (FileNotFoundException fnfe) {
             _display.popup(Message.fileNotFound());
-            
+
         } catch (ClassNotFoundException | IOException e) {
             // shouldn't happen in a controlled test setup
             e.printStackTrace();

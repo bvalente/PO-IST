@@ -34,7 +34,6 @@ public class TicketOffice {
     //FIXME define other fields
 
     public void reset() {
-
         _trainCompany = new TrainCompany();
     }
 
@@ -55,7 +54,10 @@ public class TicketOffice {
     }
 
     public void load(String filename) throws FileNotFoundException, IOException, ClassNotFoundException {
-        //FIXME implement this function
+
+        ObjectInputStream inob = new ObjectInputStream(new FileInputStream(filename));
+        _trainCompany = (TrainCompany)inob.readObject();
+
     }
 
     public void importFile(String datafile) throws ImportFileException {
