@@ -13,10 +13,8 @@ import mmt.core.exceptions.NoSuchItineraryChoiceException;
 import mmt.core.exceptions.NonUniquePassengerNameException;
 import java.util.Collections;
 
-
 import java.util.List;
 import java.util.ArrayList;
-//FIXME import other classes if necessary
 
 /**
 * A train company has schedules (services) for its trains and passengers that
@@ -27,32 +25,68 @@ class TrainCompany implements Serializable {
     /** Serial number for serialization. */
     private static final long serialVersionUID = 201708301010L;
 
-    private int _nextPassengerID = 0; //static?
+    /** Has the next Passenger ID.
+    * When a Passenger is registered it uses this int and adds 1 unit.
+    */
+    private int _nextPassengerID = 0;
+
+    /** Has the next Station Id.
+     * When a Station is registered it uses this int and adds 1 unit.
+     */
     private int _nextStationID = 0;
 
-    //creates lists
+    /** Holds a List of all the Passengers of this TrainCompany. */
     List<Passenger> _passengerList = new ArrayList<Passenger>();
+
+    /** Holds a List of all the Staitons of this TrainCompany. */
     List<Station> _stationList = new ArrayList<Station>();
+
+    /** Holds a List of all the Services of this TrainCompany. */
     List<Service> _serviceList = new ArrayList<Service>();
 
-    void registerPassenger(String name){
-        _passengerList.add(new Passenger(name, _nextPassengerID++));
+    /**
+     * Registers a Passenger to this TrainCompany.
+     *
+     * @param name the passenger's name.
+     * @return the Passenger.
+     */
+    Passenger registerPassenger(String name){
+        Passenger passenger = new Passenger(name, _nextPassengerID++);
+        _passengerList.add(passenger);
+        return passenger;
     }
 
-
-    Station registerStation (String name){
+    /**
+     * Registers a Station to this TrainCompany.
+     *
+     * @param name the station's name.
+     * @return the Station.
+     */
+     Station registerStation (String name){
         Station station = new Station(name, _nextStationID++);
         _stationList.add(station);
         return station;
     }
 
+    /**
+     * Registers a Service to this TrainCompany.
+     *
+     * @param serviceId the service's id.
+     * @param cost the service's total cost.
+     * @return the Service.
+     */
     Service registerService (int serviceId,double cost){
         Service service = new Service(serviceId, cost);
         _serviceList.add(service);
         return service;
     }
 
-    // void ou Passenger ??
+    /**
+     * Changes the Passenger with certain id's name.
+     *
+     * @param id the passenger's id wich name is going to change.
+     * @param name String with the name to change to.
+     */
     void changePassengerName(int id, String name) throws NoSuchPassengerIdException{
         for (Passenger p : _passengerList){
             if (p.getID() == id){
@@ -63,6 +97,13 @@ class TrainCompany implements Serializable {
         throw new NoSuchPassengerIdException( id );
     }
 
+    /**
+     * Search Passegner with certain id.
+     *
+     * @param id the id of the Passenger we are searching form.
+     * @return a String with the Passenger's info.
+     * @see mmt.core.Passenger#toString()
+     */
     String searchPassengerId(int id) throws NoSuchPassengerIdException{
         for (Passenger p : _passengerList){
             if (p.getID() == id){
@@ -72,6 +113,13 @@ class TrainCompany implements Serializable {
         throw new NoSuchPassengerIdException( id );
     }
 
+    /**
+     * Search Service with ceratin id.
+     *
+     * @param id the id of the Service.
+     * @return a List of String with the Service info.
+     * @see mmt.core.Service#showService()
+     */
     List<String> searchServiceId(int id) throws NoSuchServiceIdException{
         for ( Service s : _serviceList ){ // search in service list
             if (s.getId() == id){
@@ -81,6 +129,12 @@ class TrainCompany implements Serializable {
         throw new NoSuchServiceIdException( id );
     }
 
+    /**
+     * Search Station with certain name.
+     *
+     * @param name String with the Station name.
+     * @param return the Station.
+     */
     Station searchStationName(String name) throws NoSuchStationNameException{
 
         for(Station s : _stationList){
@@ -90,16 +144,26 @@ class TrainCompany implements Serializable {
         throw new NoSuchStationNameException(name);
     }
 
+    /**
+     * Shows all Passengers in this TrainCompany.
+     *
+     * @return a String List with all the Passengers's info.
+     */
     List<String> showAllPassengers(){
-        //não é necessario ordenar passageiros. inseridos por ordem.
+        //não é necessario ordenar passageiros porque sao sempre inseridos por ordem.
         List<String> list = new ArrayList<String>();
-        for ( Passenger p : _passengerList ){
+        for ( Passenger p : _passengerList )
             list.add( p.toString() );
-        }
         List<String> unmodifiableList = Collections.unmodifiableList(list);
         return unmodifiableList;
     }
 
+    /**
+     * Shows all Services in this TrainCompany.
+     *
+     * @return a String List with all the Services.
+     * @see mmt.core.Service#showService()
+     */
     List<String> showAllServices(){
         Collections.sort(_serviceList, new Service.ServiceComparator());
         List<String> list = new ArrayList<String>();

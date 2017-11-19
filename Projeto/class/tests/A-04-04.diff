@@ -1,5 +1,5 @@
 *** tests/A-04-04.out	2017-11-07 10:49:24.000000000 +0000
---- tests/A-04-04.outhyp	2017-11-19 11:58:33.593338400 +0000
+--- tests/A-04-04.outhyp	2017-11-19 12:48:48.693314300 +0000
 ***************
 *** 6,12 ****
   5 - Gestão de passageiros
@@ -13,18 +13,12 @@
   5 - Gestão de passageiros
   6 - Gestão de itinerários
   0 - Sair
-! Escolha uma opção: Menu principal
+! Escolha uma opção: Guardar ficheiro como: Menu principal
   1 - Reiniciar
   2 - Abrir
   3 - Guardar
 ***************
-*** 14,30 ****
-  5 - Gestão de passageiros
-  6 - Gestão de itinerários
-  0 - Sair
-  Escolha uma opção: Menu de gestão de passageiros
-  1 - Mostrar todos os passageiros
-  2 - Mostrar passageiro
+*** 20,30 ****
   3 - Registar passageiro
   4 - Mudar nome de passageiro
   0 - Sair
@@ -36,14 +30,7 @@
   1 - Mostrar todos os passageiros
   2 - Mostrar passageiro
   3 - Registar passageiro
---- 14,27 ----
-  5 - Gestão de passageiros
-  6 - Gestão de itinerários
-  0 - Sair
-+ Escolha uma opção: Número inválido!
-  Escolha uma opção: Menu de gestão de passageiros
-  1 - Mostrar todos os passageiros
-  2 - Mostrar passageiro
+--- 20,26 ----
   3 - Registar passageiro
   4 - Mudar nome de passageiro
   0 - Sair
@@ -60,22 +47,16 @@
   1 - Reiniciar
   2 - Abrir
   3 - Guardar
---- 35,41 ----
+--- 34,40 ----
   5 - Gestão de passageiros
   6 - Gestão de itinerários
   0 - Sair
-! Escolha uma opção: Menu principal
+! Escolha uma opção: Guardar ficheiro como: Menu principal
   1 - Reiniciar
   2 - Abrir
   3 - Guardar
 ***************
-*** 46,68 ****
-  5 - Gestão de passageiros
-  6 - Gestão de itinerários
-  0 - Sair
-  Escolha uma opção: Menu de gestão de passageiros
-  1 - Mostrar todos os passageiros
-  2 - Mostrar passageiro
+*** 52,68 ****
   3 - Registar passageiro
   4 - Mudar nome de passageiro
   0 - Sair
@@ -93,14 +74,7 @@
   1 - Mostrar todos os passageiros
   2 - Mostrar passageiro
   3 - Registar passageiro
---- 43,63 ----
-  5 - Gestão de passageiros
-  6 - Gestão de itinerários
-  0 - Sair
-+ Escolha uma opção: Número inválido!
-  Escolha uma opção: Menu de gestão de passageiros
-  1 - Mostrar todos os passageiros
-  2 - Mostrar passageiro
+--- 48,61 ----
   3 - Registar passageiro
   4 - Mudar nome de passageiro
   0 - Sair
@@ -133,7 +107,7 @@
   1 - Reiniciar
   2 - Abrir
   3 - Guardar
---- 71,77 ----
+--- 69,75 ----
   5 - Gestão de passageiros
   6 - Gestão de itinerários
   0 - Sair
@@ -143,7 +117,7 @@
   3 - Guardar
 ***************
 *** 93,96 ****
---- 79,83 ----
+--- 77,81 ----
   5 - Gestão de passageiros
   6 - Gestão de itinerários
   0 - Sair
