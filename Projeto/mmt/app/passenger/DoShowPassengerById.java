@@ -11,13 +11,17 @@ import pt.tecnico.po.ui.Display;
 //FIXME import other classes if necessary
 
 /**
-* §3.3.2. Show specific passenger.
+ * This class shows a passenger with a solicitated id.<p>
+ *
+ * @author Bernardo Valente & Francisco Machado
+ * @version 1.0
 */
 public class DoShowPassengerById extends Command<TicketOffice> {
 
+    /** _name is a String to be choosed by the user*/
     private Input<Integer> _id;
 
-    /**
+    /** This method is responsible for showing a passenger with a given id.<p>
     * @param receiver
     */
     public DoShowPassengerById(TicketOffice receiver) {

@@ -9,15 +9,23 @@ import pt.tecnico.po.ui.Command;
 import pt.tecnico.po.ui.DialogException;
 import pt.tecnico.po.ui.Input;
 
-//FIXME import other classes if necessary
 /**
-* §3.3.3. Register passenger.
+ * This class allows to register a passenger.<p>
+ * This class requests a name of the passenger.
+ * Assigns an numeric identifier and a category : NORMAL. <p>
+ *
+ * @author Bernardo Valente & Francisco Machado
+ * @version 1.0
+
+
 */
 public class DoRegisterPassenger extends Command<TicketOffice> {
 
+    /** _name is a String to be choosed by the user*/
     private Input<String> _name;
 
-    /**
+    /** This method is responsible for the passenger registration.<p>
+    * The user must be chosen by the user.<p>
     * @param receiver
     */
     public DoRegisterPassenger(TicketOffice receiver) {
