@@ -11,12 +11,15 @@ import pt.tecnico.po.ui.Display;
 import java.util.List;
 
 /**
-* This class shows all services arriving at a given station.<p>
+* This class shows all services departing from a given station.<p>
 * The services are ordered by their departure time.<p>
 *
 * @author Bernardo Valente & Francisco Machado
 * @version 1.0
 */
+/**
+ * 3.2.3 Show services departing from station.
+ */
 public class DoShowServicesDepartingFromStation extends Command<TicketOffice> {
 
     private Input<String> _station;

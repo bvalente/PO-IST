@@ -11,7 +11,7 @@ import pt.tecnico.po.ui.Display;
 import java.util.List;
 
 /**
-* This class shows all services departing from a given station.<p>
+* This class shows all services arriving at a given station.<p>
 * The services are ordered by their arriving time.<p>
 *
 * @author Bernardo Valente & Francisco Machado
