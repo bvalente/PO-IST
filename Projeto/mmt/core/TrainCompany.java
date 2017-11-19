@@ -28,21 +28,43 @@ class TrainCompany implements Serializable {
     /** Has the next Passenger ID.
     * When a Passenger is registered it uses this int and adds 1 unit.
     */
-    private int _nextPassengerID = 0;
+    private int _nextPassengerID;
 
     /** Has the next Station Id.
      * When a Station is registered it uses this int and adds 1 unit.
      */
-    private int _nextStationID = 0;
+    private int _nextStationID;
 
     /** Holds a List of all the Passengers of this TrainCompany. */
-    List<Passenger> _passengerList = new ArrayList<Passenger>();
+    List<Passenger> _passengerList;
 
     /** Holds a List of all the Staitons of this TrainCompany. */
-    List<Station> _stationList = new ArrayList<Station>();
+    List<Station> _stationList;
 
     /** Holds a List of all the Services of this TrainCompany. */
-    List<Service> _serviceList = new ArrayList<Service>();
+    List<Service> _serviceList;
+
+    /**
+    * Constructor
+    * initializes all the atributes.
+    */
+    TrainCompany(){
+        _nextPassengerID = 0;
+        _nextStationID = 0;
+        _passengerList = new ArrayList<Passenger>();
+        _stationList = new ArrayList<Station>();
+        _serviceList = new ArrayList<Service>();
+    }
+
+    /**
+    * Resets the TrainCompany
+    * destroys all the information about the Passengers and the Itinerarys.
+    * keeps all the services.
+    */
+    void reset(){
+        _passengerList.clear();
+        _nextPassengerID = 0;
+    }
 
     /**
      * Registers a Passenger to this TrainCompany.
@@ -190,7 +212,7 @@ class TrainCompany implements Serializable {
                 list.addAll(service.showService());
             }
         }
-        
+
         List<String> unmodifiableList = Collections.unmodifiableList(list);
         return unmodifiableList;
     }
@@ -213,8 +235,5 @@ class TrainCompany implements Serializable {
         List<String> unmodifiableList = Collections.unmodifiableList(list);
         return unmodifiableList;
     }
-
-
-    //FIXME implement other functions if necessary
-
+    
 }

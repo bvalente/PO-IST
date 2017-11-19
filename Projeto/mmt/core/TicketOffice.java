@@ -19,7 +19,6 @@ import mmt.core.exceptions.NoSuchStationNameException;
 import mmt.core.exceptions.NoSuchItineraryChoiceException;
 import mmt.core.exceptions.NonUniquePassengerNameException;
 
-//FIXME import other classes if necessary
 import java.io.File;
 import java.util.List;
 
@@ -31,12 +30,18 @@ public class TicketOffice {
     /** The object doing most of the actual work. */
     private TrainCompany _trainCompany = new TrainCompany();
 
-    //FIXME define other fields
-
+    /**
+    * Resets the TrainCompany, erasing the passengers info.
+    */
     public void reset() {
-        _trainCompany = new TrainCompany();
+        //reset TrainCompany but keep services
+        _trainCompany.reset();
     }
 
+    /**
+    * Saves the state of the TrainCompany.
+    * @param filename String with the file to write to.
+    */
     public void save(String filename) throws IOException {
 
         try{
@@ -53,20 +58,23 @@ public class TicketOffice {
         }
     }
 
+    /**
+    * Loads the TrainCompany saved previosly in another instance of the program.
+    * @param filename String with the name of the file to load.
+    */
     public void load(String filename) throws FileNotFoundException, IOException, ClassNotFoundException {
 
         ObjectInputStream inob = new ObjectInputStream(new FileInputStream(filename));
         _trainCompany = (TrainCompany)inob.readObject();
-
     }
 
+    /**
+    * Parses the file given when the program executes.
+    * @param datafile String of the name to import.
+    */
     public void importFile(String datafile) throws ImportFileException {
 
-        try{
-            _trainCompany = new NewParser().parseFile( datafile );
-        } catch (ImportFileException e){
-            //FIXME not done
-        }
+        _trainCompany = new NewParser().parseFile( datafile );
     }
 
     //FIXME complete and implement the itinerary search (and pre-commit store) method
@@ -85,7 +93,6 @@ public class TicketOffice {
     /** Registers a passenger.
     *
     * @param name string with passenger name to be registered
-    *
     */
     public void registerPassenger(String name){
         _trainCompany.registerPassenger(name);
@@ -95,7 +102,6 @@ public class TicketOffice {
     *
     * @param id passenger numeric identification.
     * @param name new passenger name.
-    *
     */
     public void changePassengerName(int id,String name) throws NoSuchPassengerIdException{
         _trainCompany.changePassengerName(id, name);
@@ -105,7 +111,6 @@ public class TicketOffice {
     *
     * @param id passenger numeric identification.
     * @return passenger details.
-    *
     */
     public String searchPassengerId( int id ) throws NoSuchPassengerIdException{
         return _trainCompany.searchPassengerId(id);
@@ -115,7 +120,6 @@ public class TicketOffice {
     *
     * @param id service numeric identification.
     * @return service details.
-    *
     */
     public List<String> searchServiceId( int id ) throws NoSuchServiceIdException{
         return _trainCompany.searchServiceId(id);
@@ -124,7 +128,6 @@ public class TicketOffice {
     /** Shows all passengers registered in a train company.
     *
     * @return string list of passengers details.
-    *
     */
     public List<String> showAllPassengers(){
         return _trainCompany.showAllPassengers();
@@ -133,7 +136,6 @@ public class TicketOffice {
     /** Shows all services.
     *
     * @return string list of services and all their details.
-    *
     */
     public List<String> showAllServices(){
         return _trainCompany.showAllServices();
@@ -143,7 +145,6 @@ public class TicketOffice {
     *
     * @param station string of station name.
     * @return string list of services and all their details.
-    *
     */
     public List<String> showServicesArrivingAtStation(String station) throws NoSuchStationNameException{
         return _trainCompany.showServicesArrivingAtStation(station);
@@ -153,13 +154,9 @@ public class TicketOffice {
     *
     * @param station string of station name.
     * @return string list of services and all their details.
-    *
     */
     public List<String> showServicesDepartingFromStation(String station) throws NoSuchStationNameException{
         return _trainCompany.showServicesDepartingFromStation(station);
     }
 
-
-    //FIXME add other functions if necessary
-
-    }
+}
