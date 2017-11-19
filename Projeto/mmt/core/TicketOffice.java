@@ -82,34 +82,79 @@ public class TicketOffice {
         return new Itinerary();
     }
 
+    /** Registers a passenger.
+    *
+    * @param name string with passenger name to be registered
+    *
+    */
     public void registerPassenger(String name){
         _trainCompany.registerPassenger(name);
     }
 
+    /** Changes a passenger name.
+    *
+    * @param id passenger numeric identification.
+    * @param name new passenger name.
+    *
+    */
     public void changePassengerName(int id,String name) throws NoSuchPassengerIdException{
         _trainCompany.changePassengerName(id, name);
     }
 
+    /** Searchs a passenger by id.
+    *
+    * @param id passenger numeric identification.
+    * @return passenger details.
+    *
+    */
     public String searchPassengerId( int id ) throws NoSuchPassengerIdException{
         return _trainCompany.searchPassengerId(id);
     }
 
+    /** Searchs a service by id.
+    *
+    * @param id service numeric identification.
+    * @return service details.
+    *
+    */
     public List<String> searchServiceId( int id ) throws NoSuchServiceIdException{
         return _trainCompany.searchServiceId(id);
     }
 
+    /** Shows all passengers registered in a train company.
+    *
+    * @return string list of passengers details.
+    *
+    */
     public List<String> showAllPassengers(){
         return _trainCompany.showAllPassengers();
     }
 
+    /** Shows all services.
+    *
+    * @return string list of services and all their details.
+    *
+    */
     public List<String> showAllServices(){
         return _trainCompany.showAllServices();
     }
 
+    /** Shows all services arriving at a given stations.
+    *
+    * @param station string of station name.
+    * @return string list of services and all their details.
+    *
+    */
     public List<String> showServicesArrivingAtStation(String station) throws NoSuchStationNameException{
         return _trainCompany.showServicesArrivingAtStation(station);
     }
 
+    /** Shows all services departing at a given stations.
+    *
+    * @param station string of station name.
+    * @return string list of services and all their details.
+    *
+    */
     public List<String> showServicesDepartingFromStation(String station) throws NoSuchStationNameException{
         return _trainCompany.showServicesDepartingFromStation(station);
     }
@@ -117,4 +162,4 @@ public class TicketOffice {
 
     //FIXME add other functions if necessary
 
-}
+    }
