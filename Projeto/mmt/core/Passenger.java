@@ -8,11 +8,12 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 /**
- * This class represents a passenger.
+ * This class represents a passenger.<p>
  * A Passenger has an numeric identifier (assigned automatically and sequentially) and a name.
  *
  *
  * @author Bernardo Valente & Francisco Machado
+ * @version 1.0
  */
 
 class Passenger implements Serializable{
@@ -20,8 +21,9 @@ class Passenger implements Serializable{
     /** Passenger name. */
     private String _name;
 
-    /** Passenger numeric identifier.
-    * The identifier is automatically assigned when a passenger is registered. the number 0 (zero) is attributed to the fisrt passenger.. */
+    /** Passenger numeric identifier.<p>
+    * The identifier is automatically assigned when a passenger is registered.<p>
+    * The number 0 (zero) is attributed to the fisrt passenger.. */
     private int _id;
 
     /** A Passenger has a category assigned depending on the total money spent in his last 10 trips. */
