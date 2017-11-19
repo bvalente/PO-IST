@@ -133,7 +133,7 @@ class TrainCompany implements Serializable {
      * Search Station with certain name.
      *
      * @param name String with the Station name.
-     * @param return the Station.
+     * @return the Station.
      */
     Station searchStationName(String name) throws NoSuchStationNameException{
 
@@ -175,6 +175,11 @@ class TrainCompany implements Serializable {
         return unmodifiableList;
     }
 
+    /** Shows all services departing from a given station.<p>
+    *
+    * @param stationName String with the station name
+    * @return an unmodifiable string list with services ordered by their departure time.
+    */
     List<String> showServicesDepartingFromStation(String stationName) throws NoSuchStationNameException{
 
         Station station = searchStationName(stationName);
@@ -185,10 +190,15 @@ class TrainCompany implements Serializable {
                 list.addAll(service.showService());
             }
         }
+        
         List<String> unmodifiableList = Collections.unmodifiableList(list);
         return unmodifiableList;
     }
-
+    /** Shows all services arrivinf at a given station.<p>
+    *
+    * @param stationName String with the station name
+    * @return an unmodifiable string list with services ordered by their arriving time.
+    */
     List<String> showServicesArrivingAtStation(String stationName) throws NoSuchStationNameException{
 
         Station station = searchStationName(stationName);
@@ -199,6 +209,7 @@ class TrainCompany implements Serializable {
                 list.addAll(service.showService());
             }
         }
+
         List<String> unmodifiableList = Collections.unmodifiableList(list);
         return unmodifiableList;
     }
