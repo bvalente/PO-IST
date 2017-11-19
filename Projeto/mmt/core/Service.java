@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.LinkedList;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.Locale;
 
 
 class Service implements Serializable{
@@ -19,7 +20,7 @@ class Service implements Serializable{
         _id = id;
         _totalCost = totalCost;
 
-        _trainStopList = new LinkedList<TrainStop>();
+        _trainStopList = new ArrayList<TrainStop>();
 
     }
 
@@ -42,7 +43,7 @@ class Service implements Serializable{
     public List<String> showService(){
         List<String> list = new ArrayList<String>();
 
-        list.add("Serviço #" + _id + " @ " +String.format("%.2f",_totalCost));
+        list.add("Serviço #" + _id + " @ " +String.format( new Locale("en", "US"), "%.2f",_totalCost));
         for (TrainStop trainStop : _trainStopList){
             list.add( trainStop.toString() );
         }

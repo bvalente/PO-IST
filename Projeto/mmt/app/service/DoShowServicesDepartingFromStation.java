@@ -8,28 +8,38 @@ import pt.tecnico.po.ui.DialogException;
 import pt.tecnico.po.ui.Input;
 import pt.tecnico.po.ui.Display;
 
-
-//FIXME import other classes if necessary
+import java.util.List;
 
 /**
  * 3.2.3 Show services departing from station.
  */
 public class DoShowServicesDepartingFromStation extends Command<TicketOffice> {
 
-  //FIXME define input fields
+    private Input<String> _station;
 
   /**
    * @param receiver
    */
   public DoShowServicesDepartingFromStation(TicketOffice receiver) {
     super(Label.SHOW_SERVICES_DEPARTING_FROM_STATION, receiver);
-    //FIXME initialize input fields
+    _station = _form.addStringInput(Message.requestStationName());
   }
 
   /** @see pt.tecnico.po.ui.Command#execute() */
   @Override
   public final void execute() throws DialogException {
-    //FIXME implement command
+      _form.parse();
+
+      try{
+          List<String> list = _receiver.showServicesDepartingFromStation(_station.toString());
+          for (String s : list){
+              _display.addLine(s);
+          }
+          _display.display();
+
+      } catch (NoSuchStationNameException e){
+          throw new NoSuchStationException(e.getName());
+      }
   }
 
 }

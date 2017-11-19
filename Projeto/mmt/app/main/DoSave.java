@@ -26,6 +26,8 @@ public class DoSave extends Command<TicketOffice> {
   /** @see pt.tecnico.po.ui.Command#execute() */
   @Override
   public final void execute() {
+      _form.parse();
+      
       try{
           _receiver.save(_filename.toString());
       }   catch (IOException e) {

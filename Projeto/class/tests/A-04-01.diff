@@ -1,5 +1,5 @@
-*** tests/A-04-01.out	2017-11-18 18:46:58.000000000 +0000
---- tests/A-04-01.outhyp	2017-11-18 19:17:53.000000000 +0000
+*** tests/A-04-01.out	2017-11-07 10:42:16.000000000 +0000
+--- tests/A-04-01.outhyp	2017-11-19 11:58:32.676968200 +0000
 ***************
 *** 6,12 ****
   5 - Gestão de passageiros
@@ -13,16 +13,7 @@
   5 - Gestão de passageiros
   6 - Gestão de itinerários
   0 - Sair
-! Escolha uma opção: Menu principal
+! Escolha uma opção: Guardar ficheiro como: Menu principal
   1 - Reiniciar
   2 - Abrir
   3 - Guardar
-***************
-*** 14,17 ****
---- 14,18 ----
-  5 - Gestão de passageiros
-  6 - Gestão de itinerários
-  0 - Sair
-+ Escolha uma opção: Número inválido!
-  Escolha uma opção: 
-\ No newline at end of file

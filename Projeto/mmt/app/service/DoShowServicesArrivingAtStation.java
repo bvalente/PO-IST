@@ -8,8 +8,7 @@ import pt.tecnico.po.ui.DialogException;
 import pt.tecnico.po.ui.Input;
 import pt.tecnico.po.ui.Display;
 
-
-//FIXME import other classes if necessary
+import java.util.List;
 
 /**
 * 3.2.4 Show services arriving at station.
@@ -31,7 +30,16 @@ public class DoShowServicesArrivingAtStation extends Command<TicketOffice> {
     public final void execute() throws DialogException {
         _form.parse();
 
-        
+        try{
+            List<String> list =_receiver.showServicesArrivingAtStation(_station.toString());
+            for (String s : list){
+                _display.addLine(s);
+            }
+            _display.display();
+        }
+        catch (NoSuchStationNameException e){
+            throw  new NoSuchStationException(e.getName());
+        }
     }
 
 }
