@@ -1,18 +1,18 @@
-    * A-01-01 import só com serviços
-    * A-01-02 import só com serviços e passageiros
+* A-01-01 import só com serviços
+* A-01-02 import só com serviços e passageiros
 
-	* A-02-01 Ver os menus todos
+* A-02-01 Ver os menus todos
 
-    * A-03-01 Mostrar um dado passageiro
-	* A-03-02 Mostrar um dado passageiro não existente
-	* A-03-03 Mostrar um dado passageiro não existente e sem passageiros
-    * A-03-07 Mudar nome de passageiro
+* A-03-01 Mostrar um dado passageiro
+* A-03-02 Mostrar um dado passageiro não existente
+* A-03-03 Mostrar um dado passageiro não existente e sem passageiros
+* A-03-07 Mudar nome de passageiro
 
-    * A-04-01 Serialização de Serviços e Passageiros - Save
-    * A-04-02 Serialização de Serviços e Passageiros - Load
-    * A-04-03 Serialização de Serviços e Passageiros - Save duas vezes
+* A-04-01 Serialização de Serviços e Passageiros - Save
+* A-04-02 Serialização de Serviços e Passageiros - Load
+* A-04-03 Serialização de Serviços e Passageiros - Save duas vezes
 * A-04-04 Serialização de Serviços e Passageiros - Load duas vezes, load file não existente, save depois de load
 
-    * A-05-01 Listar serviço
-    * A-05-02 Listar serviço não existente
-    * A-05-05 Procurar serviços com estação inicial com uma escolha
+* A-05-01 Listar serviço
+* A-05-02 Listar serviço não existente
+* A-05-05 Procurar serviços com estação inicial com uma escolha

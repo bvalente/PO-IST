@@ -22,12 +22,14 @@ public class DoOpen extends Command<TicketOffice> {
     public DoOpen(TicketOffice receiver) {
         super(Label.OPEN, receiver);
         _filename = _form.addStringInput(Message.openFile());
+
     }
 
     /** @see pt.tecnico.po.ui.Command#execute() */
     @Override
     public final void execute() {
         _form.parse();
+        DoSave._filename = /*DoOpen*/_filename;
 
         try {
             _receiver.load(_filename.toString());
