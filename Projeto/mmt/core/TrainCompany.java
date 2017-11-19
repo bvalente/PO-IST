@@ -83,8 +83,6 @@ class TrainCompany implements Serializable {
 
     Station searchStationName(String name) throws NoSuchStationNameException{
 
-        //acho que temos de utilizar excepcoes aqui
-        //NoSuchStationNameException
         for(Station s : _stationList){
             if (s.compareName(name))
             return s;
@@ -112,15 +110,29 @@ class TrainCompany implements Serializable {
         List<String> unmodifiableList = Collections.unmodifiableList(list);
         return unmodifiableList;
     }
-    
-    List<String> showServicesArrivingAtStation(String station){
-        s
 
+    List<String> showServicesDepartingFromStation(String stationName) throws NoSuchStationNameException{
+
+        Station station = searchStationName(stationName);
         List<String> list = new ArrayList<String>();
 
-        for (Service s : _serviceList){
-            if ( station.compareStationId( s.getLastStation() ) ){
-                list.addAll(s.showService());
+        for (Service service : _serviceList){
+            if ( station.compareStationId( service.getFirstStation() ) ){
+                list.addAll(service.showService());
+            }
+        }
+        List<String> unmodifiableList = Collections.unmodifiableList(list);
+        return unmodifiableList;
+    }
+
+    List<String> showServicesArrivingAtStation(String stationName) throws NoSuchStationNameException{
+
+        Station station = searchStationName(stationName);
+        List<String> list = new ArrayList<String>();
+
+        for (Service service : _serviceList){
+            if ( station.compareStationId( service.getLastStation() ) ){
+                list.addAll(service.showService());
             }
         }
         List<String> unmodifiableList = Collections.unmodifiableList(list);

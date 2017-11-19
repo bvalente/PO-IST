@@ -80,8 +80,6 @@ public class TicketOffice {
         return new Itinerary();
     }
 
-
-    //FIXME add methods for passenger registration and passenger name update
     public void registerPassenger(String name){
         _trainCompany.registerPassenger(name);
     }
@@ -106,9 +104,12 @@ public class TicketOffice {
         return _trainCompany.showAllServices();
     }
 
-    public List<String> showServicesArrivingAtStation(String station){
-        _trainCompany.showServicesArrivingAtStation(station);
+    public List<String> showServicesArrivingAtStation(String station) throws NoSuchStationNameException{
+        return _trainCompany.showServicesArrivingAtStation(station);
+    }
 
+    public List<String> showServicesDepartingFromStation(String station) throws NoSuchStationNameException{
+        return _trainCompany.showServicesDepartingFromStation(station);
     }
 
 

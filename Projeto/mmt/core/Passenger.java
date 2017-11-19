@@ -5,6 +5,7 @@ import java.io.Serializable;
 import java.time.LocalTime;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Locale;
 
 /**
  * Class que representa um passageiro.
@@ -106,7 +107,7 @@ class Passenger implements Serializable{
         // id|nome|categoria|n´ umero-de-itiner´ arios|valor-pago|tempo-acumulado
 
         return  _id + "|" + _name.toString() + "|" + _discount.toString() +"|" +
-        _travels.size() + "|" + String.format("%.2f",_totalMoneySpent) +
+        _travels.size() + "|" + String.format( new Locale("en", "US"), "%.2f",_totalMoneySpent) +
         "|" + _totalTime.toString() ;
     }
 }
