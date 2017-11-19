@@ -11,8 +11,15 @@ import pt.tecnico.po.ui.Display;
 import java.util.List;
 
 /**
-* 3.2.4 Show services arriving at station.
+* This class shows all services arriving at a given station.<p>
+* The services are ordered by their arriving time.<p>
+*
+* @author Bernardo Valente & Francisco Machado
+* @version 1.0
 */
+
+
+
 public class DoShowServicesArrivingAtStation extends Command<TicketOffice> {
 
     private Input<String> _station;
