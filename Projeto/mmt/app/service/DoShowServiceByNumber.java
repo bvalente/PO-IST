@@ -8,16 +8,20 @@ import pt.tecnico.po.ui.DialogException;
 import pt.tecnico.po.ui.Input;
 import pt.tecnico.po.ui.Display;
 
-//FIXME import other classes if necessary
 import java.util.List;
+
 /**
-* 3.2.2 Show service by number.
+* This class shows a service with a given number (previously solicitated).<p>
+*
+* @author Bernardo Valente & Francisco Machado
+* @version 1.0
 */
 public class DoShowServiceByNumber extends Command<TicketOffice> {
 
     private Input<Integer> _id;
 
-    /**
+    /** This method is responsible for showing a service with a given identification number.<p>
+    *
     * @param receiver
     */
     public DoShowServiceByNumber(TicketOffice receiver) {
