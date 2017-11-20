@@ -16,7 +16,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Map;
-import java.util.HashMap;
+import java.util.TreeMap;
 
 /**
 * A train company has schedules (services) for its trains and passengers that
@@ -55,7 +55,7 @@ class TrainCompany implements Serializable {
         _nextPassengerID = 0;
         _nextStationID = 0;
         //_passengerList = new ArrayList<Passenger>();
-        _passengerMap = new HashMap<Integer, Passenger>();
+        _passengerMap = new TreeMap<Integer, Passenger>();
         _stationList = new ArrayList<Station>();
         _serviceList = new ArrayList<Service>();
     }
@@ -181,7 +181,7 @@ class TrainCompany implements Serializable {
 
         List<String> stringList = new ArrayList<String>();
         List<Passenger> passengerList = new ArrayList<Passenger>( _passengerMap.values() );
-        Collections.sort( passengerList , new Passenger.PassengerComparator() );
+        //Collections.sort( passengerList , new Passenger.PassengerComparator() );
         for ( Passenger p : passengerList)
             stringList.add( p.toString() );
         List<String> unmodifiableList = Collections.unmodifiableList(stringList);
