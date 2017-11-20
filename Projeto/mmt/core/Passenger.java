@@ -121,7 +121,7 @@ class Passenger implements Serializable{
         "|" + _totalTime.toString() ;
     }
 
-    /**This nested class is used to compare two Services by their id.
+    /**This nested class is used to compare two passengers by their id.
     */
     public static class PassengerComparator implements Comparator<Passenger>{
         public int compare(Passenger p1, Passenger p2){

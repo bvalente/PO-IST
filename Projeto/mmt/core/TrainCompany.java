@@ -61,9 +61,9 @@ class TrainCompany implements Serializable {
     }
 
     /**
-    * Resets the TrainCompany
-    * destroys all the information about the Passengers and the Itinerarys.
-    * keeps all the services.
+    * Resets the TrainCompany.
+    * Destroys all Passenger and itinerary information.
+    * Keeps all the services.
     */
     void reset(){
         _passengerMap.clear();
@@ -78,7 +78,6 @@ class TrainCompany implements Serializable {
      */
     Passenger registerPassenger(String name){
         Passenger passenger = new Passenger(name, _nextPassengerID);
-        //_passengerList.add(passenger);
         _passengerMap.put( new Integer(_nextPassengerID) , passenger);
         _nextPassengerID++;
         return passenger;
@@ -126,7 +125,7 @@ class TrainCompany implements Serializable {
     }
 
     /**
-     * Search Passegner with certain id.
+     * Search Passenger with a given id.
      *
      * @param id the id of the Passenger we are searching form.
      * @return a String with the Passenger's info.
