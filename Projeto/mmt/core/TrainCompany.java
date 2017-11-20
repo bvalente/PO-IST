@@ -78,7 +78,7 @@ class TrainCompany implements Serializable {
      */
     Passenger registerPassenger(String name){
         Passenger passenger = new Passenger(name, _nextPassengerID);
-        _passengerMap.put( new Integer(_nextPassengerID) , passenger);
+        _passengerMap.put( Integer.valueOf(_nextPassengerID) , passenger);
         _nextPassengerID++;
         return passenger;
     }
@@ -116,7 +116,7 @@ class TrainCompany implements Serializable {
      */
     void changePassengerName(int id, String name) throws NoSuchPassengerIdException{
 
-        Passenger passenger = _passengerMap.get( new Integer(id) );
+        Passenger passenger = _passengerMap.get( Integer.valueOf(id) );
         if (passenger != null){
             passenger.changeName(name);
             return;
@@ -133,7 +133,7 @@ class TrainCompany implements Serializable {
      */
     String searchPassengerId(int id) throws NoSuchPassengerIdException{
 
-        Passenger passenger = _passengerMap.get( new Integer(id) );
+        Passenger passenger = _passengerMap.get( Integer.valueOf(id) );
         if (passenger != null){
             return passenger.toString();
         }
@@ -142,6 +142,7 @@ class TrainCompany implements Serializable {
 
     /**
      * Search Service with certain id.
+     *
      *
      * @param id the id of the Service.
      * @return a List of String with the Service info.
