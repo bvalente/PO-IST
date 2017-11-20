@@ -34,7 +34,8 @@ public class TicketOffice {
     * Resets the TrainCompany, erasing the passengers info.
     */
     public void reset() {
-        //reset TrainCompany but keep services
+
+        // Reset TrainCompany but keep services
         _trainCompany.reset();
     }
 
@@ -59,7 +60,7 @@ public class TicketOffice {
     }
 
     /**
-    * Loads the TrainCompany saved previosly in another instance of the program.
+    * Loads the TrainCompany saved previously in another instance of the program.
     * @param filename String with the name of the file to load.
     */
     public void load(String filename) throws FileNotFoundException, IOException, ClassNotFoundException {
