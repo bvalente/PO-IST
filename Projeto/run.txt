@@ -3,3 +3,9 @@ javac $(find . -name "*.java") -d class/
 cd class ; java mmt.app.App ; cd ..
 
 rm `find . -name "*.class"`
+
+jar
+    javac `find . -name "*.java"`
+    jar -cvf mmt.jar mmt
+    make clean
+    make
