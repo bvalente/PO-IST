@@ -27,7 +27,7 @@ class Passenger implements Serializable{
     private int _id;
 
     /** A Passenger has a category assigned depending on the total money spent in his last 10 trips. */
-    Category _discount;
+    private Category _discount;
 
     /** Itinerary list that the passenger has already completed. */
     private List<Itinerary> _travels; // terceira entrega
@@ -100,6 +100,10 @@ class Passenger implements Serializable{
      */
     void changeName(String name){
         _name = new String(name);
+    }
+
+    void changeDiscount(Category discount){
+        _discount = discount;
     }
 
     /**

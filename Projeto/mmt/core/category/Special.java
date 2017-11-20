@@ -19,10 +19,10 @@ class Special extends Category {
     @Override
     void update( int sum ) {
         if ( sum <= 250 ){
-            _passenger._discount = new Normal(_passenger);
+            _passenger.changeDiscount( new Normal(_passenger) );
         }
         else if ( sum >= 2500 ) {
-            _passenger._discount = new Frequent(_passenger);
+            _passenger.changeDiscount( new Frequent(_passenger) );
         }
     }
 }
