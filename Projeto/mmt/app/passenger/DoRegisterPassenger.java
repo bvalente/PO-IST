@@ -10,14 +10,12 @@ import pt.tecnico.po.ui.DialogException;
 import pt.tecnico.po.ui.Input;
 
 /**
- * This class allows to register a passenger.<p>
- * This class requests a name of the passenger.
- * Assigns an numeric identifier and a category : NORMAL. <p>
- *
- * @author Bernardo Valente & Francisco Machado
- * @version 1.0
-
-
+* This class allows to register a passenger.<p>
+* This class requests a name of the passenger.
+* Assigns an numeric identifier and a category : NORMAL. <p>
+*
+* @author Bernardo Valente & Francisco Machado
+* @version 1.0
 */
 public class DoRegisterPassenger extends Command<TicketOffice> {
 

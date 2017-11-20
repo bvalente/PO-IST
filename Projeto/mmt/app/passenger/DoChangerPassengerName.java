@@ -18,8 +18,6 @@ import pt.tecnico.po.ui.Input;
  * @author Bernardo Valente & Francisco Machado
  * @version 1.0
  */
-
-
 public class DoChangerPassengerName extends Command<TicketOffice> {
 
     /** _name is a String to be choosed by the user*/

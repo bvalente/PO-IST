@@ -8,8 +8,6 @@ import pt.tecnico.po.ui.DialogException;
 import pt.tecnico.po.ui.Input;
 import pt.tecnico.po.ui.Display;
 
-//FIXME import other classes if necessary
-
 /**
  * This class shows a passenger with a solicitated id.<p>
  *

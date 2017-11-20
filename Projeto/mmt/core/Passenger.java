@@ -6,6 +6,7 @@ import java.time.LocalTime;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Locale;
+import java.util.Comparator;
 
 /**
  * This class represents a passenger.<p>
@@ -82,7 +83,7 @@ class Passenger implements Serializable{
     /**
      * @return passenger id.
      */
-    int getID(){
+    int getId(){
         return _id;
     }
 
@@ -118,5 +119,14 @@ class Passenger implements Serializable{
         return  _id + "|" + _name.toString() + "|" + _discount.toString() +"|" +
         _travels.size() + "|" + String.format( new Locale("en", "US"), "%.2f",_totalMoneySpent) +
         "|" + _totalTime.toString() ;
+    }
+
+    /**This nested class is used to compare two Services by their id.
+    */
+    public static class PassengerComparator implements Comparator<Passenger>{
+        public int compare(Passenger p1, Passenger p2){
+            return (p1.getId() - p2.getId());
+        }
+
     }
 }

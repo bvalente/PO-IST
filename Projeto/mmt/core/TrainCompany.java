@@ -11,10 +11,12 @@ import mmt.core.exceptions.NoSuchServiceIdException;
 import mmt.core.exceptions.NoSuchStationNameException;
 import mmt.core.exceptions.NoSuchItineraryChoiceException;
 import mmt.core.exceptions.NonUniquePassengerNameException;
-import java.util.Collections;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.HashMap;
 
 /**
 * A train company has schedules (services) for its trains and passengers that
@@ -36,7 +38,8 @@ class TrainCompany implements Serializable {
     private int _nextStationID;
 
     /** Holds a List of all the Passengers of this TrainCompany. */
-    List<Passenger> _passengerList;
+    //List<Passenger> _passengerList;
+    Map<Integer, Passenger> _passengerMap;
 
     /** Holds a List of all the Staitons of this TrainCompany. */
     List<Station> _stationList;
@@ -51,7 +54,8 @@ class TrainCompany implements Serializable {
     TrainCompany(){
         _nextPassengerID = 0;
         _nextStationID = 0;
-        _passengerList = new ArrayList<Passenger>();
+        //_passengerList = new ArrayList<Passenger>();
+        _passengerMap = new HashMap<Integer, Passenger>();
         _stationList = new ArrayList<Station>();
         _serviceList = new ArrayList<Service>();
     }
@@ -62,7 +66,7 @@ class TrainCompany implements Serializable {
     * keeps all the services.
     */
     void reset(){
-        _passengerList.clear();
+        _passengerMap.clear();
         _nextPassengerID = 0;
     }
 
@@ -73,8 +77,10 @@ class TrainCompany implements Serializable {
      * @return the Passenger.
      */
     Passenger registerPassenger(String name){
-        Passenger passenger = new Passenger(name, _nextPassengerID++);
-        _passengerList.add(passenger);
+        Passenger passenger = new Passenger(name, _nextPassengerID);
+        //_passengerList.add(passenger);
+        _passengerMap.put( new Integer(_nextPassengerID) , passenger);
+        _nextPassengerID++;
         return passenger;
     }
 
@@ -110,11 +116,11 @@ class TrainCompany implements Serializable {
      * @param name String with the name to change to.
      */
     void changePassengerName(int id, String name) throws NoSuchPassengerIdException{
-        for (Passenger p : _passengerList){
-            if (p.getID() == id){
-                p.changeName(name);
-                return;
-            }
+
+        Passenger passenger = _passengerMap.get( new Integer(id) );
+        if (passenger != null){
+            passenger.changeName(name);
+            return;
         }
         throw new NoSuchPassengerIdException( id );
     }
@@ -127,10 +133,10 @@ class TrainCompany implements Serializable {
      * @see mmt.core.Passenger#toString()
      */
     String searchPassengerId(int id) throws NoSuchPassengerIdException{
-        for (Passenger p : _passengerList){
-            if (p.getID() == id){
-                return p.toString();
-            }
+
+        Passenger passenger = _passengerMap.get( new Integer(id) );
+        if (passenger != null){
+            return passenger.toString();
         }
         throw new NoSuchPassengerIdException( id );
     }
@@ -172,11 +178,13 @@ class TrainCompany implements Serializable {
      * @return a String List with all the Passengers's info.
      */
     List<String> showAllPassengers(){
-        //não é necessario ordenar passageiros porque sao sempre inseridos por ordem.
-        List<String> list = new ArrayList<String>();
-        for ( Passenger p : _passengerList )
-            list.add( p.toString() );
-        List<String> unmodifiableList = Collections.unmodifiableList(list);
+
+        List<String> stringList = new ArrayList<String>();
+        List<Passenger> passengerList = new ArrayList<Passenger>( _passengerMap.values() );
+        Collections.sort( passengerList , new Passenger.PassengerComparator() );
+        for ( Passenger p : passengerList)
+            stringList.add( p.toString() );
+        List<String> unmodifiableList = Collections.unmodifiableList(stringList);
         return unmodifiableList;
     }
 
@@ -235,5 +243,5 @@ class TrainCompany implements Serializable {
         List<String> unmodifiableList = Collections.unmodifiableList(list);
         return unmodifiableList;
     }
-    
+
 }
