@@ -141,7 +141,7 @@ class TrainCompany implements Serializable {
     }
 
     /**
-     * Search Service with ceratin id.
+     * Search Service with certain id.
      *
      * @param id the id of the Service.
      * @return a List of String with the Service info.
@@ -223,7 +223,7 @@ class TrainCompany implements Serializable {
         List<String> unmodifiableList = Collections.unmodifiableList(list);
         return unmodifiableList;
     }
-    /** Shows all services arrivinf at a given station.<p>
+    /** Shows all services arriving at a given station.<p>
     *
     * @param stationName String with the station name
     * @return an unmodifiable string list with services ordered by their arriving time.
