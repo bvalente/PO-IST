@@ -54,7 +54,6 @@ class TrainCompany implements Serializable {
     TrainCompany(){
         _nextPassengerID = 0;
         _nextStationID = 0;
-        //_passengerList = new ArrayList<Passenger>();
         _passengerMap = new TreeMap<Integer, Passenger>();
         _stationList = new ArrayList<Station>();
         _serviceList = new ArrayList<Service>();
@@ -181,7 +180,6 @@ class TrainCompany implements Serializable {
 
         List<String> stringList = new ArrayList<String>();
         List<Passenger> passengerList = new ArrayList<Passenger>( _passengerMap.values() );
-        //Collections.sort( passengerList , new Passenger.PassengerComparator() );
         for ( Passenger p : passengerList)
             stringList.add( p.toString() );
         List<String> unmodifiableList = Collections.unmodifiableList(stringList);
@@ -213,9 +211,17 @@ class TrainCompany implements Serializable {
     List<String> showServicesDepartingFromStation(String stationName) throws NoSuchStationNameException{
 
         Station station = searchStationName(stationName);
+        List<Service> serviceList = new ArrayList<Service>();
         List<String> list = new ArrayList<String>();
 
         for (Service service : _serviceList){
+            if( station.compareStationId( service.getFirstStation() ) ){
+                serviceList.add(service);
+            }
+        }
+         Collections.sort(serviceList, new Service.ServiceComparatorByDepartingTime());
+
+        for (Service service : serviceList){
             if ( station.compareStationId( service.getFirstStation() ) ){
                 list.addAll(service.showService());
             }
@@ -232,12 +238,18 @@ class TrainCompany implements Serializable {
     List<String> showServicesArrivingAtStation(String stationName) throws NoSuchStationNameException{
 
         Station station = searchStationName(stationName);
+
+        List<Service> serviceList = new ArrayList<Service>();
         List<String> list = new ArrayList<String>();
 
         for (Service service : _serviceList){
             if ( station.compareStationId( service.getLastStation() ) ){
-                list.addAll(service.showService());
+                serviceList.add(service);
             }
+        }
+        Collections.sort(serviceList, new Service.ServiceComparatorByArrivingTime());
+        for(Service service : serviceList){
+            list.addAll(service.showService());
         }
 
         List<String> unmodifiableList = Collections.unmodifiableList(list);

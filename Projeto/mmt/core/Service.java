@@ -48,19 +48,35 @@ class Service implements Serializable{
         return _id;
     }
 
+    /** This method returns the first TrainStop in the train Stop List.<p>
+    * @return TrainStop
+    */
+    TrainStop getFirstTrainStop(){
+        return _trainStopList.get(0);
+    }
+
+
+    /** This method returns the first TrainStop in the train Stop List.<p>
+    * @return TrainStop
+    */
+    TrainStop getLastTrainStop(){
+        return _trainStopList.get(_trainStopList.size()-1);
+    }
+
     /** This method returns the first Station in the train Stop List.<p>
     * @return Station
     */
     Station getFirstStation(){
-        return _trainStopList.get(0).getStation();
+        return this.getFirstTrainStop().getStation();
     }
 
     /** This method returns the first Station in the train Stop List.<p>
     * @return Station
     */
     Station getLastStation(){
-        return _trainStopList.get(_trainStopList.size()-1).getStation();
+        return this.getLastTrainStop().getStation();
     }
+
 
     /**
     * @return the list is ready to be printed.
@@ -82,4 +98,20 @@ class Service implements Serializable{
         }
 
     }
+    /**This nested class is used to compare two Services by their First TrainStop departing time.
+    */
+    public static class ServiceComparatorByDepartingTime implements Comparator<Service>{
+        public int compare(Service s1, Service s2){
+            return s1.getFirstTrainStop().getTime().compareTo(s2.getFirstTrainStop().getTime());
+        }
+    }
+
+    /**This nested class is used to compare two Services by their First TrainStop arriving time.
+    */
+    public static class ServiceComparatorByArrivingTime implements Comparator<Service>{
+        public int compare(Service s1, Service s2){
+            return s1.getLastTrainStop().getTime().compareTo(s2.getLastTrainStop().getTime());
+        }
+    }
+
 }
