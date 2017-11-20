@@ -47,7 +47,7 @@ class Passenger implements Serializable{
      */
     Passenger(String name, int id){
         _id = id;
-        _name = name;
+        _name = new String(name);
         _discount = new Normal(this);
         _travels = new ArrayList<Itinerary>();
         _totalTime = LocalTime.MIN;
@@ -116,7 +116,7 @@ class Passenger implements Serializable{
 
         // id|name|category|number of itinerary|total Money Spent|Travelling time
 
-        return  _id + "|" + _name.toString() + "|" + _discount.toString() +"|" +
+        return  _id + "|" + _name + "|" + _discount.toString() +"|" +
         _travels.size() + "|" + String.format( new Locale("en", "US"), "%.2f",_totalMoneySpent) +
         "|" + _totalTime.toString() ;
     }

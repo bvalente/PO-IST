@@ -13,7 +13,7 @@ import pt.tecnico.po.ui.Input;
  */
 public class DoSave extends Command<TicketOffice> {
 
-  static Input<String> _filename; //package private, naopode ser private
+  static Input<String> _filename; //package private, cant be private
 
   /**
    * @param receiver
