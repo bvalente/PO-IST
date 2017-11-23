@@ -3,7 +3,7 @@ import java.util.List;
 abstract class Component{
 
     //construtor
-    abstract Component (){
+    Component (){
 
     }
 
