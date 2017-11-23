@@ -1,8 +1,10 @@
-class ProgramadoresPeritos extends Empregado{
-    _custo = 1000;
-
+import java.util.List;
+class Gestor extends Empregado{
+    Gestor(String nome){
+        super(nome, 1000);
+    }
     @Override
-    List<String> operation(){
-        return "a gerir";
+    void operation(){
+        System.out.println( "a gerir");
     }
 }

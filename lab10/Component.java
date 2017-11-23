@@ -7,9 +7,9 @@ abstract class Component{
 
     }
 
-    abstract List<String> operation();
+    abstract void operation();
 
-    abstract void addComponent() throws CantAddException;
+    abstract void addComponent(Component c) throws CantAddException;
 
     abstract int getCusto();
 

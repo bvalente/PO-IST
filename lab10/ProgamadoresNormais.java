@@ -1,8 +1,13 @@
-class ProgramadoresNormais extends Empregado{
-    _custo = 1500;
+import java.util.List;
 
+class ProgramadoresNormais extends Empregado{
+    //private int _custo = 1500;
+
+    ProgramadoresNormais(String nome){
+        super(nome, 1500);
+    }
     @Override
-    List<String> operation(){
-        return "a programar"
+    void operation(){
+        System.out.println( "a programar");
     }
 }
