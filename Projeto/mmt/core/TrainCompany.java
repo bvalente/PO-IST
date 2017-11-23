@@ -222,9 +222,8 @@ class TrainCompany implements Serializable {
          Collections.sort(serviceList, new Service.ServiceComparatorByDepartingTime());
 
         for (Service service : serviceList){
-            if ( station.compareStationId( service.getFirstStation() ) ){
-                list.addAll(service.showService());
-            }
+            list.addAll(service.showService());
+
         }
 
         List<String> unmodifiableList = Collections.unmodifiableList(list);
