@@ -78,6 +78,7 @@ class Service implements Serializable{
     }
 
 
+
     /**
     * @return the list is ready to be printed.
     */
@@ -90,6 +91,30 @@ class Service implements Serializable{
         }
         return list;
     }
+
+    /**
+    * @return the segment ready to be printed.
+    */
+    public List<String> showSegment(Segment s){
+        List<String> list = new ArrayList<String>();
+
+        List<TrainStop> segment = _trainStopList.sublist(indexOf(s.getFirstStop), indexOf(s.getLastStop) + 1 );
+
+        //add introductory string in SHOWitinerary
+        for ( TrainStop trainStop : segment ){
+            list.add( trainStop.toString() );
+        }
+        return segment;
+    }
+
+    public int segmentPrice(Segment s){
+        float price;
+
+        price = ( _totalCost * _trainStopList.size() ) / _trainStopList.sublist(indexOf(s.getFirstStop), indexOf(s.getLastStop) +1 ).size();
+
+        return price;
+    }
+
     /**This nested class is used to compare two Services by their id.
     */
     public static class ServiceComparator implements Comparator<Service>{
