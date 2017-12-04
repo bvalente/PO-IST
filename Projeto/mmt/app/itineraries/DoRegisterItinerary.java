@@ -23,14 +23,24 @@ import pt.tecnico.po.ui.Display;
  */
 public class DoRegisterItinerary extends Command<TicketOffice> {
 
-  //FIXME define input fields
+    private Input<Integer> _id;
+    private Input<String> _departureStation;
+    private Input<String> _arrivalStation;
+    private Input<LocalDate> _departureDate;  //(YYYY-MM-DD)
+    private Input<LocalTime> _departureTime;
+    
 
   /**
    * @param receiver
    */
   public DoRegisterItinerary(TicketOffice receiver) {
     super(Label.REGISTER_ITINERARY, receiver);
-    //FIXME initialize input fields
+
+    _id = _form.addIntegerInput(Message.requestPassengerId());
+    _departureStation = _form.addStringInput(Message.requestDepartureStationName());
+    _arrivalStation =_form.addStringInput(Message.requestArrivalStationName());
+    _departureDate = _form.addIntegerInput(Message.requestDepartureDate());//convert
+    _departureTime = _form.addIntegerInput(Message.requestDepartureTime());//convert
   }
 
   /** @see pt.tecnico.po.ui.Command#execute() */

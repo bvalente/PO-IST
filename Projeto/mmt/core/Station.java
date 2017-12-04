@@ -35,7 +35,7 @@ class Station implements Serializable{
     }
 
     /**
-     * Register a TrainSop to this Station.
+     * Register a TrainStop to this Station.
      *
      * @param ltime the time of departure of the train.
      * @param service wich service this TrainStop corresponds to.
@@ -68,6 +68,7 @@ class Station implements Serializable{
      *
      * @param name name to compare to.
      */
+
     Boolean compareName(String name){
         return _name.equals(name);
     }
@@ -80,5 +81,12 @@ class Station implements Serializable{
     public String toString(){
         return _name;
     }
+
+    List<Segment> segmentList(){
+        /*List<Segment> s = new ArrayList<Segment>();
     
+
+        return s;*/
+    }
+
 }

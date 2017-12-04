@@ -14,7 +14,6 @@ class Itinerary implements Serializable{
     Itinerary () {
 
     }
-
     /*float getCost(){
         float price;
         for ( Segment segment : _segmentList ){

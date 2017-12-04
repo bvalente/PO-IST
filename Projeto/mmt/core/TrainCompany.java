@@ -255,4 +255,19 @@ class TrainCompany implements Serializable {
         return unmodifiableList;
     }
 
+    //procura simples
+    List<String> searchItinerary(Station departureStation, Station arrivalStation, LocalDate date, LocalTime time){
+
+        //List<Service> list = departureStation.serviceList();
+
+
+
+
+
+
+
+
+
+    }
+
 }

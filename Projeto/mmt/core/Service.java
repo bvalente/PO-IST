@@ -77,7 +77,10 @@ class Service implements Serializable{
         return this.getLastTrainStop().getStation();
     }
 
+    List<TrainStop> getTrainStopListFrom(TrainStop ts){
 
+        return _trainStopList.sublist( indexOf(ts), indexOf(getLastTrainStop() + 1) );
+    }
 
     /**
     * @return the list is ready to be printed.
@@ -101,16 +104,22 @@ class Service implements Serializable{
         List<TrainStop> segment = _trainStopList.sublist(indexOf(s.getFirstStop), indexOf(s.getLastStop) + 1 );
 
         //add introductory string in SHOWitinerary
-        for ( TrainStop trainStop : segment ){
-            list.add( trainStop.toString() );
+        for ( TrainStop ts : segment ){
+            list.add( ts.toString() );
         }
         return segment;
     }
 
-    public int segmentPrice(Segment s){
+    Segment getSegment(TrainStop s1, TrainStop s2){
+        int custo = segmentPrice(s1,s2);
+
+        return new Segment(s1,s2, custo, this );
+
+    }
+    public int segmentPrice(TrainStop s1, TrainStop s2){
         float price;
 
-        price = ( _totalCost * _trainStopList.size() ) / _trainStopList.sublist(indexOf(s.getFirstStop()), indexOf(s.getLastStop()) +1 ).size();
+        price = ( _totalCost * _trainStopList.size() ) / _trainStopList.sublist( indexOf(s1), indexOf(s2) + 1 ).size();
 
         return price;
     }
