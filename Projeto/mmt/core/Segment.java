@@ -5,15 +5,15 @@ import java.io.Serializable;
 class Segment implements Serializable{
     private TrainStop _firstStop;
     private TrainStop _lastStop;
-    private float _cost;
+    private double _cost;
     private Service _service;
     //var para ver qual serviço a que o segmento está associado
 
-    Segment(TrainStop firstStop, TrainStop lastStop, float cost, Service service){
+    Segment(TrainStop firstStop, TrainStop lastStop, Service service ){
         _firstStop = firstStop;
         _lastStop = lastStop;
-        _cost = cost;
         _service = service;
+        _cost = service.segmentPrice(firstStop, lastStop);
     }
 
     TrainStop getFirstStop(){
@@ -24,7 +24,7 @@ class Segment implements Serializable{
         return _lastStop;
     }
 
-    float getCost(){
+    double getCost(){
         return _cost;
     }
 

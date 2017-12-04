@@ -17,6 +17,9 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.TreeMap;
+import java.time.LocalTime;
+import java.time.LocalDate;
+
 
 /**
 * A train company has schedules (services) for its trains and passengers that
@@ -260,14 +263,14 @@ class TrainCompany implements Serializable {
 
         //List<Service> list = departureStation.serviceList();
 
-
-
-
-
-
-
-
-
+        return null; //para compilar
+    }
+    List<Segment> getSimpleSegments(Station s1,Station s2,LocalTime time ){
+        List<Segment> lista = new ArrayList<Segment>();
+        for (Service service : _serviceList){
+            lista.add(service.getSimpleSegment(s1, s2,time));
+        }
+        return lista;
     }
 
 }

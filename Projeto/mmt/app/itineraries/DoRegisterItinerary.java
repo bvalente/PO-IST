@@ -17,6 +17,8 @@ import pt.tecnico.po.ui.Input;
 import pt.tecnico.po.ui.Display;
 
 //FIXME import other classes if necessary
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 /**
  * §3.4.3. Add new itinerary.
@@ -26,9 +28,11 @@ public class DoRegisterItinerary extends Command<TicketOffice> {
     private Input<Integer> _id;
     private Input<String> _departureStation;
     private Input<String> _arrivalStation;
-    private Input<LocalDate> _departureDate;  //(YYYY-MM-DD)
-    private Input<LocalTime> _departureTime;
-    
+    private Input<String> _departureDateString;  //(YYYY-MM-DD)
+    private Input<String> _departureTimeString;
+
+    private LocalDate _departureDate;
+    private LocalTime _departureTime;
 
   /**
    * @param receiver
@@ -39,8 +43,10 @@ public class DoRegisterItinerary extends Command<TicketOffice> {
     _id = _form.addIntegerInput(Message.requestPassengerId());
     _departureStation = _form.addStringInput(Message.requestDepartureStationName());
     _arrivalStation =_form.addStringInput(Message.requestArrivalStationName());
-    _departureDate = _form.addIntegerInput(Message.requestDepartureDate());//convert
-    _departureTime = _form.addIntegerInput(Message.requestDepartureTime());//convert
+    _departureDateString = _form.addStringInput(Message.requestDepartureDate());
+    _departureDate = LocalDate.parse(_departureDateString.toString());
+    _departureTimeString = _form.addStringInput(Message.requestDepartureTime());
+    _departureTime = LocalTime.parse(_departureTimeString.toString());
   }
 
   /** @see pt.tecnico.po.ui.Command#execute() */

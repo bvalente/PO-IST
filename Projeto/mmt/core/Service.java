@@ -8,7 +8,8 @@ import java.util.LinkedList;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Locale;
-
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 /**
 * This class represents a Service: a route made by a train over several Stations.<p>
@@ -79,7 +80,8 @@ class Service implements Serializable{
 
     List<TrainStop> getTrainStopListFrom(TrainStop ts){
 
-        return _trainStopList.sublist( indexOf(ts), indexOf(getLastTrainStop() + 1) );
+        return _trainStopList.subList(
+            _trainStopList.indexOf(ts), _trainStopList.indexOf(getLastTrainStop()) + 1 );
     }
 
     /**
@@ -101,25 +103,49 @@ class Service implements Serializable{
     public List<String> showSegment(Segment s){
         List<String> list = new ArrayList<String>();
 
-        List<TrainStop> segment = _trainStopList.sublist(indexOf(s.getFirstStop), indexOf(s.getLastStop) + 1 );
+        List<TrainStop> segment = _trainStopList.subList(
+            _trainStopList.indexOf(s.getFirstStop()),
+            _trainStopList.indexOf(s.getLastStop()) + 1 );
 
         //add introductory string in SHOWitinerary
         for ( TrainStop ts : segment ){
             list.add( ts.toString() );
         }
-        return segment;
+        return list;
     }
 
     Segment getSegment(TrainStop s1, TrainStop s2){
-        int custo = segmentPrice(s1,s2);
+        return new Segment(s1,s2, this );
+    }
 
-        return new Segment(s1,s2, custo, this );
+    Segment getSimpleSegment(Station s1, Station s2, LocalTime time){
+        int i, j;
+        int length = _trainStopList.size();
+        for (i = 0; i < length-1 ; i++){
+            if (_trainStopList.get(i).getStation() == s1
+                && time.compareTo(_trainStopList.get(i).getTime()) > 0){
+                    /*FIXME pode acontecer que os dias nao sao iguas
+                     nota: s2 é pós meia-noite*/
+
+                for (j = i; j < length-1 ; j++){
+                    if (_trainStopList.get(j).getStation() == s2){
+                        return new Segment(_trainStopList.get(i),
+                            _trainStopList.get(j), this);
+                    }
+                }
+                return null;
+            }
+
+        }
+        return null;
 
     }
-    public int segmentPrice(TrainStop s1, TrainStop s2){
-        float price;
 
-        price = ( _totalCost * _trainStopList.size() ) / _trainStopList.sublist( indexOf(s1), indexOf(s2) + 1 ).size();
+    public double segmentPrice(TrainStop s1, TrainStop s2){
+        double price;
+
+        price = ( _totalCost * _trainStopList.size() ) /
+            ( _trainStopList.indexOf(s2) + 1 - _trainStopList.indexOf(s1) );
 
         return price;
     }

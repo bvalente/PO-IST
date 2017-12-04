@@ -84,9 +84,10 @@ class Station implements Serializable{
 
     List<Segment> segmentList(){
         /*List<Segment> s = new ArrayList<Segment>();
-    
+
 
         return s;*/
+        return null;//para compilar
     }
 
 }
