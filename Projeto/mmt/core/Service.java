@@ -111,8 +111,6 @@ class Service implements Serializable{
         list.add("Serviço #" + Integer.toString(_id) + " @ " +
             String.format( new Locale("en", "US"), "%.2f", _totalCost));
         for ( TrainStop ts : segment ){
-            list.add("Serviço #" + Integer.toString(_id) + " @ " +
-            String.format( new Locale("en", "US"), "%.2f", _totalCost));
             list.add( ts.toString() );
         }
         return list;
