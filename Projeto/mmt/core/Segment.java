@@ -1,6 +1,7 @@
 package mmt.core;
 
 import java.io.Serializable;
+import java.util.List;
 
 class Segment implements Serializable{
     private TrainStop _firstStop;
@@ -30,5 +31,9 @@ class Segment implements Serializable{
 
     Service getService(){
         return _service;
+    }
+
+    List<String> showSegment(){
+        return _service.showSegment(this);
     }
 }

@@ -2,6 +2,9 @@ package mmt.core;
 import java.io.Serializable;
 
 import java.util.List;
+import java.util.ArrayList;
+import java.time.LocalDate;
+import java.util.Locale;
 
 class Itinerary implements Serializable{
 
@@ -10,6 +13,7 @@ class Itinerary implements Serializable{
 
     private double _cost;
     private int _idItinerario;
+    private LocalDate _date;
 
     Itinerary () {
 
@@ -26,7 +30,21 @@ class Itinerary implements Serializable{
         return price;
     }
 
-    //String toString()
-    //depois no SHOWitinerary fazer String.format( new Locale("en", "US"), "%.2f", price))
+    List<String> showItinerary(){
+        List<String> list = new ArrayList<String>();
 
+        list.add(this.toString());
+        for (Segment seg : _segmentList){
+            list.addAll( seg.showSegment() );
+        }
+        return list;
+    }
+
+    //depois no SHOWitinerary fazer String.format( new Locale("en", "US"), "%.2f", price))
+    @Override
+    public String toString(){
+        return ("Itenerário " + Integer.toString(_idItinerario) +
+                " para " + _date.toString() + " @ " +
+                String.format( new Locale("en", "US"), "%.2f",_cost));
+    }
 }

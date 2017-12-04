@@ -10,6 +10,7 @@ import java.util.Comparator;
 import java.util.Locale;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Locale;
 
 /**
 * This class represents a Service: a route made by a train over several Stations.<p>
@@ -107,7 +108,8 @@ class Service implements Serializable{
             _trainStopList.indexOf(s.getFirstStop()),
             _trainStopList.indexOf(s.getLastStop()) + 1 );
 
-        //add introductory string in SHOWitinerary
+        list.add("Serviço #" + Integer.toString(_id) + " @ " +
+            String.format( new Locale("en", "US"), "%.2f", _totalCost));
         for ( TrainStop ts : segment ){
             list.add( ts.toString() );
         }
