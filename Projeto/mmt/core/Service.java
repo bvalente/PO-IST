@@ -110,7 +110,7 @@ class Service implements Serializable{
     public int segmentPrice(Segment s){
         float price;
 
-        price = ( _totalCost * _trainStopList.size() ) / _trainStopList.sublist(indexOf(s.getFirstStop), indexOf(s.getLastStop) +1 ).size();
+        price = ( _totalCost * _trainStopList.size() ) / _trainStopList.sublist(indexOf(s.getFirstStop()), indexOf(s.getLastStop()) +1 ).size();
 
         return price;
     }
