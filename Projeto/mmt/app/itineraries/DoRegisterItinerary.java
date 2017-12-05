@@ -44,8 +44,10 @@ public class DoRegisterItinerary extends Command<TicketOffice> {
     _departureStation = _form.addStringInput(Message.requestDepartureStationName());
     _arrivalStation =_form.addStringInput(Message.requestArrivalStationName());
     _departureDateString = _form.addStringInput(Message.requestDepartureDate());
+    //apanhar excepcoes
     _departureDate = LocalDate.parse(_departureDateString.toString());
     _departureTimeString = _form.addStringInput(Message.requestDepartureTime());
+    //apanhar excepcoes
     _departureTime = LocalTime.parse(_departureTimeString.toString());
   }
 
