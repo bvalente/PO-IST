@@ -187,5 +187,31 @@ class Service implements Serializable{
             return s1.getLastTrainStop().getTime().compareTo(s2.getLastTrainStop().getTime());
         }
     }
+    /*
+    Itinerario compute (TrainStop partida, Station Target ...){
+    //mais argumentos: servicos ja visitados, estacoes por ja passadas
+
+    se existir trainStop com estacao Target em this(Service)
+    e a hora for posterior a partida
+        return Itinerario
+
+    //else
+    for cada estacao depois de departure
+    //utilizar servicos cuja trainStop de estacao saia de estacao depois da hora de partida
+
+        for cada servico em estacao(expeto os ja visitados)
+            iti = servico.compute(trainStop, target, ...)
+            //atualizar melhor itinerario( se for mais rapido)
+            reconstruir itinerario com o segmento atual no inicio
+            (porque estamos a constuir do fim para o inicio)
+    return itin
+
+
+    //nota
+    procurar o itinerario que chega ao destino mais cedo
+    as estacoes so podem ser consideradas uma vez
+    }
+
+    */
 
 }
