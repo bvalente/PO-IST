@@ -143,6 +143,18 @@ class Service implements Serializable{
 
     }
 
+    Segment getSimpleSegment(TrainStop ts, Station station){
+        int indice = _trainStopList.indexOf(ts);
+        int i;
+        for(i = indice+1; i < _trainStopList.size()-1; i++){
+            TrainStop ts2 = _trainStopList.get(i);
+            if ( ts2.getStation().compareStationId( station ) ){
+                return new Segment(ts, ts2, this);
+            }
+        }
+        return null;
+    }
+
     public double segmentPrice(TrainStop s1, TrainStop s2){
         double price;
 

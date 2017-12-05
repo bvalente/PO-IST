@@ -273,4 +273,18 @@ class TrainCompany implements Serializable {
         return lista;
     }
 
+    List<Itinerary> getAllItineraries(Station s1, Station s2){
+    	List<TrainStop> trainStopList = s1.getTrainStopList();
+    	List<Itinerary> itiList = new ArrayList<Itinerary>();
+
+    	for(TrainStop ts : trainStopList){
+
+    		Segment seg = ts.getService().getSimpleSegment(ts, s2);
+    		if (seg != null)
+    			itiList.add(new Itinerary(seg));
+
+    	}
+    	return itiList;
+    }
+
 }

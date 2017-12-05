@@ -18,6 +18,11 @@ class Itinerary implements Serializable{
     Itinerary () {
 
     }
+
+    Itinerary(Segment seg){
+        //para compilar
+    }
+
     double getCost(){
 
         double price = 0;

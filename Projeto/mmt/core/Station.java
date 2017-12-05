@@ -20,7 +20,7 @@ class Station implements Serializable{
     private int _id;
 
     /** This Station's correspondent TrainStops, in the form of a list. */
-    List<TrainStop> _trainStopList;
+    private List<TrainStop> _trainStopList;
 
     /**
      * Constructor
@@ -52,6 +52,10 @@ class Station implements Serializable{
      */
     int getId(){
         return _id;
+    }
+
+    List<TrainStop> getTrainStopList(){
+        return _trainStopList;
     }
 
     /**
