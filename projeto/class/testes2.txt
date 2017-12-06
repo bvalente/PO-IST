@@ -1,0 +1,41 @@
+# A-06-01 Procurar itinerário não existente entre duas estações
+# A-06-02 Procurar itinerário não existente entre duas estações  mas existe o itinerário contrário
+# A-06-03 Procurar itinerário não existente a partir de uma dada hora entre duas estações
+# A-06-04 Procurar itinerário simples só com uma resposta  e estações intermédias
+# A-06-05 Procurar itinerário simples só com uma resposta e estação inicial e final
+# A-06-06 Procurar itinerário simples só com uma resposta e estação inicial e intermédia
+# A-06-07 Procurar itinerário simples só com uma resposta e estação intermédia  e final
+# A-06-08 Procurar itinerário simples só com duas respostas (e import ordenado)
+# A-06-12 Procurar itinerário com uma resposta e fazer escolha errada
+# A-06-16 Encontra um itinerário composto
+# A-06-17 Encontra um itinerário composto e filtra outro com base na hora
+# A-06-18 Encontra um itinerário composto e segundo troço é só uma estação
+
+Import, Reset e Persistência
+
+# A-07-01 import com passageiros e itinerários simples) e vê itinerários e passageiros
+# A-07-02 import (com passageiros e itinerários compostos e simples) e vê itinerários e passageiros
+# A-07-03 reset (só com passageiros)
+# A-07-04 reset (só com passageiros) e cria novo passageiro
+# A-07-05 reset (só com passageiros e itinerários) e cria novo passageiro
+
+Visualização de Itinerários
+
+# A-08-01 Visualiza os itinerários de um passageiro sem itinerários
+# A-08-02 Visualiza os itinerários de um passageiro com um itinerário simples
+# A-08-03 Visualiza os itinerários de um passageiro com um itinerário composto
+# A-08-04 Visualiza os itinerários de um passageiro com vários itinerários
+
+Compra de itinerários
+
+# A-09-01 Compra um itinerário simples, ver passageiro
+# A-09-02 Compra um itinerário composto, ver passageiro
+# A-09-03 Compra vários itinerários, ver passageiro normal, compra + 1 e ver passagem para frequente
+# A-09-04 Compra vários itinerários, ver passageiro normal, compra + 1 e ver passagem para Especial
+
+Procura de serviços
+
+# A-10-01 Procurar serviços com estação final com uma escolha
+# A-10-02 Procurar serviços com estação final com uma estação inválida
+# A-10-03 Procurar serviços com estação final com várias escolhas ordenadas já
+# A-10-05 Procurar serviços com estação final com uma estação que nunca é final de nenhum serviço

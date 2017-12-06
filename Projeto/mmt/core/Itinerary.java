@@ -48,8 +48,12 @@ class Itinerary implements Serializable{
     //depois no SHOWitinerary fazer String.format( new Locale("en", "US"), "%.2f", price))
     @Override
     public String toString(){
-        return ("Itenerário " + Integer.toString(_idItinerario) +
+        return ("Itinerário " + Integer.toString(_idItinerario) +
                 " para " + _date.toString() + " @ " +
                 String.format( new Locale("en", "US"), "%.2f",_cost));
+    }
+
+    Boolean travelTime(  ){
+        //compares departure time of a station and arrival time 
     }
 }

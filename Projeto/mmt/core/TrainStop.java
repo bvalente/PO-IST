@@ -33,6 +33,9 @@ class TrainStop implements Serializable{
 
     Service getService(){ return _service; }
 
+    Boolean isBefore(TrainStop arrival){
+        return this.getTime().isBefore(arrival.getTime());
+    }
     /**
     * @return string with departure time
     */

@@ -58,6 +58,7 @@ class Service implements Serializable{
     }
 
 
+
     /** This method returns the first TrainStop in the train Stop List.<p>
     * @return TrainStop
     */
@@ -120,14 +121,13 @@ class Service implements Serializable{
         return new Segment(s1,s2, this );
     }
 
-    Segment getSimpleSegment(Station s1, Station s2, LocalTime time){
+    /*Segment getSimpleSegment(Station s1, Station s2, LocalTime time){
         int i, j;
         int length = _trainStopList.size();
         for (i = 0; i < length-1 ; i++){
             if (_trainStopList.get(i).getStation() == s1
                 && time.compareTo(_trainStopList.get(i).getTime()) > 0){
-                    /*FIXME pode acontecer que os dias nao sao iguas
-                     nota: s2 é pós meia-noite*/
+
 
                 for (j = i; j < length-1 ; j++){
                     if (_trainStopList.get(j).getStation() == s2){
@@ -141,9 +141,9 @@ class Service implements Serializable{
         }
         return null;
 
-    }
+    }*/
 
-    Segment getSimpleSegment(TrainStop ts, Station station){
+    /*Segment getSimpleSegment(TrainStop ts, Station station){
         int indice = _trainStopList.indexOf(ts);
         int i;
         for(i = indice+1; i < _trainStopList.size()-1; i++){
@@ -153,7 +153,7 @@ class Service implements Serializable{
             }
         }
         return null;
-    }
+    }*/
 
     public double segmentPrice(TrainStop s1, TrainStop s2){
         double price;
@@ -162,6 +162,77 @@ class Service implements Serializable{
             ( _trainStopList.indexOf(s2) + 1 - _trainStopList.indexOf(s1) );
 
         return price;
+    }
+
+    /*
+    Itinerario compute (TrainStop partida, Station Target ...){
+    //mais argumentos: servicos ja visitados, estacoes por ja passadas
+
+    se existir trainStop com estacao Target em this(Service)
+    e a hora for posterior a partida
+        return Itinerario
+
+    //else
+    for cada estacao depois de departure
+    //utilizar servicos cuja trainStop de estacao saia de estacao depois da hora de partida
+
+        for cada servico em estacao(expeto os ja visitados)
+            iti = servico.compute(trainStop, target, ...)
+            //atualizar melhor itinerario( se for mais rapido)
+            reconstruir itinerario com o segmento atual no inicio
+            (porque estamos a constuir do fim para o inicio)
+    return itin
+
+
+    //nota
+    procurar o itinerario que chega ao destino mais cedo
+    as estacoes so podem ser consideradas uma vez
+    }
+    */
+    TrainStop hasStation(Station station){
+        for (TrainStop ts : _trainStopList){
+            if ( ts.getStation().compareStationId(station) ){
+                return ts;
+            }
+        }
+        return null;
+    }
+
+
+
+    Itinerary compute(TrainStop departure, Station arrival, List<Service> serviceList, List<Station> stationList){
+        Itinerary it = null;
+
+        TrainStop arrivalTS = hasStation(arrival);
+        if ( arrivalTS != null && departure.isBefore(arrivalTS) ){
+            Segment segment = new Segment(departure, arrivalTS, this);
+            return new Itinerary(segment);
+        }
+
+
+        else{
+            for ( TrainStop trainStop : _trainStopList ){   // percorre serviço
+
+                if ( departure.getTime().isBefore( trainStop ) ){ // selects trainStops : time
+
+                    if ( stationList.contains( trainStop.getStation() ) ){ // checks if station was already used
+                        return it;
+                    }
+                    
+                    it = compute ( trainStop, arrival, serviceList, stationList );
+
+                }
+
+
+            }
+
+
+
+
+        }
+
+
+
     }
 
     /**This nested class is used to compare two Services by their id.
@@ -187,31 +258,6 @@ class Service implements Serializable{
             return s1.getLastTrainStop().getTime().compareTo(s2.getLastTrainStop().getTime());
         }
     }
-    /*
-    Itinerario compute (TrainStop partida, Station Target ...){
-    //mais argumentos: servicos ja visitados, estacoes por ja passadas
 
-    se existir trainStop com estacao Target em this(Service)
-    e a hora for posterior a partida
-        return Itinerario
-
-    //else
-    for cada estacao depois de departure
-    //utilizar servicos cuja trainStop de estacao saia de estacao depois da hora de partida
-
-        for cada servico em estacao(expeto os ja visitados)
-            iti = servico.compute(trainStop, target, ...)
-            //atualizar melhor itinerario( se for mais rapido)
-            reconstruir itinerario com o segmento atual no inicio
-            (porque estamos a constuir do fim para o inicio)
-    return itin
-
-
-    //nota
-    procurar o itinerario que chega ao destino mais cedo
-    as estacoes so podem ser consideradas uma vez
-    }
-
-    */
 
 }
