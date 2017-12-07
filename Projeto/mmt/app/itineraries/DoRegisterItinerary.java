@@ -44,17 +44,19 @@ public class DoRegisterItinerary extends Command<TicketOffice> {
     _departureStation = _form.addStringInput(Message.requestDepartureStationName());
     _arrivalStation =_form.addStringInput(Message.requestArrivalStationName());
     _departureDateString = _form.addStringInput(Message.requestDepartureDate());
-    //apanhar excepcoes
-    _departureDate = LocalDate.parse(_departureDateString.toString());
     _departureTimeString = _form.addStringInput(Message.requestDepartureTime());
-    //apanhar excepcoes
-    _departureTime = LocalTime.parse(_departureTimeString.toString());
   }
 
   /** @see pt.tecnico.po.ui.Command#execute() */
 
   @Override
   public final void execute() throws DialogException {
+      _form.parse();
+      //apanhar excepcoes
+      _departureDate = LocalDate.parse(_departureDateString.toString());
+      //apanhar excepcoes
+      _departureTime = LocalTime.parse(_departureTimeString.toString());
+
         /* uncoment on last submission
     try {
       //FIXME implement command
