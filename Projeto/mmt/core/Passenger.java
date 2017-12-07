@@ -81,6 +81,14 @@ class Passenger implements Serializable{
         _discount.update(sum);
     }
 
+    List<String> showAllItineraries(){
+        List<String> list = new ArrayList<String>();
+
+        for ( Itinerary it : _travels ){
+            list.addAll(it.showItinerary());
+        }
+        return list;
+    }
     /**
      * @return passenger id.
      */

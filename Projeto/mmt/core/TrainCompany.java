@@ -85,6 +85,15 @@ class TrainCompany implements Serializable {
         return passenger;
     }
 
+    Passenger getPassenger(int id) throws NoSuchPassengerIdException{
+
+        Passenger passenger = _passengerMap.get( Integer.valueOf(id) );
+        if (passenger != null){
+            return passenger;
+        }
+        throw new NoSuchPassengerIdException( id );
+    }
+
     /**
      * Registers a Station to this TrainCompany.
      *

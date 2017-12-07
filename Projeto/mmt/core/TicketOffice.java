@@ -91,6 +91,11 @@ public class TicketOffice {
         return new Itinerary();
     }
 
+    public List<String> showItineraries(int passengerId)throws NoSuchPassengerIdException{
+        Passenger passenger = _trainCompany.getPassenger(passengerId);
+        return passenger.showAllItineraries();
+
+    }
     /** Registers a passenger.
     *
     * @param name string with passenger name to be registered

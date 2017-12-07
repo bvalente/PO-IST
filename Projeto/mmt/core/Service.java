@@ -231,25 +231,28 @@ class Service implements Serializable{
                             List<Station> copyStationsUsed = new ArrayList<Station>(stationsUsed);
                             itAux = compute ( trainStop, arrival, copyServicesUsed, copyStationsUsed );
 
-                            if(it == null && itAux != null){ //it = null, itAux = Itinerary
+                            if (itAux != null){
+
                                 itAux.addSegment(seg);
+
+                                if(it == null ){ //it = null, itAux = Itinerary
                                 it = itAux;
 
-                            } else if (it != null && itAux != null) { //it = Itinerary, itAux = Itinerary
+                                } else { //it = Itinerary, itAux = Itinerary
 
-                                //compare itineraries
-                                int x = it.timeOfArrival().compareTo( itAux.timeOfArrival() );
-                                //x < 0: it chega primeiro
-                                //x = 0: chegam ao mesmo tempo, ver o que tiver menor custo
-                                //x > 0: itAux cheaga primeiro
-
-
-
+                                    //compare itineraries
+                                    int x = it.timeOfArrival().compareTo( itAux.timeOfArrival() );
+                                    //x < 0: it chega primeiro
+                                    //x = 0: chegam ao mesmo tempo, ver o que tiver menor custo
+                                    //x > 0: itAux cheaga primeiro
+                                    if ( ( x == 0 && it.getCost() > itAux.getCost() ) || x > 0 ) {
+                                        it = itAux;
+                                    }
+                                }
                             }
+                            //compute nao deu nenhum itinerario
                         }
                     }
-
-
                 }
             } //fim do for
             return null; //erro, nao encontrou itinerario

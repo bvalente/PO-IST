@@ -8,25 +8,42 @@ import pt.tecnico.po.ui.DialogException;
 import pt.tecnico.po.ui.Input;
 import pt.tecnico.po.ui.Display;
 
+import java.util.List;
 /**
- * §3.4.2. Show all itineraries (for a specific passenger).
- */
+* §3.4.2. Show all itineraries (for a specific passenger).
+*/
 public class DoShowPassengerItineraries extends Command<TicketOffice> {
 
-  //FIXME define input fields
+    private Input<Integer> _passengerId;
 
-  /**
-   * @param receiver
-   */
-  public DoShowPassengerItineraries(TicketOffice receiver) {
-    super(Label.SHOW_PASSENGER_ITINERARIES, receiver);
-    //FIXME initialize input fields
-  }
+    /**
+    * @param receiver
+    */
+    public DoShowPassengerItineraries(TicketOffice receiver) {
+        super(Label.SHOW_PASSENGER_ITINERARIES, receiver);
 
-  /** @see pt.tecnico.po.ui.Command#execute() */
-  @Override
-  public final void execute() throws DialogException {
-    //FIXME implement command
-  }
+        _passengerId = _form.addIntegerInput(Message.requestPassengerId());
+    }
+
+    /** @see pt.tecnico.po.ui.Command#execute() */
+    @Override
+    public final void execute() throws DialogException {
+        _form.parse();
+
+        List<String> print;
+        try{
+            print = _receiver.showItineraries(_passengerId.valueOf());
+            if ( print.isEmpty() ){
+                _display.addLine( Message.noItineraries(_passengerId));
+            } else{
+                for ( String string : print ){
+                    _display.addLine(string);
+                }
+            }
+            _display.display();
+        } catch (NoSuchPassengerIdException e){
+            throw new NoSuchPassengerException (e.getId());
+        }
+    }
 
 }
