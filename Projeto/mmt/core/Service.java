@@ -200,7 +200,7 @@ class Service implements Serializable{
 
 
 
-    Itinerary compute(TrainStop departure, Station arrival, List<Service> serviceList, List<Station> stationList){
+    Itinerary compute(TrainStop departure, Station arrival, List<Service> servicesUsed, List<Station> stationsUsed){
         Itinerary it = null;
         Itinerary itAux = null;
 
@@ -212,40 +212,49 @@ class Service implements Serializable{
 
 
         else{
+            servicesUsed.add( departure.getService() );
             for ( TrainStop trainStop : _trainStopList ){   // percorre serviço
+                if ( departure.isBefore( trainStop ) ){ // selects trainStops : time
+                    Segment seg = new Segment(departure, trainStop, this);
 
-                if ( departure.getTime().isBefore( trainStop.getTime() ) ){ // selects trainStops : time
-
-                    if ( stationList.contains( trainStop.getStation() ) ){ // checks if station was already used
+                    if ( stationsUsed.contains( trainStop.getStation() ) ){ // checks if station was already used
                         return it;
                     }
                     else {
-                        Segment seg = new Segment(departure, trainStop, this);
-                        itAux = compute ( trainStop, arrival, serviceList, stationList );
-                        if(it == null && itAux != null){ //it = null, itAux = Itinerary
-                            itAux.addSegment(seg);
-                            it = itAux;
-                        } else if (it != null && itAux != null) { //it = Itinerary, itAux = Itinerary
-                            //compare itineraries
-                            int x = it.timeOfArrival().compareTo( itAux.timeOfArrival() );
-                            //x < 0: it chega primeiro
-                            //x = 0: chegam ao mesmo tempo, ver o que tiver menor numero de segmentos
-                            //x > 0: itAux cheaga primeiro
+                        for( Service service : trainStop.getStation().getServiceList() ){
+                            if(servicesUsed.contains(service) ){
+                                break;
+                            }
+                            stationsUsed.add(trainStop.getStation() );
 
+                            List<Service> copyServicesUsed = new ArrayList<Service>(servicesUsed);
+                            List<Station> copyStationsUsed = new ArrayList<Station>(stationsUsed);
+                            itAux = compute ( trainStop, arrival, copyServicesUsed, copyStationsUsed );
+
+                            if(it == null && itAux != null){ //it = null, itAux = Itinerary
+                                itAux.addSegment(seg);
+                                it = itAux;
+
+                            } else if (it != null && itAux != null) { //it = Itinerary, itAux = Itinerary
+
+                                //compare itineraries
+                                int x = it.timeOfArrival().compareTo( itAux.timeOfArrival() );
+                                //x < 0: it chega primeiro
+                                //x = 0: chegam ao mesmo tempo, ver o que tiver menor custo
+                                //x > 0: itAux cheaga primeiro
+
+
+
+                            }
                         }
                     }
 
 
                 }
-
-
-            }
-
-
-
-
+            } //fim do for
+            return null; //erro, nao encontrou itinerario
         }
-        return null; //erro, nao encontrou itinerario
+        //fim da funcao
     }
 
 

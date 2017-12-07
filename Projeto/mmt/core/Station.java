@@ -58,6 +58,14 @@ class Station implements Serializable{
         return _trainStopList;
     }
 
+    List<Service> getServiceList(){
+        List<Service> list = new ArrayList<Service>();
+        for (TrainStop ts : _trainStopList){
+            list.add(ts.getService());
+        }
+        return list;
+    }
+
     /**
      * Compares the station's id with  the id of another station.
      *
