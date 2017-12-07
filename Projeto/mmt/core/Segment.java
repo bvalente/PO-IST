@@ -41,4 +41,8 @@ class Segment implements Serializable{
     LocalTime timeOfArrival(){
         return _lastStop.getTime();
     }
+
+    LocalTime timeOfDeparture(){
+        return _firstStop.getTime();
+    }
 }

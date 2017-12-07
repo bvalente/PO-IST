@@ -267,7 +267,7 @@ class Service implements Serializable{
             }
         } //fim do for
 
-        return null; //erro, nao encontrou itinerario
+        return it; //erro, nao encontrou itinerario
         //fim da funcao
     }
 

@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Locale;
+import java.util.Comparator;
+import java.time.Duration;
 
 class Itinerary implements Serializable{
 
@@ -67,8 +69,32 @@ class Itinerary implements Serializable{
         return false; //para compilar
     }
 
-    LocalTime timeOfArrival(){
-        Segment seg = _segmentList.get(_segmentList.size() -1);
-        return seg.timeOfArrival();
+    LocalTime timeOfDeparture(){
+        return _segmentList.get(0).timeOfDeparture();
     }
+
+    LocalTime timeOfArrival(){
+        return _segmentList.get(_segmentList.size() -1).timeOfArrival();
+    }
+
+    public static class ItineraryComparator implements Comparator<Itinerary>{
+        public int compare(Itinerary it1, Itinerary it2){
+            int x = it1.timeOfDeparture().compareTo(it2.timeOfDeparture() );
+            int y = it1.timeOfArrival().compareTo(it2.timeOfArrival() );
+            Duration d1 = Duration.between(it1.timeOfDeparture(), it1.timeOfArrival() );
+            Duration d2 = Duration.between(it2.timeOfDeparture(), it2.timeOfArrival() );
+            int z = d1.compareTo(d2);
+
+            //x<0: it1 sai mais cedo
+            //y<0: it1 chega mais cedo
+            //z<0: it1 tem menor duracao
+            if(x == 0 && y == 0 && z > 0 || x == 0 && y > 0 || x > 0){
+                return -1;
+            }
+            return 1;
+
+        }
+
+    }
+
 }
