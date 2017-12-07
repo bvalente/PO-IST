@@ -215,6 +215,15 @@ class TrainCompany implements Serializable {
         return unmodifiableList;
     }
 
+    List<String> showAllItineraries(){
+        List<String> stringList = new ArrayList<String>();
+        for(Passenger passenger: _passengerMap.values()){
+            stringList.add(passenger.toString());
+            stringList.addAll(passenger.showAllItineraries());
+        }
+        return stringList;
+    }
+
     /** Shows all services departing from a given station.<p>
     *
     * @param stationName String with the station name

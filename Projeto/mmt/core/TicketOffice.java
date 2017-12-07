@@ -96,6 +96,10 @@ public class TicketOffice {
         return passenger.showAllItineraries();
 
     }
+
+    public List<String> showAllItineraries(){
+        return _trainCompany.showAllItineraries();
+    }
     /** Registers a passenger.
     *
     * @param name string with passenger name to be registered
