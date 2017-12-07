@@ -114,6 +114,14 @@ class TrainCompany implements Serializable {
         _stationList.add(station);
         return station;
     }
+    Station getStation(String name){
+        for ( Station station : _stationList ){
+            if (station.compareName(name)){
+                return station;
+            }
+        }
+        return null; // ?
+    }
 
     /**
      * Registers a Service to this TrainCompany.
@@ -227,7 +235,6 @@ class TrainCompany implements Serializable {
     List<String> showAllItineraries(){
         List<String> stringList = new ArrayList<String>();
         for(Passenger passenger: _passengerMap.values()){
-            stringList.add(passenger.toString());
             stringList.addAll(passenger.showAllItineraries());
         }
         return stringList;

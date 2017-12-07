@@ -211,12 +211,13 @@ class Service implements Serializable{
 
 
     Itinerary compute(TrainStop departure, Station arrival, List<Service> servicesUsed, List<Station> stationsUsed){
+        //passar também tempo e data do Input como argumentos? a função dada pelo stor do search itineraries em ticket office recebe.
         Itinerary it = null;
         Itinerary itAux = null;
 
         //simple itinerary
         TrainStop arrivalTS = this.hasStation(arrival);
-        if ( arrivalTS != null && departure.isBefore(arrivalTS) ){
+        if ( arrivalTS != null && departure.isBefore(arrivalTS)){
             Segment segment = new Segment(departure, arrivalTS, this);
             return new Itinerary(segment);
         }

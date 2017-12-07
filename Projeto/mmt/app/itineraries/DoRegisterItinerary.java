@@ -21,8 +21,8 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 /**
- * §3.4.3. Add new itinerary.
- */
+* §3.4.3. Add new itinerary.
+*/
 public class DoRegisterItinerary extends Command<TicketOffice> {
 
     private Input<Integer> _id;
@@ -34,45 +34,50 @@ public class DoRegisterItinerary extends Command<TicketOffice> {
     private LocalDate _departureDate;
     private LocalTime _departureTime;
 
-  /**
-   * @param receiver
-   */
-  public DoRegisterItinerary(TicketOffice receiver) {
-    super(Label.REGISTER_ITINERARY, receiver);
+    /**
+    * @param receiver
+    */
+    public DoRegisterItinerary(TicketOffice receiver) {
+        super(Label.REGISTER_ITINERARY, receiver);
 
-    _id = _form.addIntegerInput(Message.requestPassengerId());
-    _departureStation = _form.addStringInput(Message.requestDepartureStationName());
-    _arrivalStation =_form.addStringInput(Message.requestArrivalStationName());
-    _departureDateString = _form.addStringInput(Message.requestDepartureDate());
-    _departureTimeString = _form.addStringInput(Message.requestDepartureTime());
-  }
-
-  /** @see pt.tecnico.po.ui.Command#execute() */
-
-  @Override
-  public final void execute() throws DialogException {
-      _form.parse();
-      //apanhar excepcoes
-      _departureDate = LocalDate.parse(_departureDateString.toString());
-      //apanhar excepcoes
-      _departureTime = LocalTime.parse(_departureTimeString.toString());
-
-        /* uncoment on last submission
-    try {
-      //FIXME implement command
-
-      // must call (at least) _receiver.searchItineraries(...) and _receiver.commitItinerary(...)
-    } catch (NoSuchPassengerIdException e) {
-      throw new NoSuchPassengerException(e.getId());
-    } catch (NoSuchStationNameException e) {
-      throw new NoSuchStationException(e.getName());
-    } catch (NoSuchItineraryChoiceException e) {
-      throw new NoSuchItineraryException(e.getPassengerId(), e.getItineraryId());
-    } catch (BadDateSpecificationException e) {
-      throw new BadDateException(e.getDate());
-    } catch (BadTimeSpecificationException e) {
-      throw new BadTimeException(e.getTime());
+        _id = _form.addIntegerInput(Message.requestPassengerId());
+        _departureStation = _form.addStringInput(Message.requestDepartureStationName());
+        _arrivalStation =_form.addStringInput(Message.requestArrivalStationName());
+        _departureDateString = _form.addStringInput(Message.requestDepartureDate());
+        _departureTimeString = _form.addStringInput(Message.requestDepartureTime());
     }
-    uncoment*/
-  }
+
+    /** @see pt.tecnico.po.ui.Command#execute() */
+
+    @Override
+    public final void execute() throws DialogException {
+        _form.parse();
+        //apanhar excepcoes
+        //fazer coversao para localdate/time em ticjet office?
+        _departureDate = LocalDate.parse(_departureDateString.toString());
+        //apanhar excepcoes
+        _departureTime = LocalTime.parse(_departureTimeString.toString());
+
+/*
+        try {
+
+            //search com os argumentos.tostring()
+            //show them
+            //parse do numero do itinerario que o cliente escolher
+            //usar a funcao commitItinerary to add
+
+            // must call (at least) _receiver.searchItineraries(...) and _receiver.commitItinerary(...)
+        } catch (NoSuchPassengerIdException e) {
+            throw new NoSuchPassengerException(e.getId());
+        } catch (NoSuchStationNameException e) {
+            throw new NoSuchStationException(e.getName());
+        } catch (NoSuchItineraryChoiceException e) {
+            throw new NoSuchItineraryException(e.getPassengerId(), e.getItineraryId());
+        } catch (BadDateSpecificationException e) {
+            throw new BadDateException(e.getDate());
+        } catch (BadTimeSpecificationException e) {
+            throw new BadTimeException(e.getTime());
+        }*/
+
+    }
 }

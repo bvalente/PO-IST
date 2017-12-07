@@ -21,7 +21,8 @@ import mmt.core.exceptions.NonUniquePassengerNameException;
 
 import java.io.File;
 import java.util.List;
-
+import java.time.LocalDate;
+import java.time.LocalTime;
 /**
 * Façade for handling persistence and other functions.
 */
@@ -79,9 +80,20 @@ public class TicketOffice {
     }
 
     //FIXME complete and implement the itinerary search (and pre-commit store) method
-    public Itinerary /*FIXME choose return type */ searchItineraries(int passengerId, String departureStation, String arrivalStation, String departureDate,
-    String departureTime) /*FIXME define thrown exceptions */ {
-        //FIXME implement method
+    public Itinerary /*List <Itinerary> */searchItineraries(int passengerId, String departureStation, String arrivalStation, String departureDate,
+    String departureTime) throws NoSuchPassengerIdException  {/* BadTimeException, BadDateException*/
+        //try
+        Passenger passenger = _trainCompany.getPassenger(passengerId);
+        LocalTime time = LocalTime.parse(departureTime); //not sure if this is the correct way to do it
+        LocalDate date = LocalDate.parse(departureDate);
+
+        //for para ver todas os servicos da station de partida. para usar com o compute
+        //criar trainstop
+        //TrainStop ts = TrainStop( _trainCompany.getStation(departureStation) ,  );
+
+        Station station = _trainCompany.getStation(arrivalStation);
+
+
         return new Itinerary();
     }
 
