@@ -1,59 +1,46 @@
-*** tests2/A-06-07.out	2017-12-04 11:34:48.000000000 +0000
---- tests2/A-06-07.outhyp	2017-12-06 12:59:55.000000000 +0000
+*** tests2/A-06-07.out	2017-12-07 08:13:15.199333700 +0000
+--- tests2/A-06-07.outhyp	2017-12-07 10:50:12.218492900 +0000
 ***************
-*** 2,45 ****
-  1 - Reiniciar
-  2 - Abrir
-  3 - Guardar
-! 4 - Consulta de serviços
-! 5 - Gestão de passageiros
-! 6 - Gestão de itinerários
+*** 6,45 ****
+  5 - Gestão de passageiros
+  6 - Gestão de itinerários
   0 - Sair
-! Escolha uma opção: Menu de gestão de itinerários
-! 1 - Mostrar todos os itinerários
-! 2 - Mostrar itinerários associados a um passageiro
-! 3 - Registar itinerário para um passageiro
-! 0 - Sair
-! Escolha uma opção: Identificador do passageiro: Nome da estação de partida: Nome da estação de destino: Data de partida (YYYY-MM-DD): Hora de partida (HH:MM): 
-! Itinerário 1 para 2017-12-25 @ 4.75
-! Serviço #6403 @ 4.75
-! 06:52 Sapataria
-! 06:55 Pero Negro
-! 06:58 Zibreira
-! 07:01 Feliteira
-! 07:05 Dois Portos
-! 07:10 Runa
-! 07:15 Torres Vedras
-! 07:23 Ramalhal
-! 07:30 Outeiro
-! 07:41 Bombarral
-! 07:46 Paúl
-! 07:50 São Mamede
-! 07:54 Dagorda-Peniche
-! 07:57 Óbidos
-! 08:03 Caldas da Rainha
-! Número do itinerário: Menu de gestão de itinerários
-! 1 - Mostrar todos os itinerários
-! 2 - Mostrar itinerários associados a um passageiro
-! 3 - Registar itinerário para um passageiro
-! 0 - Sair
-! Escolha uma opção: Menu principal
-! 1 - Reiniciar
-! 2 - Abrir
-! 3 - Guardar
-! 4 - Consulta de serviços
-! 5 - Gestão de passageiros
-! 6 - Gestão de itinerários
-! 0 - Sair
-! Escolha uma opção: 
+- Escolha uma opção: Menu de gestão de itinerários
+- 1 - Mostrar todos os itinerários
+- 2 - Mostrar itinerários associados a um passageiro
+- 3 - Registar itinerário para um passageiro
+- 0 - Sair
+- Escolha uma opção: Identificador do passageiro: Nome da estação de partida: Nome da estação de destino: Data de partida (YYYY-MM-DD): Hora de partida (HH:MM): 
+- Itinerário 1 para 2017-12-25 @ 4.75
+- Serviço #6403 @ 4.75
+- 06:52 Sapataria
+- 06:55 Pero Negro
+- 06:58 Zibreira
+- 07:01 Feliteira
+- 07:05 Dois Portos
+- 07:10 Runa
+- 07:15 Torres Vedras
+- 07:23 Ramalhal
+- 07:30 Outeiro
+- 07:41 Bombarral
+- 07:46 Paúl
+- 07:50 São Mamede
+- 07:54 Dagorda-Peniche
+- 07:57 Óbidos
+- 08:03 Caldas da Rainha
+- Número do itinerário: Menu de gestão de itinerários
+- 1 - Mostrar todos os itinerários
+- 2 - Mostrar itinerários associados a um passageiro
+- 3 - Registar itinerário para um passageiro
+- 0 - Sair
+- Escolha uma opção: Menu principal
+- 1 - Reiniciar
+- 2 - Abrir
+- 3 - Guardar
+- 4 - Consulta de serviços
+- 5 - Gestão de passageiros
+- 6 - Gestão de itinerários
+- 0 - Sair
+  Escolha uma opção: 
 \ No newline at end of file
---- 2,9 ----
-  1 - Reiniciar
-  2 - Abrir
-  3 - Guardar
-! 4 - Consulta de serviÃ§os
-! 5 - GestÃ£o de passageiros
-! 6 - GestÃ£o de itinerÃ¡rios
-  0 - Sair
-! Escolha uma opÃ§Ã£o: 
-\ No newline at end of file
+--- 6,9 ----

@@ -35,7 +35,7 @@ Compra de itinerários
 
 Procura de serviços
 
-# A-10-01 Procurar serviços com estação final com uma escolha
-# A-10-02 Procurar serviços com estação final com uma estação inválida
-# A-10-03 Procurar serviços com estação final com várias escolhas ordenadas já
-# A-10-05 Procurar serviços com estação final com uma estação que nunca é final de nenhum serviço
+    # A-10-01 Procurar serviços com estação final com uma escolha
+    # A-10-02 Procurar serviços com estação final com uma estação inválida
+    # A-10-03 Procurar serviços com estação final com várias escolhas ordenadas já
+    # A-10-05 Procurar serviços com estação final com uma estação que nunca é final de nenhum serviço

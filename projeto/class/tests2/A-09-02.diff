@@ -1,75 +1,62 @@
-*** tests2/A-09-02.out	2017-12-04 11:50:02.000000000 +0000
---- tests2/A-09-02.outhyp	2017-12-06 12:59:59.000000000 +0000
+*** tests2/A-09-02.out	2017-12-07 08:13:15.301160000 +0000
+--- tests2/A-09-02.outhyp	2017-12-07 10:50:16.139844800 +0000
 ***************
-*** 2,61 ****
-  1 - Reiniciar
-  2 - Abrir
-  3 - Guardar
-! 4 - Consulta de serviços
-! 5 - Gestão de passageiros
-! 6 - Gestão de itinerários
+*** 6,61 ****
+  5 - Gestão de passageiros
+  6 - Gestão de itinerários
   0 - Sair
-! Escolha uma opção: Menu de gestão de itinerários
-! 1 - Mostrar todos os itinerários
-! 2 - Mostrar itinerários associados a um passageiro
-! 3 - Registar itinerário para um passageiro
-! 0 - Sair
-! Escolha uma opção: Identificador do passageiro: Nome da estação de partida: Nome da estação de destino: Data de partida (YYYY-MM-DD): Hora de partida (HH:MM): 
-! Itinerário 1 para 2017-12-25 @ 16.04
-! Serviço #590 @ 9.64
-! 07:02 Lisboa - Oriente
-! 07:10 Lisboa - Entrecampos
-! 07:57 Poceirão
-! 08:06 Pegoes
-! 08:10 São João das Craveiras
-! 08:21 Vendas Novas
-! Serviço #690 @ 6.40
-! 08:31 Vendas Novas
-! 08:53 Pinhal Novo
-! 09:14 Pragal
-! Número do itinerário: Menu de gestão de itinerários
-! 1 - Mostrar todos os itinerários
-! 2 - Mostrar itinerários associados a um passageiro
-! 3 - Registar itinerário para um passageiro
-! 0 - Sair
-! Escolha uma opção: Menu principal
-! 1 - Reiniciar
-! 2 - Abrir
-! 3 - Guardar
-! 4 - Consulta de serviços
-! 5 - Gestão de passageiros
-! 6 - Gestão de itinerários
-! 0 - Sair
-! Escolha uma opção: Menu de gestão de passageiros
-! 1 - Mostrar todos os passageiros
-! 2 - Mostrar passageiro
-! 3 - Registar passageiro
-! 4 - Mudar nome de passageiro
-! 0 - Sair
-! Escolha uma opção: Identificador do passageiro: 1|Boethiah|NORMAL|1|16.04|02:12
-! Menu de gestão de passageiros
-! 1 - Mostrar todos os passageiros
-! 2 - Mostrar passageiro
-! 3 - Registar passageiro
-! 4 - Mudar nome de passageiro
-! 0 - Sair
-! Escolha uma opção: Menu principal
-! 1 - Reiniciar
-! 2 - Abrir
-! 3 - Guardar
-! 4 - Consulta de serviços
-! 5 - Gestão de passageiros
-! 6 - Gestão de itinerários
-! 0 - Sair
-! Escolha uma opção: 
+- Escolha uma opção: Menu de gestão de itinerários
+- 1 - Mostrar todos os itinerários
+- 2 - Mostrar itinerários associados a um passageiro
+- 3 - Registar itinerário para um passageiro
+- 0 - Sair
+- Escolha uma opção: Identificador do passageiro: Nome da estação de partida: Nome da estação de destino: Data de partida (YYYY-MM-DD): Hora de partida (HH:MM): 
+- Itinerário 1 para 2017-12-25 @ 16.04
+- Serviço #590 @ 9.64
+- 07:02 Lisboa - Oriente
+- 07:10 Lisboa - Entrecampos
+- 07:57 Poceirão
+- 08:06 Pegoes
+- 08:10 São João das Craveiras
+- 08:21 Vendas Novas
+- Serviço #690 @ 6.40
+- 08:31 Vendas Novas
+- 08:53 Pinhal Novo
+- 09:14 Pragal
+- Número do itinerário: Menu de gestão de itinerários
+- 1 - Mostrar todos os itinerários
+- 2 - Mostrar itinerários associados a um passageiro
+- 3 - Registar itinerário para um passageiro
+- 0 - Sair
+- Escolha uma opção: Menu principal
+- 1 - Reiniciar
+- 2 - Abrir
+- 3 - Guardar
+- 4 - Consulta de serviços
+- 5 - Gestão de passageiros
+- 6 - Gestão de itinerários
+- 0 - Sair
+- Escolha uma opção: Menu de gestão de passageiros
+- 1 - Mostrar todos os passageiros
+- 2 - Mostrar passageiro
+- 3 - Registar passageiro
+- 4 - Mudar nome de passageiro
+- 0 - Sair
+- Escolha uma opção: Identificador do passageiro: 1|Boethiah|NORMAL|1|16.04|02:12
+- Menu de gestão de passageiros
+- 1 - Mostrar todos os passageiros
+- 2 - Mostrar passageiro
+- 3 - Registar passageiro
+- 4 - Mudar nome de passageiro
+- 0 - Sair
+- Escolha uma opção: Menu principal
+- 1 - Reiniciar
+- 2 - Abrir
+- 3 - Guardar
+- 4 - Consulta de serviços
+- 5 - Gestão de passageiros
+- 6 - Gestão de itinerários
+- 0 - Sair
+  Escolha uma opção: 
 \ No newline at end of file
---- 2,9 ----
-  1 - Reiniciar
-  2 - Abrir
-  3 - Guardar
-! 4 - Consulta de serviÃ§os
-! 5 - GestÃ£o de passageiros
-! 6 - GestÃ£o de itinerÃ¡rios
-  0 - Sair
-! Escolha uma opÃ§Ã£o: 
-\ No newline at end of file
+--- 6,9 ----
