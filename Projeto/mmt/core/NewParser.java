@@ -15,130 +15,130 @@ import mmt.core.exceptions.NoSuchPassengerIdException;
 
 public class NewParser {
 
-  private TrainCompany _trainCompany;
+    private TrainCompany _trainCompany;
 
-  public TrainCompany parseFile(String fileName) throws ImportFileException {
+    public TrainCompany parseFile(String fileName) throws ImportFileException {
 
-    _trainCompany = new TrainCompany();
+        _trainCompany = new TrainCompany();
 
-    try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
-      String line;
+        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+            String line;
 
-      while ((line = reader.readLine()) != null) {
-        parseLine(line);
-      }
-    } catch (IOException ioe) {
-      throw new ImportFileException(ioe);
+            while ((line = reader.readLine()) != null) {
+                parseLine(line);
+            }
+        } catch (IOException ioe) {
+            throw new ImportFileException(ioe);
+        }
+
+        return _trainCompany;
     }
 
-    return _trainCompany;
-  }
+    private void parseLine(String line) throws ImportFileException {
+        String[] components = line.split("\\|");
 
-  private void parseLine(String line) throws ImportFileException {
-    String[] components = line.split("\\|");
+        switch (components[0]) {
+            case "PASSENGER":
+            parsePassenger(components);
+            break;
 
-    switch (components[0]) {
-      case "PASSENGER":
-        parsePassenger(components);
-        break;
+            case "SERVICE":
+            parseService(components);
+            break;
 
-      case "SERVICE":
-        parseService(components);
-        break;
+            case "ITINERARY":
+            parseItinerary(components);
+            break;
 
-      case "ITINERARY":
-        parseItinerary(components);
-        break;
-
-     default:
-       throw new ImportFileException("invalid type of line: " + components[0]);
-    }
-  }
-
-  private void parsePassenger(String[] components) throws ImportFileException {
-    if (components.length != 2)
-      throw new ImportFileException("invalid number of arguments in passenger line: " + components.length);
-
-    String passengerName = components[1];
-
-    _trainCompany.registerPassenger(passengerName);
-  }
-
-  private void parseService(String[] components) {
-      // ImportFileException (?)
-    double cost = Double.parseDouble(components[2]);
-    int serviceId = Integer.parseInt(components[1]);
-    TrainStop trainstop;
-    Station station;
-
-    // criar o serviço com o id e custo e associar ao TrainCompany
-    Service service = _trainCompany.registerService(serviceId, cost);
-
-    for (int i = 3; i < components.length; i += 2) {
-      String time = components[i];
-      String stationName = components[i + 1];
-      LocalTime ltime = LocalTime.parse(time);
-
-      // adicionar TrainStop com ltime e Station com o nome stationName
-
-      //primeiro ver se ja existe uma Station com stationName
-      //se nao existir, criamos a Station
-      try{
-          station = _trainCompany.searchStationName(stationName);
-      } catch (NoSuchStationNameException e){
-          //temos de mandar o traincompany criar a station e retornar o ponteiro
-          station = _trainCompany.registerStation(stationName);
-      }
-
-      //registers the TrainStop in the Station and adds it to the service
-      station.registerTrainStop(ltime, service);
-    }
-  }
-
-  private void parseItinerary(String[] components) throws ImportFileException{
-    if (components.length < 4)
-      throw new ImportFileException("Invalid number of elements in itinerary line: " + components.length);
-
-    int passengerId = Integer.parseInt(components[1]);
-    LocalDate date = LocalDate.parse(components[2]);
-
-    // criar um itinerário com data indicada
-    Itinerary itin = new Itinerary(date);
-    try{
-        Passenger passenger = _trainCompany.getPassenger(passengerId);
-        for (int i = 3; i < components.length; i++) {
-          String segmentDescription[] = components[i].split("/");
-
-          int serviceId = Integer.parseInt(segmentDescription[0]);
-          String departureTrainStopName = segmentDescription[1];
-          String arrivalTrainStopName = segmentDescription[2];
-
-          Service service;
-          TrainStop departureTrainStop;
-          TrainStop arrivalTrainStop;
-
-          service = _trainCompany.getService(serviceId);
-
-          departureTrainStop = service.getTrainStop(departureTrainStopName);
-          arrivalTrainStop = service.getTrainStop(arrivalTrainStopName);
-
-          // criar segmento com paragem em departureTrainStop e arrivalTrainStop
-          Segment seg = new Segment(departureTrainStop, arrivalTrainStop, service );
-          // adicionar segmento ao itinerario
-          itin.addSegment(seg);
-
-        // adicionar o itinerário ao passageiro
-
-
-
-    }
-    passenger.addItinerary(itin);
-
-    } catch(NoSuchPassengerIdException e){
-        //impossivel
-    } catch(NoSuchServiceIdException e){
-        //impossivel
+            default:
+            throw new ImportFileException("invalid type of line: " + components[0]);
+        }
     }
 
-}
+    private void parsePassenger(String[] components) throws ImportFileException {
+        if (components.length != 2)
+        throw new ImportFileException("invalid number of arguments in passenger line: " + components.length);
+
+        String passengerName = components[1];
+
+        _trainCompany.registerPassenger(passengerName);
+    }
+
+    private void parseService(String[] components) {
+        // ImportFileException (?)
+        double cost = Double.parseDouble(components[2]);
+        int serviceId = Integer.parseInt(components[1]);
+        TrainStop trainstop;
+        Station station;
+
+        // criar o serviço com o id e custo e associar ao TrainCompany
+        Service service = _trainCompany.registerService(serviceId, cost);
+
+        for (int i = 3; i < components.length; i += 2) {
+            String time = components[i];
+            String stationName = components[i + 1];
+            LocalTime ltime = LocalTime.parse(time);
+
+            // adicionar TrainStop com ltime e Station com o nome stationName
+
+            //primeiro ver se ja existe uma Station com stationName
+            //se nao existir, criamos a Station
+            try{
+                station = _trainCompany.searchStationName(stationName);
+            } catch (NoSuchStationNameException e){
+                //temos de mandar o traincompany criar a station e retornar o ponteiro
+                station = _trainCompany.registerStation(stationName);
+            }
+
+            //registers the TrainStop in the Station and adds it to the service
+            station.registerTrainStop(ltime, service);
+        }
+    }
+
+    private void parseItinerary(String[] components) throws ImportFileException{
+        if (components.length < 4)
+        throw new ImportFileException("Invalid number of elements in itinerary line: " + components.length);
+
+        int passengerId = Integer.parseInt(components[1]);
+        LocalDate date = LocalDate.parse(components[2]);
+
+        // criar um itinerário com data indicada
+        Itinerary itin = new Itinerary(date);
+        try{
+            Passenger passenger = _trainCompany.getPassenger(passengerId);
+            for (int i = 3; i < components.length; i++) {
+                String segmentDescription[] = components[i].split("/");
+
+                int serviceId = Integer.parseInt(segmentDescription[0]);
+                String departureTrainStopName = segmentDescription[1];
+                String arrivalTrainStopName = segmentDescription[2];
+
+                Service service;
+                TrainStop departureTrainStop;
+                TrainStop arrivalTrainStop;
+
+                service = _trainCompany.getService(serviceId);
+
+                departureTrainStop = service.getTrainStop(departureTrainStopName);
+                arrivalTrainStop = service.getTrainStop(arrivalTrainStopName);
+
+                // criar segmento com paragem em departureTrainStop e arrivalTrainStop
+                Segment seg = new Segment(departureTrainStop, arrivalTrainStop, service );
+                // adicionar segmento ao itinerario
+                itin.addSegment(seg);
+
+                // adicionar o itinerário ao passageiro
+
+
+
+            }
+            passenger.addItinerary(itin);
+
+        } catch(NoSuchPassengerIdException e){
+            //impossivel
+        } catch(NoSuchServiceIdException e){
+            //impossivel
+        }
+
+    }
 }
