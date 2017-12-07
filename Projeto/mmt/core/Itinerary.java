@@ -24,6 +24,7 @@ class Itinerary implements Serializable{
 
     Itinerary(Segment seg, LocalDate date){
         _date = date;
+        _cost = 0;
         if ( seg != null)
             this.addSegment(seg);
     }
@@ -34,18 +35,12 @@ class Itinerary implements Serializable{
 
     void addSegment(Segment seg){
         _segmentList.add( 0 , seg);
+        _cost += seg.getCost();
     }
 
     double getCost(){
 
-        double price = 0;
-
-        for ( Segment segment : _segmentList ){
-
-            price += segment.getCost();
-
-        }
-        return price;
+        return _cost;
     }
 
     List<String> showItinerary(){
