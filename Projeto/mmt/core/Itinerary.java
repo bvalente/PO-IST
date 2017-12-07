@@ -23,6 +23,7 @@ class Itinerary implements Serializable{
     Itinerary(Segment seg){ }
 
     Itinerary(Segment seg, LocalDate date){
+        _segmentList = new ArrayList<Segment>();
         _date = date;
         _cost = 0;
         if ( seg != null)

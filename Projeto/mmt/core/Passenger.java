@@ -83,7 +83,7 @@ class Passenger implements Serializable{
 
     List<String> showAllItineraries(){
         List<String> list = new ArrayList<String>();
-
+        list.add("== Passageiro " + this.getId() + ": " + this.getName() + " ==\n" );
         for ( Itinerary it : _travels ){
             list.addAll(it.showItinerary());
         }

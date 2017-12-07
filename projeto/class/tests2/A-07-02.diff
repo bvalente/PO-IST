@@ -1,50 +1,61 @@
 *** tests2/A-07-02.out	2017-12-07 08:13:15.245454400 +0000
---- tests2/A-07-02.outhyp	2017-12-07 11:13:26.059240800 +0000
+--- tests2/A-07-02.outhyp	2017-12-07 14:42:45.234235000 +0000
 ***************
-*** 11,42 ****
-  2 - Mostrar itinerários associados a um passageiro
-  3 - Registar itinerário para um passageiro
+*** 13,31 ****
   0 - Sair
-! Escolha uma opção: Identificador do passageiro: == Passageiro 0: Obi-Wan ==
-! 
+  Escolha uma opção: Identificador do passageiro: == Passageiro 0: Obi-Wan ==
+  
 ! Itinerário 1 para 2017-10-18 @ 51.50
-! Serviço #180 @ 51.50
-! 05:47 Porto - Campanhã
-! 08:10 Casa Branca
+  Serviço #180 @ 51.50
+  05:47 Porto - Campanhã
+  08:10 Casa Branca
 ! 11:23 Faro
 ! 
 ! Itinerário 2 para 2017-10-18 @ 32.76
 ! Serviço #180 @ 21.92
-! 05:47 Porto - Campanhã
-! 08:10 Casa Branca
+  05:47 Porto - Campanhã
+  08:10 Casa Branca
 ! Serviço #694 @ 10.84
 ! 17:08 Casa Branca
 ! 18:36 Lisboa - Oriente
   Menu de gestão de itinerários
   1 - Mostrar todos os itinerários
   2 - Mostrar itinerários associados a um passageiro
-  3 - Registar itinerário para um passageiro
+--- 13,30 ----
   0 - Sair
-! Escolha uma opção: Identificador do passageiro: == Passageiro 1: Yoda ==
-! 
+  Escolha uma opção: Identificador do passageiro: == Passageiro 0: Obi-Wan ==
+  
+! Itinerário 0 para 2017-10-18 @ 95.55
+! Serviço #694 @ 12.20
+! 17:08 Casa Branca
+! 18:36 Lisboa - Oriente
+  Serviço #180 @ 51.50
+  05:47 Porto - Campanhã
+  08:10 Casa Branca
+! Itinerário 0 para 2017-10-18 @ 51.50
+! Serviço #180 @ 51.50
+  05:47 Porto - Campanhã
+  08:10 Casa Branca
+! 11:23 Faro
+  Menu de gestão de itinerários
+  1 - Mostrar todos os itinerários
+  2 - Mostrar itinerários associados a um passageiro
+***************
+*** 33,40 ****
+  0 - Sair
+  Escolha uma opção: Identificador do passageiro: == Passageiro 1: Yoda ==
+  
 ! Itinerário 1 para 2017-10-18 @ 21.92
 ! Serviço #180 @ 21.92
-! 05:47 Porto - Campanhã
-! 08:10 Casa Branca
+  05:47 Porto - Campanhã
+  08:10 Casa Branca
   Menu de gestão de itinerários
-  1 - Mostrar todos os itinerários
-  2 - Mostrar itinerários associados a um passageiro
---- 11,23 ----
-  2 - Mostrar itinerários associados a um passageiro
-  3 - Registar itinerário para um passageiro
+--- 32,39 ----
   0 - Sair
-! Escolha uma opção: Identificador do passageiro: O passageiro 0 não tem itinerários.
+  Escolha uma opção: Identificador do passageiro: == Passageiro 1: Yoda ==
+  
+! Itinerário 0 para 2017-10-18 @ 77.25
+! Serviço #180 @ 51.50
+  05:47 Porto - Campanhã
+  08:10 Casa Branca
   Menu de gestão de itinerários
-  1 - Mostrar todos os itinerários
-  2 - Mostrar itinerários associados a um passageiro
-  3 - Registar itinerário para um passageiro
-  0 - Sair
-! Escolha uma opção: Identificador do passageiro: O passageiro 1 não tem itinerários.
-  Menu de gestão de itinerários
-  1 - Mostrar todos os itinerários
-  2 - Mostrar itinerários associados a um passageiro

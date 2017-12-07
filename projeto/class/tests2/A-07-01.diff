@@ -1,24 +1,19 @@
 *** tests2/A-07-01.out	2017-12-07 08:13:15.239438800 +0000
---- tests2/A-07-01.outhyp	2017-12-07 11:13:25.842983300 +0000
+--- tests2/A-07-01.outhyp	2017-12-07 14:42:44.902856600 +0000
 ***************
-*** 11,22 ****
-  2 - Mostrar itinerários associados a um passageiro
-  3 - Registar itinerário para um passageiro
+*** 13,19 ****
   0 - Sair
-! Escolha uma opção: Identificador do passageiro: == Passageiro 0: Obi-Wan ==
-! 
+  Escolha uma opção: Identificador do passageiro: == Passageiro 0: Obi-Wan ==
+  
 ! Itinerário 1 para 2017-10-18 @ 51.50
-! Serviço #180 @ 51.50
-! 05:47 Porto - Campanhã
-! 11:23 Faro
-  Menu de gestão de itinerários
-  1 - Mostrar todos os itinerários
-  2 - Mostrar itinerários associados a um passageiro
---- 11,17 ----
-  2 - Mostrar itinerários associados a um passageiro
-  3 - Registar itinerário para um passageiro
+  Serviço #180 @ 51.50
+  05:47 Porto - Campanhã
+  11:23 Faro
+--- 13,19 ----
   0 - Sair
-! Escolha uma opção: Identificador do passageiro: O passageiro 0 não tem itinerários.
-  Menu de gestão de itinerários
-  1 - Mostrar todos os itinerários
-  2 - Mostrar itinerários associados a um passageiro
+  Escolha uma opção: Identificador do passageiro: == Passageiro 0: Obi-Wan ==
+  
+! Itinerário 0 para 2017-10-18 @ 51.50
+  Serviço #180 @ 51.50
+  05:47 Porto - Campanhã
+  11:23 Faro

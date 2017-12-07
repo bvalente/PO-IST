@@ -11,7 +11,15 @@ Escolha uma opção: Menu de gestão de itinerários
 2 - Mostrar itinerários associados a um passageiro
 3 - Registar itinerário para um passageiro
 0 - Sair
-Escolha uma opção: Identificador do passageiro: O passageiro 0 não tem itinerários.
+Escolha uma opção: Identificador do passageiro: == Passageiro 0: Obi-Wan ==
+
+Itinerário 0 para 2017-10-18 @ 95.55
+Serviço #694 @ 12.20
+17:08 Casa Branca
+18:36 Lisboa - Oriente
+Serviço #180 @ 51.50
+05:47 Porto - Campanhã
+08:10 Casa Branca
 Menu de gestão de itinerários
 1 - Mostrar todos os itinerários
 2 - Mostrar itinerários associados a um passageiro
