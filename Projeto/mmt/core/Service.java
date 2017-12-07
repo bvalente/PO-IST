@@ -66,6 +66,16 @@ class Service implements Serializable{
         return _trainStopList.get(_trainStopList.size()-1);
     }
 
+    TrainStop getTrainStop(String name){
+        for(TrainStop ts : _trainStopList){
+            if (ts.getStation().compareName(name) ){
+                return ts;
+            }
+        }
+        //nao existe trainstop no servico
+        return null;
+    }
+
     /** This method returns the first Station in the train Stop List.<p>
     * @return Station
     */

@@ -59,7 +59,7 @@ class Passenger implements Serializable{
      * @param itin itinerary to be added.
      */
 
-    void addItenerary(Itinerary itin){
+    void addItinerary(Itinerary itin){
         int sum = 0;
         int size = _travels.size();
 

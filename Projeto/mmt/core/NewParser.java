@@ -10,6 +10,8 @@ import java.time.LocalDate;
 import mmt.core.exceptions.ImportFileException;
 
 import mmt.core.exceptions.NoSuchStationNameException;
+import mmt.core.exceptions.NoSuchServiceIdException;
+import mmt.core.exceptions.NoSuchPassengerIdException;
 
 public class NewParser {
 
@@ -101,18 +103,42 @@ public class NewParser {
     LocalDate date = LocalDate.parse(components[2]);
 
     // criar um itinerário com data indicada
+    Itinerary itin = new Itinerary(date);
+    try{
+        Passenger passenger = _trainCompany.getPassenger(passengerId);
+        for (int i = 3; i < components.length; i++) {
+          String segmentDescription[] = components[i].split("/");
 
-    for (int i = 3; i < components.length; i++) {
-      String segmentDescription[] = components[i].split("/");
+          int serviceId = Integer.parseInt(segmentDescription[0]);
+          String departureTrainStopName = segmentDescription[1];
+          String arrivalTrainStopName = segmentDescription[2];
 
-      int serviceId = Integer.parseInt(segmentDescription[0]);
-      String departureTrainStop = segmentDescription[1];
-      String arrivalTrainStop = segmentDescription[2];
+          Service service;
+          TrainStop departureTrainStop;
+          TrainStop arrivalTrainStop;
 
-      // criar segmento com paragem em departureTrainStop e arrivalTrainStop
-      // adicionar segmento ao itinerario
+          service = _trainCompany.getService(serviceId);
+
+          departureTrainStop = service.getTrainStop(departureTrainStopName);
+          arrivalTrainStop = service.getTrainStop(arrivalTrainStopName);
+
+          // criar segmento com paragem em departureTrainStop e arrivalTrainStop
+          Segment seg = new Segment(departureTrainStop, arrivalTrainStop, service );
+          // adicionar segmento ao itinerario
+          itin.addSegment(seg);
+
+        // adicionar o itinerário ao passageiro
+
+
+
+    }
+    passenger.addItinerary(itin);
+
+    } catch(NoSuchPassengerIdException e){
+        //impossivel
+    } catch(NoSuchServiceIdException e){
+        //impossivel
     }
 
-    // adicionar o itinerário ao passageiro
-  }
+}
 }

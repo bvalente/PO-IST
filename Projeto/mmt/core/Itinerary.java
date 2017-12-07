@@ -12,16 +12,24 @@ class Itinerary implements Serializable{
     //list or TreeMap?
     private List<Segment> _segmentList;
 
-    private double _cost;
-    private int _idItinerario;
+    private double _cost;       //desnecessario?
+    private int _idItinerario; //provavelmente desnecessario
     private LocalDate _date;
 
-    Itinerary () {
+    //apagar?
+    Itinerary () { }
 
+    //apagar?
+    Itinerary(Segment seg){ }
+
+    Itinerary(Segment seg, LocalDate date){
+        _date = date;
+        if ( seg != null)
+            this.addSegment(seg);
     }
 
-    Itinerary(Segment seg){
-        //para compilar
+    Itinerary(LocalDate date){
+        this(null, date);
     }
 
     void addSegment(Segment seg){

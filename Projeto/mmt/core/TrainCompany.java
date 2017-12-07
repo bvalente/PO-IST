@@ -94,6 +94,15 @@ class TrainCompany implements Serializable {
         throw new NoSuchPassengerIdException( id );
     }
 
+    Service getService(int id) throws NoSuchServiceIdException{
+        for(Service service : _serviceList){
+            if (service.getId() == id){
+                return service;
+            }
+        }
+        throw new NoSuchServiceIdException(id);
+    }
+
     /**
      * Registers a Station to this TrainCompany.
      *
