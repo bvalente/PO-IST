@@ -214,59 +214,60 @@ class Service implements Serializable{
         Itinerary it = null;
         Itinerary itAux = null;
 
+        //simple itinerary
         TrainStop arrivalTS = this.hasStation(arrival);
         if ( arrivalTS != null && departure.isBefore(arrivalTS) ){
             Segment segment = new Segment(departure, arrivalTS, this);
             return new Itinerary(segment);
         }
+        //complex itinerary
+        //else
+        servicesUsed.add( departure.getService() );
+        for ( TrainStop trainStop : _trainStopList ){   // percorre serviço
+            if ( departure.isBefore( trainStop ) ){ // selects trainStops : time
 
+                Station station = trainStop.getStation();
+                // checks if station was already used
+                if ( stationsUsed.contains( trainStop.getStation() ) ) return it;
+                stationsUsed.add(trainStop.getStation() );
 
-        else{
-            servicesUsed.add( departure.getService() );
-            for ( TrainStop trainStop : _trainStopList ){   // percorre serviço
-                if ( departure.isBefore( trainStop ) ){ // selects trainStops : time
-                    Segment seg = new Segment(departure, trainStop, this);
+                Segment seg = new Segment(departure, trainStop, this);
 
-                    if ( stationsUsed.contains( trainStop.getStation() ) ){ // checks if station was already used
-                        return it;
-                    }
-                    else {
-                        for( Service service : trainStop.getStation().getServiceList() ){
-                            if(servicesUsed.contains(service) ){
-                                break;
-                            }
-                            stationsUsed.add(trainStop.getStation() );
+                for( Service service : station.getServiceList() ){
+                    //checks if the service was already used, leaves the cycle for another service
+                    if( servicesUsed.contains(service) ) break;
+                    TrainStop ts = service.hasStation(station);
 
-                            List<Service> copyServicesUsed = new ArrayList<Service>(servicesUsed);
-                            List<Station> copyStationsUsed = new ArrayList<Station>(stationsUsed);
-                            itAux = compute ( trainStop, arrival, copyServicesUsed, copyStationsUsed );
+                    List<Service> copyServicesUsed = new ArrayList<Service>(servicesUsed);
+                    List<Station> copyStationsUsed = new ArrayList<Station>(stationsUsed);
+                    itAux = compute ( ts, arrival, copyServicesUsed, copyStationsUsed );
 
-                            if (itAux != null){
+                    if (itAux != null){
 
-                                itAux.addSegment(seg);
+                        itAux.addSegment(seg);
 
-                                if(it == null ){ //it = null, itAux = Itinerary
+                        if(it == null ){ //it = null, itAux = Itinerary
+                            it = itAux;
+
+                        } else { //it = Itinerary, itAux = Itinerary
+
+                            //compare itineraries
+                            int x = it.timeOfArrival().compareTo( itAux.timeOfArrival() );
+                            //x < 0: it chega primeiro
+                            //x = 0: chegam ao mesmo tempo, ver o que tiver menor custo
+                            //x > 0: itAux cheaga primeiro
+                            if ( ( x == 0 && it.getCost() > itAux.getCost() ) || x > 0 ) {
                                 it = itAux;
-
-                                } else { //it = Itinerary, itAux = Itinerary
-
-                                    //compare itineraries
-                                    int x = it.timeOfArrival().compareTo( itAux.timeOfArrival() );
-                                    //x < 0: it chega primeiro
-                                    //x = 0: chegam ao mesmo tempo, ver o que tiver menor custo
-                                    //x > 0: itAux cheaga primeiro
-                                    if ( ( x == 0 && it.getCost() > itAux.getCost() ) || x > 0 ) {
-                                        it = itAux;
-                                    }
-                                }
                             }
-                            //compute nao deu nenhum itinerario
                         }
                     }
+                    //compute nao deu nenhum itinerario
                 }
-            } //fim do for
-            return null; //erro, nao encontrou itinerario
-        }
+
+            }
+        } //fim do for
+
+        return null; //erro, nao encontrou itinerario
         //fim da funcao
     }
 
