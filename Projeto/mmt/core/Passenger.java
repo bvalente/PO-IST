@@ -63,6 +63,11 @@ class Passenger implements Serializable{
         int sum = 0;
         int size = _travels.size();
 
+
+        //updates itinerary cost (if possible) adding it to the total amount of money spent
+        _totalMoneySpent += _discount.getDiscount() * itin.getCost();
+        _travels.add(0, itin); //adiciona no inicio
+
         //check last 10 itinerarys completed
         if (size >= 10){
             for (int i = 0; i <10 ; i++)
@@ -74,10 +79,6 @@ class Passenger implements Serializable{
 
         //updates discount according to the money spent on passengers last 10 trips
         _discount.update(sum);
-
-        //updates itinerary cost (if possible) adding it to the total amount of money spent
-        _totalMoneySpent += _discount.getDiscount() * itin.getCost();
-        _travels.add(itin);
     }
 
     /**
