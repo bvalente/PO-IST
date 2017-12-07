@@ -2,6 +2,7 @@ package mmt.core;
 
 import java.io.Serializable;
 import java.util.List;
+import java.time.LocalTime;
 
 class Segment implements Serializable{
     private TrainStop _firstStop;
@@ -35,5 +36,9 @@ class Segment implements Serializable{
 
     List<String> showSegment(){
         return _service.showSegment(this);
+    }
+
+    LocalTime timeOfArrival(){
+        return _lastStop.getTime();
     }
 }

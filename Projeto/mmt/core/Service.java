@@ -202,8 +202,9 @@ class Service implements Serializable{
 
     Itinerary compute(TrainStop departure, Station arrival, List<Service> serviceList, List<Station> stationList){
         Itinerary it = null;
+        Itinerary itAux = null;
 
-        TrainStop arrivalTS = hasStation(arrival);
+        TrainStop arrivalTS = this.hasStation(arrival);
         if ( arrivalTS != null && departure.isBefore(arrivalTS) ){
             Segment segment = new Segment(departure, arrivalTS, this);
             return new Itinerary(segment);
@@ -213,13 +214,27 @@ class Service implements Serializable{
         else{
             for ( TrainStop trainStop : _trainStopList ){   // percorre serviço
 
-                if ( departure.getTime().isBefore( trainStop ) ){ // selects trainStops : time
+                if ( departure.getTime().isBefore( trainStop.getTime() ) ){ // selects trainStops : time
 
                     if ( stationList.contains( trainStop.getStation() ) ){ // checks if station was already used
                         return it;
                     }
-                    
-                    it = compute ( trainStop, arrival, serviceList, stationList );
+                    else {
+                        Segment seg = new Segment(departure, trainStop, this);
+                        itAux = compute ( trainStop, arrival, serviceList, stationList );
+                        if(it == null && itAux != null){ //it = null, itAux = Itinerary
+                            itAux.addSegment(seg);
+                            it = itAux;
+                        } else if (it != null && itAux != null) { //it = Itinerary, itAux = Itinerary
+                            //compare itineraries
+                            int x = it.timeOfArrival().compareTo( itAux.timeOfArrival() );
+                            //x < 0: it chega primeiro
+                            //x = 0: chegam ao mesmo tempo, ver o que tiver menor numero de segmentos
+                            //x > 0: itAux cheaga primeiro
+
+                        }
+                    }
+
 
                 }
 
@@ -230,10 +245,9 @@ class Service implements Serializable{
 
 
         }
-
-
-
+        return null; //erro, nao encontrou itinerario
     }
+
 
     /**This nested class is used to compare two Services by their id.
     */

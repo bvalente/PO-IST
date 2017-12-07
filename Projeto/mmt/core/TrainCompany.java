@@ -265,6 +265,7 @@ class TrainCompany implements Serializable {
 
         return null; //para compilar
     }
+    /*
     List<Segment> getSimpleSegments(Station s1,Station s2,LocalTime time ){
         List<Segment> lista = new ArrayList<Segment>();
         for (Service service : _serviceList){
@@ -286,5 +287,6 @@ class TrainCompany implements Serializable {
     	}
     	return itiList;
     }
+    */
 
 }

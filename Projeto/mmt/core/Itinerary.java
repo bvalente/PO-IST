@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.ArrayList;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Locale;
 
 class Itinerary implements Serializable{
@@ -21,6 +22,10 @@ class Itinerary implements Serializable{
 
     Itinerary(Segment seg){
         //para compilar
+    }
+
+    void addSegment(Segment seg){
+        _segmentList.add( 0 , seg);
     }
 
     double getCost(){
@@ -54,6 +59,12 @@ class Itinerary implements Serializable{
     }
 
     Boolean travelTime(  ){
-        //compares departure time of a station and arrival time 
+        //compares departure time of a station and arrival time
+        return false; //para compilar
+    }
+
+    LocalTime timeOfArrival(){
+        Segment seg = _segmentList.get(_segmentList.size() -1);
+        return seg.timeOfArrival();
     }
 }
