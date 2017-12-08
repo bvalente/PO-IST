@@ -16,9 +16,10 @@ import pt.tecnico.po.ui.DialogException;
 import pt.tecnico.po.ui.Input;
 import pt.tecnico.po.ui.Display;
 
-//FIXME import other classes if necessary
+import java.util.List;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import pt.tecnico.po.ui.Form;
 
 /**
 * §3.4.3. Add new itinerary.
@@ -28,11 +29,12 @@ public class DoRegisterItinerary extends Command<TicketOffice> {
     private Input<Integer> _id;
     private Input<String> _departureStation;
     private Input<String> _arrivalStation;
-    private Input<String> _departureDateString;  //(YYYY-MM-DD)
-    private Input<String> _departureTimeString;
+    private Input<String> _departureDate;  //(YYYY-MM-DD)
+    private Input<String> _departureTime;
 
-    private LocalDate _departureDate;
-    private LocalTime _departureTime;
+    private Form _choiceForm;
+    private Input<Integer> _userChoice;
+
 
     /**
     * @param receiver
@@ -43,8 +45,12 @@ public class DoRegisterItinerary extends Command<TicketOffice> {
         _id = _form.addIntegerInput(Message.requestPassengerId());
         _departureStation = _form.addStringInput(Message.requestDepartureStationName());
         _arrivalStation =_form.addStringInput(Message.requestArrivalStationName());
-        _departureDateString = _form.addStringInput(Message.requestDepartureDate());
-        _departureTimeString = _form.addStringInput(Message.requestDepartureTime());
+        _departureDate = _form.addStringInput(Message.requestDepartureDate());
+        _departureTime = _form.addStringInput(Message.requestDepartureTime());
+
+         _choiceForm = new Form();
+        _userChoice = _choiceForm.addIntegerInput(Message.requestItineraryChoice());
+
     }
 
     /** @see pt.tecnico.po.ui.Command#execute() */
@@ -52,19 +58,20 @@ public class DoRegisterItinerary extends Command<TicketOffice> {
     @Override
     public final void execute() throws DialogException {
         _form.parse();
-        //apanhar excepcoes
-        //fazer coversao para localdate/time em ticjet office?
-        _departureDate = LocalDate.parse(_departureDateString.toString());
-        //apanhar excepcoes
-        _departureTime = LocalTime.parse(_departureTimeString.toString());
-
-/*
+        List<String> stringList;
         try {
-
             //search com os argumentos.tostring()
+            stringList = _receiver.searchItineraries(_id.value(), _departureStation.toString(),
+                _arrivalStation.toString(), _departureDate.toString(), _departureTime.toString());
             //show them
+            for (String str : stringList){
+                _display.addLine(str);
+            }
+            _display.display();
             //parse do numero do itinerario que o cliente escolher
+            _choiceForm.parse();
             //usar a funcao commitItinerary to add
+            _receiver.commitItinerary(_id.value(), _userChoice.value());
 
             // must call (at least) _receiver.searchItineraries(...) and _receiver.commitItinerary(...)
         } catch (NoSuchPassengerIdException e) {
@@ -77,7 +84,7 @@ public class DoRegisterItinerary extends Command<TicketOffice> {
             throw new BadDateException(e.getDate());
         } catch (BadTimeSpecificationException e) {
             throw new BadTimeException(e.getTime());
-        }*/
+        }
 
     }
 }

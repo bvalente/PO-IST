@@ -131,40 +131,6 @@ class Service implements Serializable{
         return new Segment(s1,s2, this );
     }
 
-    /*Segment getSimpleSegment(Station s1, Station s2, LocalTime time){
-        int i, j;
-        int length = _trainStopList.size();
-        for (i = 0; i < length-1 ; i++){
-            if (_trainStopList.get(i).getStation() == s1
-                && time.compareTo(_trainStopList.get(i).getTime()) > 0){
-
-
-                for (j = i; j < length-1 ; j++){
-                    if (_trainStopList.get(j).getStation() == s2){
-                        return new Segment(_trainStopList.get(i),
-                            _trainStopList.get(j), this);
-                    }
-                }
-                return null;
-            }
-
-        }
-        return null;
-
-    }*/
-
-    /*Segment getSimpleSegment(TrainStop ts, Station station){
-        int indice = _trainStopList.indexOf(ts);
-        int i;
-        for(i = indice+1; i < _trainStopList.size()-1; i++){
-            TrainStop ts2 = _trainStopList.get(i);
-            if ( ts2.getStation().compareStationId( station ) ){
-                return new Segment(ts, ts2, this);
-            }
-        }
-        return null;
-    }*/
-
     public double segmentPrice(TrainStop s1, TrainStop s2){
         double price;
 
@@ -174,31 +140,6 @@ class Service implements Serializable{
         return price;
     }
 
-    /*
-    Itinerario compute (TrainStop partida, Station Target ...){
-    //mais argumentos: servicos ja visitados, estacoes por ja passadas
-
-    se existir trainStop com estacao Target em this(Service)
-    e a hora for posterior a partida
-        return Itinerario
-
-    //else
-    for cada estacao depois de departure
-    //utilizar servicos cuja trainStop de estacao saia de estacao depois da hora de partida
-
-        for cada servico em estacao(expeto os ja visitados)
-            iti = servico.compute(trainStop, target, ...)
-            //atualizar melhor itinerario( se for mais rapido)
-            reconstruir itinerario com o segmento atual no inicio
-            (porque estamos a constuir do fim para o inicio)
-    return itin
-
-
-    //nota
-    procurar o itinerario que chega ao destino mais cedo
-    as estacoes so podem ser consideradas uma vez
-    }
-    */
     TrainStop hasStation(Station station){
         for (TrainStop ts : _trainStopList){
             if ( ts.getStation().compareStationId(station) ){
@@ -210,7 +151,7 @@ class Service implements Serializable{
 
 
 
-    Itinerary compute(TrainStop departure, Station arrival, List<Service> servicesUsed, List<Station> stationsUsed){
+    Itinerary compute(TrainStop departure, Station arrival, List<Service> servicesUsed, List<Station> stationsUsed, LocalDate date){
         //passar também tempo e data do Input como argumentos? a função dada pelo stor do search itineraries em ticket office recebe.
         Itinerary it = null;
         Itinerary itAux = null;
@@ -219,7 +160,7 @@ class Service implements Serializable{
         TrainStop arrivalTS = this.hasStation(arrival);
         if ( arrivalTS != null && departure.isBefore(arrivalTS)){
             Segment segment = new Segment(departure, arrivalTS, this);
-            return new Itinerary(segment);
+            return new Itinerary(segment, date);
         }
         //complex itinerary
         //else
@@ -241,7 +182,7 @@ class Service implements Serializable{
 
                     List<Service> copyServicesUsed = new ArrayList<Service>(servicesUsed);
                     List<Station> copyStationsUsed = new ArrayList<Station>(stationsUsed);
-                    itAux = compute ( ts, arrival, copyServicesUsed, copyStationsUsed );
+                    itAux = compute ( ts, arrival, copyServicesUsed, copyStationsUsed, date);
 
                     if (itAux != null){
 

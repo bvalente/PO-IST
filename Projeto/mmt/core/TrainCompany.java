@@ -293,34 +293,23 @@ class TrainCompany implements Serializable {
     }
 
     //procura simples
-    List<String> searchItinerary(Station departureStation, Station arrivalStation, LocalDate date, LocalTime time){
+    List<String> searchItineraries(Passenger passenger,  Station departureStation, Station arrivalStation, LocalDate date, LocalTime time){
 
-        //List<Service> list = departureStation.serviceList();
+        List<Service> list = departureStation.getServiceList();
+        List<Itinerary> itineraryList = new ArrayList<Itinerary>();
+        List<String> stringList = new ArrayList<String>();
 
-        return null; //para compilar
-    }
-    /*
-    List<Segment> getSimpleSegments(Station s1,Station s2,LocalTime time ){
-        List<Segment> lista = new ArrayList<Segment>();
-        for (Service service : _serviceList){
-            lista.add(service.getSimpleSegment(s1, s2,time));
+        for(TrainStop trainStop : departureStation.getTrainStopList() ){
+            if ( trainStop.getTime().isBefore(time) ) {
+                List<Service> servicesUsed= new ArrayList<Service>(); //emptylist
+                List<Station> stationsUsed= new ArrayList<Station>(); //emptylist
+                itineraryList.add(trainStop.getService().compute
+                        (trainStop, arrivalStation, servicesUsed, stationsUsed, date) );
+            }
         }
-        return lista;
+
+        return Collections.unmodifiableList(stringList); //para compilar
     }
 
-    List<Itinerary> getAllItineraries(Station s1, Station s2){
-    	List<TrainStop> trainStopList = s1.getTrainStopList();
-    	List<Itinerary> itiList = new ArrayList<Itinerary>();
-
-    	for(TrainStop ts : trainStopList){
-
-    		Segment seg = ts.getService().getSimpleSegment(ts, s2);
-    		if (seg != null)
-    			itiList.add(new Itinerary(seg));
-
-    	}
-    	return itiList;
-    }
-    */
 
 }

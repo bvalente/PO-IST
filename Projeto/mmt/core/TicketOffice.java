@@ -80,25 +80,25 @@ public class TicketOffice {
     }
 
     //FIXME complete and implement the itinerary search (and pre-commit store) method
-    public Itinerary /*List <Itinerary> */searchItineraries(int passengerId, String departureStation, String arrivalStation, String departureDate,
-    String departureTime) throws NoSuchPassengerIdException  {/* BadTimeException, BadDateException*/
-        //try
+    public List<String> searchItineraries ( int passengerId, String departureStation, String arrivalStation, String departureDate, String departureTime )
+        throws NoSuchPassengerIdException, NoSuchStationNameException,BadDateSpecificationException, BadTimeSpecificationException {
+
         Passenger passenger = _trainCompany.getPassenger(passengerId);
+        Station departure = _trainCompany.getStation(departureStation);
+        Station arrival = _trainCompany.getStation(arrivalStation);
+        LocalDate date = LocalDate.parse(departureDate); //lancam excepcoes
         LocalTime time = LocalTime.parse(departureTime); //not sure if this is the correct way to do it
-        LocalDate date = LocalDate.parse(departureDate);
 
         //for para ver todas os servicos da station de partida. para usar com o compute
         //criar trainstop
         //TrainStop ts = TrainStop( _trainCompany.getStation(departureStation) ,  );
 
-        Station station = _trainCompany.getStation(arrivalStation);
-
-
-        return new Itinerary();
+        return _trainCompany.searchItineraries(passenger, departure, arrival, date, time);
     }
 
     //FIXME complete and implement the itinerary commit method
-    public Itinerary /*FIXME choose return type */ commitItinerary(int passengerId, int itineraryNumber) /*FIXME define thrown exceptions */ {
+    public Itinerary commitItinerary(int passengerId, int itineraryNumber)
+        throws  NoSuchItineraryChoiceException{
         //FIXME implement method
         return new Itinerary();
     }

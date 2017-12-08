@@ -18,11 +18,11 @@ class Itinerary implements Serializable{
     private int _idItinerario; //provavelmente desnecessario
     private LocalDate _date;
 
-    //apagar?
-    Itinerary () { }
+    Itinerary(){ } //apagar
 
-    //apagar?
-    Itinerary(Segment seg){ }
+    Itinerary(LocalDate date){
+        this(null, date);
+    }
 
     Itinerary(Segment seg, LocalDate date){
         _segmentList = new ArrayList<Segment>();
@@ -30,10 +30,6 @@ class Itinerary implements Serializable{
         _cost = 0;
         if ( seg != null)
             this.addSegment(seg);
-    }
-
-    Itinerary(LocalDate date){
-        this(null, date);
     }
 
     void addSegment(Segment seg){
