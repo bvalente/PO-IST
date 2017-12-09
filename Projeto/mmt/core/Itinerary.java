@@ -68,9 +68,8 @@ class Itinerary implements Serializable{
                 String.format( new Locale("en", "US"), "%.2f",_cost));
     }
 
-    Boolean travelTime(  ){
-        //compares departure time of a station and arrival time
-        return false; //para compilar
+    Duration travelTime(){
+        return Duration.between(this.timeOfDeparture(), this.timeOfArrival());
     }
 
     LocalTime timeOfDeparture(){
@@ -85,8 +84,10 @@ class Itinerary implements Serializable{
         public int compare(Itinerary it1, Itinerary it2){
             int x = it1.timeOfDeparture().compareTo(it2.timeOfDeparture() );
             int y = it1.timeOfArrival().compareTo(it2.timeOfArrival() );
-            Duration d1 = Duration.between(it1.timeOfDeparture(), it1.timeOfArrival() );
-            Duration d2 = Duration.between(it2.timeOfDeparture(), it2.timeOfArrival() );
+            //Duration d1 = Duration.between(it1.timeOfDeparture(), it1.timeOfArrival() );
+            Duration d1 = it1.travelTime();
+            //Duration d2 = Duration.between(it2.timeOfDeparture(), it2.timeOfArrival() );
+            Duration d2 = it2.travelTime();
             int z = d1.compareTo(d2);
 
             //x<0: it1 sai mais cedo

@@ -67,6 +67,7 @@ class Passenger implements Serializable{
         int sum = 0;
         int size = _travels.size();
 
+        _totalTime = _totalTime.plus(itin.travelTime());
 
         //updates itinerary cost (if possible) adding it to the total amount of money spent
         _totalMoneySpent += _discount.getDiscount() * itin.getCost();
