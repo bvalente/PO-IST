@@ -16,40 +16,7 @@ Escolha uma opção: Identificador do passageiro: Nome da estação de partida: 
 2 - Mostrar itinerários associados a um passageiro
 3 - Registar itinerário para um passageiro
 0 - Sair
-Escolha uma opção: == Passageiro 0: Azura ==
-
-== Passageiro 1: Boethiah ==
-
-== Passageiro 2: Clavicus Vile ==
-
-== Passageiro 3: Hermaeus Mora ==
-
-== Passageiro 4: Hircine ==
-
-== Passageiro 5: Malacath ==
-
-== Passageiro 6: Mehrunes Dagon ==
-
-== Passageiro 7: Mephala ==
-
-== Passageiro 8: Meridia ==
-
-== Passageiro 9: Molag Bal ==
-
-== Passageiro 10: Namira ==
-
-== Passageiro 11: Nocturnal ==
-
-== Passageiro 12: Peryite ==
-
-== Passageiro 13: Sanguine ==
-
-== Passageiro 14: Sheogorath ==
-
-== Passageiro 15: Vaermina ==
-
-== Passageiro 16: Jyggalag ==
-Menu de gestão de itinerários
+Escolha uma opção: Menu de gestão de itinerários
 1 - Mostrar todos os itinerários
 2 - Mostrar itinerários associados a um passageiro
 3 - Registar itinerário para um passageiro

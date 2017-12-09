@@ -14,16 +14,16 @@
 Import, Reset e Persistência
 
     # A-07-01 import com passageiros e itinerários simples) e vê itinerários e passageiros
-# A-07-02 import (com passageiros e itinerários compostos e simples) e vê itinerários e passageiros
-# A-07-03 reset (só com passageiros)
-# A-07-04 reset (só com passageiros) e cria novo passageiro
-# A-07-05 reset (só com passageiros e itinerários) e cria novo passageiro
+    # A-07-02 import (com passageiros e itinerários compostos e simples) e vê itinerários e passageiros
+    # A-07-03 reset (só com passageiros)
+    # A-07-04 reset (só com passageiros) e cria novo passageiro
+    # A-07-05 reset (só com passageiros e itinerários) e cria novo passageiro
 
 Visualização de Itinerários
 
-# A-08-01 Visualiza os itinerários de um passageiro sem itinerários
+    # A-08-01 Visualiza os itinerários de um passageiro sem itinerários
     # A-08-02 Visualiza os itinerários de um passageiro com um itinerário simples
-# A-08-03 Visualiza os itinerários de um passageiro com um itinerário composto
+    # A-08-03 Visualiza os itinerários de um passageiro com um itinerário composto
 # A-08-04 Visualiza os itinerários de um passageiro com vários itinerários
 
 Compra de itinerários

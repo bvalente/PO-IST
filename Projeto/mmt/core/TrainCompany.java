@@ -235,7 +235,8 @@ class TrainCompany implements Serializable {
     List<String> showAllItineraries(){
         List<String> stringList = new ArrayList<String>();
         for(Passenger passenger: _passengerMap.values()){
-            stringList.addAll(passenger.showAllItineraries());
+            List<String> tempList = passenger.showAllItineraries();
+            if(tempList != null) stringList.addAll(tempList);
         }
         return stringList;
     }

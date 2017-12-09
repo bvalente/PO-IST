@@ -86,6 +86,8 @@ class Passenger implements Serializable{
     }
 
     List<String> showAllItineraries(){
+        if(_travels.isEmpty()) return null;
+
         List<String> list = new ArrayList<String>();
         List<Itinerary> newList = new ArrayList<Itinerary>(_travels);
         Collections.sort(newList, new Itinerary.ItineraryComparator());

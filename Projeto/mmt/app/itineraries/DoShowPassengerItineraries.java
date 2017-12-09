@@ -33,7 +33,7 @@ public class DoShowPassengerItineraries extends Command<TicketOffice> {
         List<String> print;
         try{
             print = _receiver.showItineraries(_passengerId.value());
-            if ( print.isEmpty() ){
+            if ( print == null ){
                 _display.addLine( Message.noItineraries(_passengerId.value()));
             } else{
                 for ( String string : print ){
