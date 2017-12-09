@@ -38,8 +38,8 @@ class Passenger implements Serializable{
     /** Total money spent by a passenger. */
     private float _totalMoneySpent;
 
-    /** Travelling time that a passenger has completed . */
-    private LocalTime _totalTime;
+    /** Travelling time that a passenger has completed in minutes. */
+    private long _totalTime;
 
     private List<Itinerary> _itineraryCache;
 
@@ -54,7 +54,7 @@ class Passenger implements Serializable{
         _name = new String(name);
         _discount = new Normal(this);
         _travels = new ArrayList<Itinerary>();
-        _totalTime = LocalTime.MIN;
+        _totalTime = 0;
     }
 
     /**
@@ -67,7 +67,7 @@ class Passenger implements Serializable{
         int sum = 0;
         int size = _travels.size();
 
-        _totalTime = _totalTime.plus(itin.travelTime());
+        _totalTime += itin.travelTime().toMinutes();
 
         //updates itinerary cost (if possible) adding it to the total amount of money spent
         _totalMoneySpent += _discount.getDiscount() * itin.getCost();
@@ -93,7 +93,7 @@ class Passenger implements Serializable{
         List<Itinerary> newList = new ArrayList<Itinerary>(_travels);
         Collections.sort(newList, new Itinerary.ItineraryPassengerComparator());
 
-        list.add("== Passageiro " + this.getId() + ": " + this.getName() + " ==\n" );
+        list.add("== Passageiro " + this.getId() + ": " + this.getName() + " ==" );
         int i = 1;
         for ( Itinerary it : newList ){
             list.addAll(it.showItinerary(i));
@@ -155,7 +155,7 @@ class Passenger implements Serializable{
 
         return  _id + "|" + _name + "|" + _discount.toString() +"|" +
         _travels.size() + "|" + String.format( new Locale("en", "US"), "%.2f",_totalMoneySpent) +
-        "|" + _totalTime.toString() ;
+        "|" + String.format( "%02d:%02d", _totalTime/60, _totalTime%60) ;
     }
 
     /**This nested class is used to compare two passengers by their id.
