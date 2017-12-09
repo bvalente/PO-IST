@@ -64,7 +64,7 @@ class Passenger implements Serializable{
      */
 
     void addItinerary(Itinerary itin){
-        int sum = 0;
+        double sum = 0;
         int size = _travels.size();
 
         _totalTime += itin.travelTime().toMinutes();
@@ -76,7 +76,7 @@ class Passenger implements Serializable{
         //check last 10 itinerarys completed
         if (size >= 10){
             for (int i = 0; i <10 ; i++)
-            sum += _travels.get(size-i).getCost();
+            sum += _travels.get(i).getCost();
         } else {
             for (Itinerary i : _travels)
             sum += i.getCost();

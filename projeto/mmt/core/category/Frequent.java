@@ -17,7 +17,7 @@ class Frequent extends Category {
     }
 
     @Override
-    void update ( int sum ) {
+    void update ( double sum ) {
         if ( sum <= 250 ){
             _passenger.changeDiscount( new Normal(_passenger) );
         }

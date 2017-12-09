@@ -30,8 +30,8 @@ Compra de itinerários
 
     # A-09-01 Compra um itinerário simples, ver passageiro
     # A-09-02 Compra um itinerário composto, ver passageiro
-# A-09-03 Compra vários itinerários, ver passageiro normal, compra + 1 e ver passagem para frequente
-# A-09-04 Compra vários itinerários, ver passageiro normal, compra + 1 e ver passagem para Especial
+    # A-09-03 Compra vários itinerários, ver passageiro normal, compra + 1 e ver passagem para frequente
+    # A-09-04 Compra vários itinerários, ver passageiro normal, compra + 1 e ver passagem para Especial
 
 Procura de serviços
 

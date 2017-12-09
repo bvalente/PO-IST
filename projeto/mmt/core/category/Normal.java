@@ -17,12 +17,12 @@ class Normal extends Category{
     }
 
     @Override
-    void update( int sum ) {
-        if ( sum >= 250 ){
-            _passenger.changeDiscount( new Frequent(_passenger) );
-        }
-        else if  ( sum >= 2500 ){
+    void update( double sum ) {
+        if ( sum >= 2500 ){
             _passenger.changeDiscount( new Special(_passenger) );
+        }
+        else if  ( sum >= 250 ){
+            _passenger.changeDiscount( new Frequent(_passenger) );
         }
     }
 }

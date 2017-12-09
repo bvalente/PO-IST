@@ -14,7 +14,7 @@ abstract class Category implements Serializable{
     abstract public String toString();
 
     abstract float getDiscount();
-    
-    abstract void update( int sum );
+
+    abstract void update( double sum );
 
 }
