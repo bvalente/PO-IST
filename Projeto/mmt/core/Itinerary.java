@@ -46,6 +46,10 @@ class Itinerary implements Serializable{
         return _cost;
     }
 
+    LocalDate getDate(){
+        return _date;
+    }
+
     List<String> showItinerary(int index){
         List<String> list = new ArrayList<String>();
 
@@ -85,7 +89,6 @@ class Itinerary implements Serializable{
             Duration d2 = Duration.between(it2.timeOfDeparture(), it2.timeOfArrival() );
             int z = d1.compareTo(d2);
 
-            System.out.println("x: " + Integer.toString(x) + " y: " + Integer.toString(y));
             //x<0: it1 sai mais cedo
             //y<0: it1 chega mais cedo
             //z<0: it1 tem menor duracao
@@ -96,6 +99,20 @@ class Itinerary implements Serializable{
 
         }
 
+    }
+
+    public static class ItineraryPassengerComparator extends ItineraryComparator{
+        @Override
+        public int compare(Itinerary it1, Itinerary it2){
+
+            LocalDate date1 = it1.getDate();
+            LocalDate date2 = it2.getDate();
+            int x = date1.compareTo(date2);
+            if(x == 0){
+                return super.compare(it1, it2);
+            }
+            return x;
+        }
     }
 
 }

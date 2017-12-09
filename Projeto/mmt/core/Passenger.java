@@ -90,7 +90,7 @@ class Passenger implements Serializable{
 
         List<String> list = new ArrayList<String>();
         List<Itinerary> newList = new ArrayList<Itinerary>(_travels);
-        Collections.sort(newList, new Itinerary.ItineraryComparator());
+        Collections.sort(newList, new Itinerary.ItineraryPassengerComparator());
 
         list.add("== Passageiro " + this.getId() + ": " + this.getName() + " ==\n" );
         int i = 1;
