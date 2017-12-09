@@ -36,6 +36,11 @@ class Itinerary implements Serializable{
         _cost += seg.getCost();
     }
 
+    void addSegmentEnd(Segment seg){
+        _segmentList.add(seg);
+        _cost += seg.getCost();
+    }
+
     double getCost(){
 
         return _cost;
@@ -80,10 +85,11 @@ class Itinerary implements Serializable{
             Duration d2 = Duration.between(it2.timeOfDeparture(), it2.timeOfArrival() );
             int z = d1.compareTo(d2);
 
+            System.out.println("x: " + Integer.toString(x) + " y: " + Integer.toString(y));
             //x<0: it1 sai mais cedo
             //y<0: it1 chega mais cedo
             //z<0: it1 tem menor duracao
-            if(x == 0 && y == 0 && z > 0 || x == 0 && y > 0 || x > 0){
+            if( x < 0 || x == 0 && y < 0 || x == 0 && y == 0 && z < 0){
                 return -1;
             }
             return 1;

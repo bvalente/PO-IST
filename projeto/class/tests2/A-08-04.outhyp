@@ -14,47 +14,47 @@ Escolha uma opção: Menu de gestão de itinerários
 Escolha uma opção: Identificador do passageiro: == Passageiro 0: Obi-Wan ==
 
 
-Itinerário 1 para 2017-10-19 @ 32.76
-Serviço #694 @ 10.84
-17:08 Casa Branca
-18:36 Lisboa - Oriente
-Serviço #180 @ 21.92
-05:47 Porto - Campanhã
-08:10 Casa Branca
-
-Itinerário 2 para 2017-10-15 @ 32.76
-Serviço #694 @ 10.84
-17:08 Casa Branca
-18:36 Lisboa - Oriente
-Serviço #180 @ 21.92
-05:47 Porto - Campanhã
-08:10 Casa Branca
-
-Itinerário 3 para 2017-10-14 @ 32.76
-Serviço #694 @ 10.84
-17:08 Casa Branca
-18:36 Lisboa - Oriente
-Serviço #180 @ 21.92
-05:47 Porto - Campanhã
-08:10 Casa Branca
-
-Itinerário 4 para 2017-10-17 @ 51.50
+Itinerário 1 para 2017-10-17 @ 51.50
 Serviço #180 @ 51.50
 05:47 Porto - Campanhã
 08:10 Casa Branca
 11:23 Faro
 
-Itinerário 5 para 2017-09-19 @ 51.50
+Itinerário 2 para 2017-09-19 @ 51.50
 Serviço #180 @ 51.50
 05:47 Porto - Campanhã
 08:10 Casa Branca
 11:23 Faro
 
-Itinerário 6 para 2017-10-18 @ 51.50
+Itinerário 3 para 2017-10-18 @ 51.50
 Serviço #180 @ 51.50
 05:47 Porto - Campanhã
 08:10 Casa Branca
 11:23 Faro
+
+Itinerário 4 para 2017-10-19 @ 32.76
+Serviço #180 @ 21.92
+05:47 Porto - Campanhã
+08:10 Casa Branca
+Serviço #694 @ 10.84
+17:08 Casa Branca
+18:36 Lisboa - Oriente
+
+Itinerário 5 para 2017-10-15 @ 32.76
+Serviço #180 @ 21.92
+05:47 Porto - Campanhã
+08:10 Casa Branca
+Serviço #694 @ 10.84
+17:08 Casa Branca
+18:36 Lisboa - Oriente
+
+Itinerário 6 para 2017-10-14 @ 32.76
+Serviço #180 @ 21.92
+05:47 Porto - Campanhã
+08:10 Casa Branca
+Serviço #694 @ 10.84
+17:08 Casa Branca
+18:36 Lisboa - Oriente
 Menu de gestão de itinerários
 1 - Mostrar todos os itinerários
 2 - Mostrar itinerários associados a um passageiro

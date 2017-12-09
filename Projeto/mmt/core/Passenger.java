@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Comparator;
+import java.util.Collections;
 
 /**
  * This class represents a passenger.<p>
@@ -86,9 +87,12 @@ class Passenger implements Serializable{
 
     List<String> showAllItineraries(){
         List<String> list = new ArrayList<String>();
+        List<Itinerary> newList = new ArrayList<Itinerary>(_travels);
+        Collections.sort(newList, new Itinerary.ItineraryComparator());
+
         list.add("== Passageiro " + this.getId() + ": " + this.getName() + " ==\n" );
         int i = 1;
-        for ( Itinerary it : _travels ){
+        for ( Itinerary it : newList ){
             list.addAll(it.showItinerary(i));
             i++;
         }
@@ -126,7 +130,7 @@ class Passenger implements Serializable{
     }
 
     void commitItinerary(int index)throws NoSuchItineraryChoiceException{
-        if(index > 0){
+        if(index != 0){
             try{
                 this.addItinerary(_itineraryCache.get(index - 1));
             } catch(IndexOutOfBoundsException e ){

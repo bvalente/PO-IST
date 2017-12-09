@@ -1,12 +1,12 @@
     # A-06-01 Procurar itinerário não existente entre duas estações
-# A-06-02 Procurar itinerário não existente entre duas estações  mas existe o itinerário contrário
+    # A-06-02 Procurar itinerário não existente entre duas estações  mas existe o itinerário contrário
     # A-06-03 Procurar itinerário não existente a partir de uma dada hora entre duas estações
     # A-06-04 Procurar itinerário simples só com uma resposta  e estações intermédias
     # A-06-05 Procurar itinerário simples só com uma resposta e estação inicial e final
     # A-06-06 Procurar itinerário simples só com uma resposta e estação inicial e intermédia
     # A-06-07 Procurar itinerário simples só com uma resposta e estação intermédia  e final
-# A-06-08 Procurar itinerário simples só com duas respostas (e import ordenado)
-# A-06-12 Procurar itinerário com uma resposta e fazer escolha errada
+    # A-06-08 Procurar itinerário simples só com duas respostas (e import ordenado)
+    # A-06-12 Procurar itinerário com uma resposta e fazer escolha errada
 # A-06-16 Encontra um itinerário composto
 # A-06-17 Encontra um itinerário composto e filtra outro com base na hora
 # A-06-18 Encontra um itinerário composto e segundo troço é só uma estação

@@ -125,7 +125,7 @@ public class NewParser {
                 // criar segmento com paragem em departureTrainStop e arrivalTrainStop
                 Segment seg = new Segment(departureTrainStop, arrivalTrainStop, service );
                 // adicionar segmento ao itinerario
-                itin.addSegment(seg);
+                itin.addSegmentEnd(seg);
 
                 // adicionar o itinerário ao passageiro
 
