@@ -7,9 +7,9 @@
     # A-06-07 Procurar itinerário simples só com uma resposta e estação intermédia  e final
     # A-06-08 Procurar itinerário simples só com duas respostas (e import ordenado)
     # A-06-12 Procurar itinerário com uma resposta e fazer escolha errada
-# A-06-16 Encontra um itinerário composto
-# A-06-17 Encontra um itinerário composto e filtra outro com base na hora
-# A-06-18 Encontra um itinerário composto e segundo troço é só uma estação
+    # A-06-16 Encontra um itinerário composto
+    # A-06-17 Encontra um itinerário composto e filtra outro com base na hora
+    # A-06-18 Encontra um itinerário composto e segundo troço é só uma estação
 
 Import, Reset e Persistência
 
@@ -29,7 +29,7 @@ Visualização de Itinerários
 Compra de itinerários
 
     # A-09-01 Compra um itinerário simples, ver passageiro
-# A-09-02 Compra um itinerário composto, ver passageiro
+    # A-09-02 Compra um itinerário composto, ver passageiro
 # A-09-03 Compra vários itinerários, ver passageiro normal, compra + 1 e ver passagem para frequente
 # A-09-04 Compra vários itinerários, ver passageiro normal, compra + 1 e ver passagem para Especial
 

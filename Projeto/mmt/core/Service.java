@@ -174,35 +174,34 @@ class Service implements Serializable{
                 Station station = trainStop.getStation();
                 // checks if station was already used
                 if ( stationsUsed.contains( trainStop.getStation() ) ) return it;
-                stationsUsed.add(trainStop.getStation() );
+                stationsUsed.add(station );
 
                 Segment seg = new Segment(departure, trainStop, this);
-
                 for( Service service : station.getServiceList() ){
                     //checks if the service was already used, leaves the cycle for another service
-                    if( servicesUsed.contains(service) ) break;
-                    TrainStop ts = service.hasStation(station);
+                    if(! servicesUsed.contains(service) ) {
+                        TrainStop ts = service.hasStation(station);
 
-                    List<Service> copyServicesUsed = new ArrayList<Service>(servicesUsed);
-                    List<Station> copyStationsUsed = new ArrayList<Station>(stationsUsed);
-                    itAux = compute ( ts, arrival, copyServicesUsed, copyStationsUsed, date, trainStop.getTime());
+                        List<Service> copyServicesUsed = new ArrayList<Service>(servicesUsed);
+                        List<Station> copyStationsUsed = new ArrayList<Station>(stationsUsed);
+                        itAux = service.compute ( ts, arrival, copyServicesUsed, copyStationsUsed, date, trainStop.getTime());
+                        if (itAux != null){
 
-                    if (itAux != null){
+                            itAux.addSegment(seg);
 
-                        itAux.addSegment(seg);
-
-                        if(it == null ){ //it = null, itAux = Itinerary
-                            it = itAux;
-
-                        } else { //it = Itinerary, itAux = Itinerary
-
-                            //compare itineraries
-                            int x = it.timeOfArrival().compareTo( itAux.timeOfArrival() );
-                            //x < 0: it chega primeiro
-                            //x = 0: chegam ao mesmo tempo, ver o que tiver menor custo
-                            //x > 0: itAux cheaga primeiro
-                            if ( ( x == 0 && it.getCost() > itAux.getCost() ) || x > 0 ) {
+                            if(it == null ){ //it = null, itAux = Itinerary
                                 it = itAux;
+
+                            } else { //it = Itinerary, itAux = Itinerary
+
+                                //compare itineraries
+                                int x = it.timeOfArrival().compareTo( itAux.timeOfArrival() );
+                                //x < 0: it chega primeiro
+                                //x = 0: chegam ao mesmo tempo, ver o que tiver menor custo
+                                //x > 0: itAux cheaga primeiro
+                                if ( ( x == 0 && it.getCost() > itAux.getCost() ) || x > 0 ) {
+                                    it = itAux;
+                                }
                             }
                         }
                     }
