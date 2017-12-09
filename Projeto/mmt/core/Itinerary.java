@@ -14,8 +14,7 @@ class Itinerary implements Serializable{
     //list or TreeMap?
     private List<Segment> _segmentList;
 
-    private double _cost;       //desnecessario?
-    private int _idItinerario; //provavelmente desnecessario
+    private double _cost;
     private LocalDate _date;
 
     Itinerary(){ } //apagar
@@ -42,10 +41,10 @@ class Itinerary implements Serializable{
         return _cost;
     }
 
-    List<String> showItinerary(){
+    List<String> showItinerary(int index){
         List<String> list = new ArrayList<String>();
 
-        list.add(this.toString());
+        list.add('\n' + this.toString(index));
         for (Segment seg : _segmentList){
             list.addAll( seg.showSegment() );
         }
@@ -53,9 +52,9 @@ class Itinerary implements Serializable{
     }
 
     //depois no SHOWitinerary fazer String.format( new Locale("en", "US"), "%.2f", price))
-    @Override
-    public String toString(){
-        return ("Itinerário " + Integer.toString(_idItinerario) +
+
+    public String toString(int id){
+        return ("Itinerário " + Integer.toString(id) +
                 " para " + _date.toString() + " @ " +
                 String.format( new Locale("en", "US"), "%.2f",_cost));
     }

@@ -1,39 +1,40 @@
 *** tests2/A-06-08.out	2017-12-07 08:13:15.206350800 +0000
---- tests2/A-06-08.outhyp	2017-12-07 14:42:43.377265900 +0000
+--- tests2/A-06-08.outhyp	2017-12-09 18:03:38.843443300 +0000
 ***************
-*** 11,37 ****
-  2 - Mostrar itinerários associados a um passageiro
-  3 - Registar itinerário para um passageiro
+*** 13,28 ****
   0 - Sair
-! Escolha uma opção: Identificador do passageiro: Nome da estação de partida: Nome da estação de destino: Data de partida (YYYY-MM-DD): Hora de partida (HH:MM): 
-! Itinerário 1 para 2017-12-25 @ 12.20
-! Serviço #694 @ 12.20
-! 16:57 Évora
-! 17:08 Casa Branca
-! 17:22 São João das Craveiras
-! 17:38 Fernando Pó
-! 18:00 Pinhal Novo
-! 18:14 Lisboa - Sete Rios
-! 18:36 Lisboa - Oriente
-! 
-! Itinerário 2 para 2017-12-25 @ 12.20
-! Serviço #695 @ 12.20
-! 17:00 Évora
-! 17:08 Vendas Novas
-! 17:29 Pegoes
-! 17:38 Poceirão
-! 18:14 Pragal
-! 18:28 Lisboa - Entrecampos
-! 18:36 Lisboa - Oriente
-! Número do itinerário: Menu de gestão de itinerários
+  Escolha uma opção: Identificador do passageiro: Nome da estação de partida: Nome da estação de destino: Data de partida (YYYY-MM-DD): Hora de partida (HH:MM): 
+  Itinerário 1 para 2017-12-25 @ 12.20
+- Serviço #694 @ 12.20
+- 16:57 Évora
+- 17:08 Casa Branca
+- 17:22 São João das Craveiras
+- 17:38 Fernando Pó
+- 18:00 Pinhal Novo
+- 18:14 Lisboa - Sete Rios
+- 18:36 Lisboa - Oriente
+- 
+- Itinerário 2 para 2017-12-25 @ 12.20
+  Serviço #695 @ 12.20
+  17:00 Évora
+  17:08 Vendas Novas
+--- 13,18 ----
+***************
+*** 31,36 ****
+--- 21,36 ----
+  18:14 Pragal
+  18:28 Lisboa - Entrecampos
+  18:36 Lisboa - Oriente
++ 
++ Itinerário 2 para 2017-12-25 @ 12.20
++ Serviço #694 @ 12.20
++ 16:57 Évora
++ 17:08 Casa Branca
++ 17:22 São João das Craveiras
++ 17:38 Fernando Pó
++ 18:00 Pinhal Novo
++ 18:14 Lisboa - Sete Rios
++ 18:36 Lisboa - Oriente
+  Número do itinerário: Menu de gestão de itinerários
   1 - Mostrar todos os itinerários
   2 - Mostrar itinerários associados a um passageiro
-  3 - Registar itinerário para um passageiro
---- 11,17 ----
-  2 - Mostrar itinerários associados a um passageiro
-  3 - Registar itinerário para um passageiro
-  0 - Sair
-! Escolha uma opção: Identificador do passageiro: Nome da estação de partida: Nome da estação de destino: Data de partida (YYYY-MM-DD): Hora de partida (HH:MM): Menu de gestão de itinerários
-  1 - Mostrar todos os itinerários
-  2 - Mostrar itinerários associados a um passageiro
-  3 - Registar itinerário para um passageiro

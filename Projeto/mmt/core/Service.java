@@ -11,6 +11,7 @@ import java.util.Locale;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Locale;
+import java.time.Duration;
 
 /**
 * This class represents a Service: a route made by a train over several Stations.<p>
@@ -90,6 +91,10 @@ class Service implements Serializable{
         return this.getLastTrainStop().getStation();
     }
 
+    long totalTime(){
+        return Duration.between(this.getFirstTrainStop().getTime(), this.getLastTrainStop().getTime()).toMinutes();
+    }
+
     List<TrainStop> getTrainStopListFrom(TrainStop ts){
 
         return _trainStopList.subList(
@@ -120,7 +125,7 @@ class Service implements Serializable{
             _trainStopList.indexOf(s.getLastStop()) + 1 );
 
         list.add("Serviço #" + Integer.toString(_id) + " @ " +
-            String.format( new Locale("en", "US"), "%.2f", _totalCost));
+            String.format( new Locale("en", "US"), "%.2f", s.getCost()));
         for ( TrainStop ts : segment ){
             list.add( ts.toString() );
         }
@@ -131,13 +136,11 @@ class Service implements Serializable{
         return new Segment(s1,s2, this );
     }
 
-    public double segmentPrice(TrainStop s1, TrainStop s2){
-        double price;
-
-        price = ( _totalCost * _trainStopList.size() ) /
-            ( _trainStopList.indexOf(s2) + 1 - _trainStopList.indexOf(s1) );
-
-        return price;
+    public double segmentPrice(Segment seg){
+        double cost;
+        //preco * tempo segmento / tempo servico
+        cost = _totalCost * seg.totalTime() / this.totalTime();
+        return cost;
     }
 
     TrainStop hasStation(Station station){
@@ -151,14 +154,14 @@ class Service implements Serializable{
 
 
 
-    Itinerary compute(TrainStop departure, Station arrival, List<Service> servicesUsed, List<Station> stationsUsed, LocalDate date){
+    Itinerary compute(TrainStop departure, Station arrival, List<Service> servicesUsed, List<Station> stationsUsed, LocalDate date, LocalTime time){
         //passar também tempo e data do Input como argumentos? a função dada pelo stor do search itineraries em ticket office recebe.
         Itinerary it = null;
         Itinerary itAux = null;
 
         //simple itinerary
         TrainStop arrivalTS = this.hasStation(arrival);
-        if ( arrivalTS != null && departure.isBefore(arrivalTS)){
+        if ( arrivalTS != null && departure.isBefore(arrivalTS) && departure.getTime().isAfter(time)){
             Segment segment = new Segment(departure, arrivalTS, this);
             return new Itinerary(segment, date);
         }
@@ -166,7 +169,7 @@ class Service implements Serializable{
         //else
         servicesUsed.add( departure.getService() );
         for ( TrainStop trainStop : _trainStopList ){   // percorre serviço
-            if ( departure.isBefore( trainStop ) ){ // selects trainStops : time
+            if ( departure.isBefore( trainStop ) && trainStop.getTime().isAfter(time) ){ // selects trainStops : time
 
                 Station station = trainStop.getStation();
                 // checks if station was already used
@@ -182,7 +185,7 @@ class Service implements Serializable{
 
                     List<Service> copyServicesUsed = new ArrayList<Service>(servicesUsed);
                     List<Station> copyStationsUsed = new ArrayList<Station>(stationsUsed);
-                    itAux = compute ( ts, arrival, copyServicesUsed, copyStationsUsed, date);
+                    itAux = compute ( ts, arrival, copyServicesUsed, copyStationsUsed, date, trainStop.getTime());
 
                     if (itAux != null){
 

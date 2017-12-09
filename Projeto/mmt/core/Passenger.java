@@ -2,6 +2,7 @@ package mmt.core;
 
 import java.io.Serializable;
 
+import mmt.core.exceptions.NoSuchItineraryChoiceException;
 import java.time.LocalTime;
 import java.util.List;
 import java.util.ArrayList;
@@ -38,6 +39,8 @@ class Passenger implements Serializable{
 
     /** Travelling time that a passenger has completed . */
     private LocalTime _totalTime;
+
+    private List<Itinerary> _itineraryCache;
 
     /**
      * Constructor.
@@ -84,8 +87,10 @@ class Passenger implements Serializable{
     List<String> showAllItineraries(){
         List<String> list = new ArrayList<String>();
         list.add("== Passageiro " + this.getId() + ": " + this.getName() + " ==\n" );
+        int i = 1;
         for ( Itinerary it : _travels ){
-            list.addAll(it.showItinerary());
+            list.addAll(it.showItinerary(i));
+            i++;
         }
         return list;
     }
@@ -114,6 +119,22 @@ class Passenger implements Serializable{
 
     void changeDiscount(Category discount){
         _discount = discount;
+    }
+
+    void saveCache(List<Itinerary> cache){
+        _itineraryCache = cache;
+    }
+
+    void commitItinerary(int index)throws NoSuchItineraryChoiceException{
+        if(index > 0){
+            try{
+                this.addItinerary(_itineraryCache.get(index - 1));
+            } catch(IndexOutOfBoundsException e ){
+                throw new NoSuchItineraryChoiceException(this.getId(), index);
+            }
+        }
+
+        _itineraryCache = null; //clean the cache
     }
 
     /**

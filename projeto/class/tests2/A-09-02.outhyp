@@ -16,55 +16,38 @@ Escolha uma opção: Identificador do passageiro: Nome da estação de partida: 
 2 - Mostrar itinerários associados a um passageiro
 3 - Registar itinerário para um passageiro
 0 - Sair
-Escolha uma opção: 0|Azura|NORMAL|0|0.00|00:00
-== Passageiro 0: Azura ==
+Escolha uma opção: == Passageiro 0: Azura ==
 
-1|Boethiah|NORMAL|0|0.00|00:00
 == Passageiro 1: Boethiah ==
 
-2|Clavicus Vile|NORMAL|0|0.00|00:00
 == Passageiro 2: Clavicus Vile ==
 
-3|Hermaeus Mora|NORMAL|0|0.00|00:00
 == Passageiro 3: Hermaeus Mora ==
 
-4|Hircine|NORMAL|0|0.00|00:00
 == Passageiro 4: Hircine ==
 
-5|Malacath|NORMAL|0|0.00|00:00
 == Passageiro 5: Malacath ==
 
-6|Mehrunes Dagon|NORMAL|0|0.00|00:00
 == Passageiro 6: Mehrunes Dagon ==
 
-7|Mephala|NORMAL|0|0.00|00:00
 == Passageiro 7: Mephala ==
 
-8|Meridia|NORMAL|0|0.00|00:00
 == Passageiro 8: Meridia ==
 
-9|Molag Bal|NORMAL|0|0.00|00:00
 == Passageiro 9: Molag Bal ==
 
-10|Namira|NORMAL|0|0.00|00:00
 == Passageiro 10: Namira ==
 
-11|Nocturnal|NORMAL|0|0.00|00:00
 == Passageiro 11: Nocturnal ==
 
-12|Peryite|NORMAL|0|0.00|00:00
 == Passageiro 12: Peryite ==
 
-13|Sanguine|NORMAL|0|0.00|00:00
 == Passageiro 13: Sanguine ==
 
-14|Sheogorath|NORMAL|0|0.00|00:00
 == Passageiro 14: Sheogorath ==
 
-15|Vaermina|NORMAL|0|0.00|00:00
 == Passageiro 15: Vaermina ==
 
-16|Jyggalag|NORMAL|0|0.00|00:00
 == Passageiro 16: Jyggalag ==
 Menu de gestão de itinerários
 1 - Mostrar todos os itinerários

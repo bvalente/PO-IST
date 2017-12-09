@@ -63,15 +63,18 @@ public class DoRegisterItinerary extends Command<TicketOffice> {
             //search com os argumentos.tostring()
             stringList = _receiver.searchItineraries(_id.value(), _departureStation.toString(),
                 _arrivalStation.toString(), _departureDate.toString(), _departureTime.toString());
-            //show them
-            for (String str : stringList){
-                _display.addLine(str);
+
+            if (!stringList.isEmpty()){
+                //show them
+                for (String str : stringList){
+                    _display.addLine(str);
+                }
+                _display.display();
+                //parse do numero do itinerario que o cliente escolher
+                _choiceForm.parse();
+                //usar a funcao commitItinerary to add
+                _receiver.commitItinerary(_id.value(), _userChoice.value());
             }
-            _display.display();
-            //parse do numero do itinerario que o cliente escolher
-            _choiceForm.parse();
-            //usar a funcao commitItinerary to add
-            _receiver.commitItinerary(_id.value(), _userChoice.value());
 
             // must call (at least) _receiver.searchItineraries(...) and _receiver.commitItinerary(...)
         } catch (NoSuchPassengerIdException e) {

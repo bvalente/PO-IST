@@ -300,13 +300,24 @@ class TrainCompany implements Serializable {
         List<String> stringList = new ArrayList<String>();
 
         for(TrainStop trainStop : departureStation.getTrainStopList() ){
-            if ( trainStop.getTime().isBefore(time) ) {
+            if ( trainStop.getTime().isAfter(time) ) {
                 List<Service> servicesUsed= new ArrayList<Service>(); //emptylist
                 List<Station> stationsUsed= new ArrayList<Station>(); //emptylist
-                itineraryList.add(trainStop.getService().compute
-                        (trainStop, arrivalStation, servicesUsed, stationsUsed, date) );
+                Itinerary itin = trainStop.getService().compute(trainStop,
+                        arrivalStation, servicesUsed, stationsUsed, date, time) ;
+                if(itin != null) itineraryList.add(itin);
             }
         }
+        if (itineraryList.isEmpty()) return stringList;
+        Collections.sort(itineraryList, new Itinerary.ItineraryComparator() );
+        int i = 1;
+        for(Itinerary itin: itineraryList){
+            stringList.addAll(itin.showItinerary(i));
+            i++;
+        }
+
+        passenger.saveCache(itineraryList);
+
 
         return Collections.unmodifiableList(stringList); //para compilar
     }

@@ -1,10 +1,10 @@
     # A-06-01 Procurar itinerário não existente entre duas estações
-    # A-06-02 Procurar itinerário não existente entre duas estações  mas existe o itinerário contrário
+# A-06-02 Procurar itinerário não existente entre duas estações  mas existe o itinerário contrário
     # A-06-03 Procurar itinerário não existente a partir de uma dada hora entre duas estações
-# A-06-04 Procurar itinerário simples só com uma resposta  e estações intermédias
-# A-06-05 Procurar itinerário simples só com uma resposta e estação inicial e final
-# A-06-06 Procurar itinerário simples só com uma resposta e estação inicial e intermédia
-# A-06-07 Procurar itinerário simples só com uma resposta e estação intermédia  e final
+    # A-06-04 Procurar itinerário simples só com uma resposta  e estações intermédias
+    # A-06-05 Procurar itinerário simples só com uma resposta e estação inicial e final
+    # A-06-06 Procurar itinerário simples só com uma resposta e estação inicial e intermédia
+    # A-06-07 Procurar itinerário simples só com uma resposta e estação intermédia  e final
 # A-06-08 Procurar itinerário simples só com duas respostas (e import ordenado)
 # A-06-12 Procurar itinerário com uma resposta e fazer escolha errada
 # A-06-16 Encontra um itinerário composto
@@ -13,7 +13,7 @@
 
 Import, Reset e Persistência
 
-# A-07-01 import com passageiros e itinerários simples) e vê itinerários e passageiros
+    # A-07-01 import com passageiros e itinerários simples) e vê itinerários e passageiros
 # A-07-02 import (com passageiros e itinerários compostos e simples) e vê itinerários e passageiros
 # A-07-03 reset (só com passageiros)
 # A-07-04 reset (só com passageiros) e cria novo passageiro
@@ -21,8 +21,8 @@ Import, Reset e Persistência
 
 Visualização de Itinerários
 
-    # A-08-01 Visualiza os itinerários de um passageiro sem itinerários
-# A-08-02 Visualiza os itinerários de um passageiro com um itinerário simples
+# A-08-01 Visualiza os itinerários de um passageiro sem itinerários
+    # A-08-02 Visualiza os itinerários de um passageiro com um itinerário simples
 # A-08-03 Visualiza os itinerários de um passageiro com um itinerário composto
 # A-08-04 Visualiza os itinerários de um passageiro com vários itinerários
 

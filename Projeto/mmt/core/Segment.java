@@ -3,6 +3,7 @@ package mmt.core;
 import java.io.Serializable;
 import java.util.List;
 import java.time.LocalTime;
+import java.time.Duration;
 
 class Segment implements Serializable{
     private TrainStop _firstStop;
@@ -15,7 +16,7 @@ class Segment implements Serializable{
         _firstStop = firstStop;
         _lastStop = lastStop;
         _service = service;
-        _cost = service.segmentPrice(firstStop, lastStop);
+        _cost = service.segmentPrice(this);
     }
 
     TrainStop getFirstStop(){
@@ -44,5 +45,9 @@ class Segment implements Serializable{
 
     LocalTime timeOfDeparture(){
         return _firstStop.getTime();
+    }
+
+    long totalTime(){
+        return Duration.between(this.timeOfDeparture(), this.timeOfArrival()).toMinutes();
     }
 }

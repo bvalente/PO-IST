@@ -79,9 +79,8 @@ public class TicketOffice {
         _trainCompany = new NewParser().parseFile( datafile );
     }
 
-    //FIXME complete and implement the itinerary search (and pre-commit store) method
     public List<String> searchItineraries ( int passengerId, String departureStation, String arrivalStation, String departureDate, String departureTime )
-        throws NoSuchPassengerIdException, NoSuchStationNameException,BadDateSpecificationException, BadTimeSpecificationException {
+            throws NoSuchPassengerIdException, NoSuchStationNameException,BadDateSpecificationException, BadTimeSpecificationException {
 
         Passenger passenger = _trainCompany.getPassenger(passengerId);
         Station departure = _trainCompany.getStation(departureStation);
@@ -96,11 +95,12 @@ public class TicketOffice {
         return _trainCompany.searchItineraries(passenger, departure, arrival, date, time);
     }
 
-    //FIXME complete and implement the itinerary commit method
-    public Itinerary commitItinerary(int passengerId, int itineraryNumber)
-        throws  NoSuchItineraryChoiceException{
-        //FIXME implement method
-        return new Itinerary();
+    public void commitItinerary(int passengerId, int itineraryNumber)
+            throws  NoSuchItineraryChoiceException, NoSuchPassengerIdException{
+
+        Passenger passenger = _trainCompany.getPassenger(passengerId);
+        passenger.commitItinerary(itineraryNumber);
+
     }
 
     public List<String> showItineraries(int passengerId)throws NoSuchPassengerIdException{

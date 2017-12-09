@@ -1,5 +1,5 @@
 *** tests2/A-09-04.out	2017-12-07 08:13:15.314187600 +0000
---- tests2/A-09-04.outhyp	2017-12-07 14:42:47.822271900 +0000
+--- tests2/A-09-04.outhyp	2017-12-09 18:03:43.402434700 +0000
 ***************
 *** 12,18 ****
   3 - Registar passageiro
@@ -13,68 +13,10 @@
   3 - Registar passageiro
   4 - Mudar nome de passageiro
   0 - Sair
-! Escolha uma opção: 0|Obi-Wan|FREQUENTE|4|338.15|00:00
+! Escolha uma opção: 0|Obi-Wan|NORMAL|4|149.79|00:00
   1|Yoda|NORMAL|0|0.00|00:00
   Menu de gestão de passageiros
   1 - Mostrar todos os passageiros
-***************
-*** 33,44 ****
-  2 - Mostrar itinerários associados a um passageiro
-  3 - Registar itinerário para um passageiro
-  0 - Sair
-! Escolha uma opção: Identificador do passageiro: Nome da estação de partida: Nome da estação de destino: Data de partida (YYYY-MM-DD): Hora de partida (HH:MM): 
-! Itinerário 1 para 2018-01-01 @ 2400.00
-! Serviço #5500 @ 2400.00
-! 15:48 Elvas
-! 18:25 Entroncamento
-! Número do itinerário: Menu de gestão de itinerários
-  1 - Mostrar todos os itinerários
-  2 - Mostrar itinerários associados a um passageiro
-  3 - Registar itinerário para um passageiro
---- 33,75 ----
-  2 - Mostrar itinerários associados a um passageiro
-  3 - Registar itinerário para um passageiro
-  0 - Sair
-! Escolha uma opção: Identificador do passageiro: Nome da estação de partida: Nome da estação de destino: Data de partida (YYYY-MM-DD): Hora de partida (HH:MM): Menu de gestão de itinerários
-! 1 - Mostrar todos os itinerários
-! 2 - Mostrar itinerários associados a um passageiro
-! 3 - Registar itinerário para um passageiro
-! 0 - Sair
-! Escolha uma opção: 0|Obi-Wan|FREQUENTE|4|338.15|00:00
-! == Passageiro 0: Obi-Wan ==
-! 
-! Itinerário 0 para 2017-10-18 @ 95.55
-! Serviço #694 @ 12.20
-! 17:08 Casa Branca
-! 18:36 Lisboa - Oriente
-! Serviço #180 @ 51.50
-! 05:47 Porto - Campanhã
-! 08:10 Casa Branca
-! Itinerário 0 para 2017-10-15 @ 95.55
-! Serviço #694 @ 12.20
-! 17:08 Casa Branca
-! 18:36 Lisboa - Oriente
-! Serviço #180 @ 51.50
-! 05:47 Porto - Campanhã
-! 08:10 Casa Branca
-! Itinerário 0 para 2017-10-14 @ 95.55
-! Serviço #694 @ 12.20
-! 17:08 Casa Branca
-! 18:36 Lisboa - Oriente
-! Serviço #180 @ 51.50
-! 05:47 Porto - Campanhã
-! 08:10 Casa Branca
-! Itinerário 0 para 2017-10-17 @ 51.50
-! Serviço #180 @ 51.50
-! 05:47 Porto - Campanhã
-! 08:10 Casa Branca
-! 11:23 Faro
-! 1|Yoda|NORMAL|0|0.00|00:00
-! == Passageiro 1: Yoda ==
-! Menu de gestão de itinerários
-  1 - Mostrar todos os itinerários
-  2 - Mostrar itinerários associados a um passageiro
-  3 - Registar itinerário para um passageiro
 ***************
 *** 57,63 ****
   3 - Registar passageiro
@@ -84,73 +26,14 @@
   1|Yoda|NORMAL|0|0.00|00:00
   Menu de gestão de passageiros
   1 - Mostrar todos os passageiros
---- 88,94 ----
+--- 57,63 ----
   3 - Registar passageiro
   4 - Mudar nome de passageiro
   0 - Sair
-! Escolha uma opção: 0|Obi-Wan|FREQUENTE|4|338.15|00:00
+! Escolha uma opção: 0|Obi-Wan|FREQUENTE|5|2549.79|00:00
   1|Yoda|NORMAL|0|0.00|00:00
   Menu de gestão de passageiros
   1 - Mostrar todos os passageiros
-***************
-*** 78,90 ****
-  2 - Mostrar itinerários associados a um passageiro
-  3 - Registar itinerário para um passageiro
-  0 - Sair
-! Escolha uma opção: Identificador do passageiro: Nome da estação de partida: Nome da estação de destino: Data de partida (YYYY-MM-DD): Hora de partida (HH:MM): 
-! Itinerário 1 para 2019-01-01 @ 51.50
-  Serviço #180 @ 51.50
-  05:47 Porto - Campanhã
-  08:10 Casa Branca
-  11:23 Faro
-! Número do itinerário: Menu de gestão de itinerários
-  1 - Mostrar todos os itinerários
-  2 - Mostrar itinerários associados a um passageiro
-  3 - Registar itinerário para um passageiro
---- 109,151 ----
-  2 - Mostrar itinerários associados a um passageiro
-  3 - Registar itinerário para um passageiro
-  0 - Sair
-! Escolha uma opção: Identificador do passageiro: Nome da estação de partida: Nome da estação de destino: Data de partida (YYYY-MM-DD): Hora de partida (HH:MM): Menu de gestão de itinerários
-! 1 - Mostrar todos os itinerários
-! 2 - Mostrar itinerários associados a um passageiro
-! 3 - Registar itinerário para um passageiro
-! 0 - Sair
-! Escolha uma opção: 0|Obi-Wan|FREQUENTE|4|338.15|00:00
-! == Passageiro 0: Obi-Wan ==
-! 
-! Itinerário 0 para 2017-10-18 @ 95.55
-! Serviço #694 @ 12.20
-! 17:08 Casa Branca
-! 18:36 Lisboa - Oriente
-! Serviço #180 @ 51.50
-! 05:47 Porto - Campanhã
-! 08:10 Casa Branca
-! Itinerário 0 para 2017-10-15 @ 95.55
-! Serviço #694 @ 12.20
-! 17:08 Casa Branca
-! 18:36 Lisboa - Oriente
-! Serviço #180 @ 51.50
-! 05:47 Porto - Campanhã
-! 08:10 Casa Branca
-! Itinerário 0 para 2017-10-14 @ 95.55
-! Serviço #694 @ 12.20
-! 17:08 Casa Branca
-! 18:36 Lisboa - Oriente
-! Serviço #180 @ 51.50
-! 05:47 Porto - Campanhã
-! 08:10 Casa Branca
-! Itinerário 0 para 2017-10-17 @ 51.50
-  Serviço #180 @ 51.50
-  05:47 Porto - Campanhã
-  08:10 Casa Branca
-  11:23 Faro
-! 1|Yoda|NORMAL|0|0.00|00:00
-! == Passageiro 1: Yoda ==
-! Menu de gestão de itinerários
-  1 - Mostrar todos os itinerários
-  2 - Mostrar itinerários associados a um passageiro
-  3 - Registar itinerário para um passageiro
 ***************
 *** 103,109 ****
   3 - Registar passageiro
@@ -160,11 +43,11 @@
   1|Yoda|NORMAL|0|0.00|00:00
   Menu de gestão de passageiros
   1 - Mostrar todos os passageiros
---- 164,170 ----
+--- 103,109 ----
   3 - Registar passageiro
   4 - Mudar nome de passageiro
   0 - Sair
-! Escolha uma opção: 0|Obi-Wan|FREQUENTE|4|338.15|00:00
+! Escolha uma opção: 0|Obi-Wan|ESPECIAL|6|2593.56|00:00
   1|Yoda|NORMAL|0|0.00|00:00
   Menu de gestão de passageiros
   1 - Mostrar todos os passageiros

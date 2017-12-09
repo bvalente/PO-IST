@@ -13,14 +13,16 @@ Escolha uma opção: Menu de gestão de itinerários
 0 - Sair
 Escolha uma opção: Identificador do passageiro: == Passageiro 0: Obi-Wan ==
 
-Itinerário 0 para 2017-10-18 @ 95.55
-Serviço #694 @ 12.20
+
+Itinerário 1 para 2017-10-18 @ 32.76
+Serviço #694 @ 10.84
 17:08 Casa Branca
 18:36 Lisboa - Oriente
-Serviço #180 @ 51.50
+Serviço #180 @ 21.92
 05:47 Porto - Campanhã
 08:10 Casa Branca
-Itinerário 0 para 2017-10-18 @ 51.50
+
+Itinerário 2 para 2017-10-18 @ 51.50
 Serviço #180 @ 51.50
 05:47 Porto - Campanhã
 08:10 Casa Branca
@@ -32,8 +34,9 @@ Menu de gestão de itinerários
 0 - Sair
 Escolha uma opção: Identificador do passageiro: == Passageiro 1: Yoda ==
 
-Itinerário 0 para 2017-10-18 @ 77.25
-Serviço #180 @ 51.50
+
+Itinerário 1 para 2017-10-18 @ 21.92
+Serviço #180 @ 21.92
 05:47 Porto - Campanhã
 08:10 Casa Branca
 Menu de gestão de itinerários
@@ -63,8 +66,8 @@ Escolha uma opção: Menu de gestão de passageiros
 3 - Registar passageiro
 4 - Mudar nome de passageiro
 0 - Sair
-Escolha uma opção: 0|Obi-Wan|NORMAL|2|147.05|00:00
-1|Yoda|NORMAL|1|77.25|00:00
+Escolha uma opção: 0|Obi-Wan|NORMAL|2|84.26|00:00
+1|Yoda|NORMAL|1|21.92|00:00
 Menu de gestão de passageiros
 1 - Mostrar todos os passageiros
 2 - Mostrar passageiro
@@ -86,8 +89,9 @@ Escolha uma opção: Menu de gestão de itinerários
 0 - Sair
 Escolha uma opção: Identificador do passageiro: == Passageiro 1: Yoda ==
 
-Itinerário 0 para 2017-10-18 @ 77.25
-Serviço #180 @ 51.50
+
+Itinerário 1 para 2017-10-18 @ 21.92
+Serviço #180 @ 21.92
 05:47 Porto - Campanhã
 08:10 Casa Branca
 Menu de gestão de itinerários
@@ -115,8 +119,8 @@ Escolha uma opção: Nome do passageiro: Menu de gestão de passageiros
 3 - Registar passageiro
 4 - Mudar nome de passageiro
 0 - Sair
-Escolha uma opção: 0|Obi-Wan|NORMAL|2|147.05|00:00
-1|Yoda|NORMAL|1|77.25|00:00
+Escolha uma opção: 0|Obi-Wan|NORMAL|2|84.26|00:00
+1|Yoda|NORMAL|1|21.92|00:00
 2|qqqqqq|NORMAL|0|0.00|00:00
 Menu de gestão de passageiros
 1 - Mostrar todos os passageiros
