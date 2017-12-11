@@ -48,6 +48,7 @@ public class DoRegisterItinerary extends Command<TicketOffice> {
         _departureDate = _form.addStringInput(Message.requestDepartureDate());
         _departureTime = _form.addStringInput(Message.requestDepartureTime());
 
+        //New form for the userChoice be parsed after the search.
          _choiceForm = new Form();
         _userChoice = _choiceForm.addIntegerInput(Message.requestItineraryChoice());
 
@@ -70,13 +71,13 @@ public class DoRegisterItinerary extends Command<TicketOffice> {
                     _display.addLine(str);
                 }
                 _display.display();
-                //parse do numero do itinerario que o cliente escolher
+
+                //parses number of the users itnerary option.
                 _choiceForm.parse();
-                //usar a funcao commitItinerary to add
+
                 _receiver.commitItinerary(_id.value(), _userChoice.value());
             }
 
-            // must call (at least) _receiver.searchItineraries(...) and _receiver.commitItinerary(...)
         } catch (NoSuchPassengerIdException e) {
             throw new NoSuchPassengerException(e.getId());
         } catch (NoSuchStationNameException e) {

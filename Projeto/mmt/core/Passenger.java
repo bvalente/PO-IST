@@ -11,13 +11,13 @@ import java.util.Comparator;
 import java.util.Collections;
 
 /**
- * This class represents a passenger.<p>
- * A Passenger has an numeric identifier (assigned automatically and sequentially) and a name.
- *
- *
- * @author Bernardo Valente & Francisco Machado
- * @version 1.0
- */
+* This class represents a passenger.<p>
+* A Passenger has an numeric identifier (assigned automatically and sequentially) and a name.
+*
+*
+* @author Bernardo Valente & Francisco Machado
+* @version 1.0
+*/
 
 class Passenger implements Serializable{
 
@@ -44,11 +44,11 @@ class Passenger implements Serializable{
     private List<Itinerary> _itineraryCache;
 
     /**
-     * Constructor.
-     *
-     * @param name passenger name.
-     * @param id passenger numeric identifier.
-     */
+    * Constructor.
+    *
+    * @param name passenger name.
+    * @param id passenger numeric identifier.
+    */
     Passenger(String name, int id){
         _id = id;
         _name = new String(name);
@@ -58,10 +58,10 @@ class Passenger implements Serializable{
     }
 
     /**
-     * adds an itinerary to the passenger itinerary list .
-     *
-     * @param itin itinerary to be added.
-     */
+    * Adds an itinerary to the passenger itinerary list .
+    *
+    * @param itin itinerary to be added.
+    */
 
     void addItinerary(Itinerary itin){
         double sum = 0;
@@ -85,7 +85,10 @@ class Passenger implements Serializable{
         //updates discount according to the money spent on passengers last 10 trips
         _discount.update(sum);
     }
-
+    /** Shows all Itineraries saved.
+    * @return all itineraries associated to a passenger.
+    *
+    */
     List<String> showAllItineraries(){
         if(_travels.isEmpty()) return null;
 
@@ -94,7 +97,7 @@ class Passenger implements Serializable{
         Collections.sort(newList, new Itinerary.ItineraryPassengerComparator());
 
         list.add("== Passageiro " + this.getId() + ": " + this.getName() + " ==" );
-        int i = 1;
+        int i = 1; //first itinerary is registered with the id 1
         for ( Itinerary it : newList ){
             list.addAll(it.showItinerary(i));
             i++;
@@ -102,37 +105,46 @@ class Passenger implements Serializable{
         return list;
     }
     /**
-     * @return passenger id.
-     */
+    * @return passenger id.
+    */
     int getId(){
         return _id;
     }
 
     /**
-     * @return passenger name.
-     */
+    * @return passenger name.
+    *
+    */
     String getName(){
         return _name;
     }
 
     /**
-     * Changes passenger name.
-     *
-     * @param name name to be assigned.
-     */
-    void changeName(String name){
-        _name = new String(name);
+    * Changes passenger name.
+    *
+    * @param name name to be assigned.
+    */
+    void changeName( String name ){
+        _name = new String( name );
     }
 
-    void changeDiscount(Category discount){
+    void changeDiscount( Category discount ){
         _discount = discount;
     }
 
-    void saveCache(List<Itinerary> cache){
+    /** Saves a temporary itinerary list while the user chooses an option.
+    *
+    */
+    void saveCache( List<Itinerary> cache ){
         _itineraryCache = cache;
     }
 
-    void commitItinerary(int index)throws NoSuchItineraryChoiceException{
+    /** Adds an itinerary to a passengers itinerary list. A temporary list saves the itineraies options found for a (*).
+    * @param index of the option pretended by the user
+    *
+    */
+
+    void commitItinerary( int index ) throws NoSuchItineraryChoiceException{
         if(index != 0){
             try{
                 this.addItinerary(_itineraryCache.get(index - 1));
@@ -145,9 +157,9 @@ class Passenger implements Serializable{
     }
 
     /**
-     * @return a String with all passenger info.
-     * @see java.lang.Object#toString()
-     */
+    * @return a String with all passenger info.
+    * @see java.lang.Object#toString()
+    */
     @Override
     public String toString(){
 

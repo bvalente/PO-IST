@@ -53,7 +53,8 @@ class Station implements Serializable{
     int getId(){
         return _id;
     }
-
+    /**
+    * @return train stops in a station. */
     List<TrainStop> getTrainStopList(){
         return _trainStopList;
     }
@@ -92,14 +93,6 @@ class Station implements Serializable{
     @Override
     public String toString(){
         return _name;
-    }
-
-    List<Segment> segmentList(){
-        /*List<Segment> s = new ArrayList<Segment>();
-
-
-        return s;*/
-        return null;//para compilar
     }
 
 }

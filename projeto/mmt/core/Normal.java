@@ -1,5 +1,14 @@
 package mmt.core;
 
+/**
+* This class represents a Normal passenger.<p>
+* A Passenger is Normal if in the last 10 travels spent less than 250 euros.
+*
+*
+* @author Bernardo Valente & Francisco Machado
+* @version 1.0
+*/
+
 class Normal extends Category{
 
     Normal(Passenger passenger){

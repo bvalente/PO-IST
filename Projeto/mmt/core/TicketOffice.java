@@ -85,12 +85,8 @@ public class TicketOffice {
         Passenger passenger = _trainCompany.getPassenger(passengerId);
         Station departure = _trainCompany.getStation(departureStation);
         Station arrival = _trainCompany.getStation(arrivalStation);
-        LocalDate date = LocalDate.parse(departureDate); //lancam excepcoes
-        LocalTime time = LocalTime.parse(departureTime); //not sure if this is the correct way to do it
-
-        //for para ver todas os servicos da station de partida. para usar com o compute
-        //criar trainstop
-        //TrainStop ts = TrainStop( _trainCompany.getStation(departureStation) ,  );
+        LocalDate date = LocalDate.parse(departureDate);
+        LocalTime time = LocalTime.parse(departureTime);
 
         return _trainCompany.searchItineraries(passenger, departure, arrival, date, time);
     }
@@ -103,12 +99,22 @@ public class TicketOffice {
 
     }
 
+    /** Shows all Itineraries saved for a passenger.
+    *
+    * @param passengerId
+    * @return List of all itineraries
+    *
+    */
     public List<String> showItineraries(int passengerId)throws NoSuchPassengerIdException{
         Passenger passenger = _trainCompany.getPassenger(passengerId);
         return passenger.showAllItineraries();
 
     }
-
+    /** Shows all Itineraries saved for every passenger.
+    *
+    * @return List of all itineraries ordered by the passengers Id.
+    *
+    */
     public List<String> showAllItineraries(){
         return _trainCompany.showAllItineraries();
     }

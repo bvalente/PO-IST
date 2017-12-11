@@ -43,10 +43,17 @@ class Service implements Serializable{
 
     }
 
+    /** Adds a trainStop to the service.
+    *
+    * @param ts trainStop to be added.
+    */
     void addTrainStop(TrainStop ts){
         _trainStopList.add(ts);
     }
 
+    /**
+    * @return Service id
+    */
     int getId(){
         return _id;
     }
@@ -67,6 +74,12 @@ class Service implements Serializable{
         return _trainStopList.get(_trainStopList.size()-1);
     }
 
+    /** This method returns a Trainstop for a given name.
+    *
+    * @param name of the trainStop
+    * @return the trainStop or null it there's no such TrainStop
+    *
+    */
     TrainStop getTrainStop(String name){
         for(TrainStop ts : _trainStopList){
             if (ts.getStation().compareName(name) ){
@@ -91,15 +104,13 @@ class Service implements Serializable{
         return this.getLastTrainStop().getStation();
     }
 
+    /**
+    * @return duration between the Services first and last train stop.
+    */
     long totalTime(){
         return Duration.between(this.getFirstTrainStop().getTime(), this.getLastTrainStop().getTime()).toMinutes();
     }
 
-    List<TrainStop> getTrainStopListFrom(TrainStop ts){
-
-        return _trainStopList.subList(
-            _trainStopList.indexOf(ts), _trainStopList.indexOf(getLastTrainStop()) + 1 );
-    }
 
     /**
     * @return the list is ready to be printed.
@@ -132,10 +143,22 @@ class Service implements Serializable{
         return list;
     }
 
+    /** Creates a segment between two of the service traintops.
+    *
+    * @param s1 departure trainStop.
+    * @param s2 arrival trainStop.
+    * @return a segment.
+    *
+    */
     Segment getSegment(TrainStop s1, TrainStop s2){
         return new Segment(s1,s2, this );
     }
 
+    /** Calculates the price of a segment based on its length. <p>
+    *
+    * @param seg segment to be calculated.
+    * @return segment cost.
+    * */
     public double segmentPrice(Segment seg){
         double cost;
         //preco * tempo segmento / tempo servico
@@ -143,6 +166,11 @@ class Service implements Serializable{
         return cost;
     }
 
+    /** Checks if the Service has a given station.
+    *
+    * @param station
+    * @return the station or null if theres no such station in the service.
+    */
     TrainStop hasStation(Station station){
         for (TrainStop ts : _trainStopList){
             if ( ts.getStation().compareStationId(station) ){
@@ -153,9 +181,24 @@ class Service implements Serializable{
     }
 
 
-
+    /** Compute is an recursive searching function. <p>
+    * First it searches for an arrival station in the service containing the departure TrainStop. <p>
+    * If no segments are found the search is performed for all TrainStops and their associated services using the recursion.<p>
+    * Stations and Services that already have been explored are ignored. <p>
+    * Times of departure, arrival and duration of the segment are considered
+    *
+    * @param departure trainStop
+    * @param arrival station
+    * @param servicesUsed
+    * @param stationsUsed
+    * @param date
+    * @param time
+    *
+    * @return a itinerary
+    *
+    */
     Itinerary compute(TrainStop departure, Station arrival, List<Service> servicesUsed, List<Station> stationsUsed, LocalDate date, LocalTime time){
-        //passar também tempo e data do Input como argumentos? a função dada pelo stor do search itineraries em ticket office recebe.
+
         Itinerary it = null;
         Itinerary itAux = null;
 
@@ -174,10 +217,12 @@ class Service implements Serializable{
                 Station station = trainStop.getStation();
                 // checks if station was already used
                 if ( stationsUsed.contains( trainStop.getStation() ) ) return it;
-                stationsUsed.add(station );
+                stationsUsed.add( station );
 
                 Segment seg = new Segment(departure, trainStop, this);
+
                 for( Service service : station.getServiceList() ){
+
                     //checks if the service was already used, leaves the cycle for another service
                     if(! servicesUsed.contains(service) ) {
                         TrainStop ts = service.hasStation(station);
@@ -198,21 +243,20 @@ class Service implements Serializable{
                                 int x = it.timeOfArrival().compareTo( itAux.timeOfArrival() );
                                 //x < 0: it chega primeiro
                                 //x = 0: chegam ao mesmo tempo, ver o que tiver menor custo
-                                //x > 0: itAux cheaga primeiro
+                                //x > 0: itAux chega primeiro
                                 if ( ( x == 0 && it.getCost() > itAux.getCost() ) || x > 0 ) {
                                     it = itAux;
                                 }
                             }
                         }
                     }
-                    //compute nao deu nenhum itinerario
+                    //compute didnt found any itinerary
                 }
 
             }
-        } //fim do for
+        }
 
-        return it; //erro, nao encontrou itinerario
-        //fim da funcao
+        return it;
     }
 
 
@@ -224,6 +268,7 @@ class Service implements Serializable{
         }
 
     }
+
     /**This nested class is used to compare two Services by their First TrainStop departing time.
     */
     public static class ServiceComparatorByDepartingTime implements Comparator<Service>{
