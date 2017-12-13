@@ -133,13 +133,13 @@ class TrainCompany implements Serializable {
     * @return station with the correspondent name or null if there's no such station.
     */
 
-    Station getStation(String name){
+    Station getStation(String name) throws NoSuchStationNameException{
         for ( Station station : _stationList ){
             if (station.compareName(name)){
                 return station;
             }
         }
-        return null; // ?
+        throw new NoSuchStationNameException(name);
     }
 
     /**

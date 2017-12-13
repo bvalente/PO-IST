@@ -19,6 +19,7 @@ import mmt.core.exceptions.NoSuchStationNameException;
 import mmt.core.exceptions.NoSuchItineraryChoiceException;
 import mmt.core.exceptions.NonUniquePassengerNameException;
 
+import java.time.format.DateTimeParseException;
 import java.io.File;
 import java.util.List;
 import java.time.LocalDate;
@@ -85,8 +86,19 @@ public class TicketOffice {
         Passenger passenger = _trainCompany.getPassenger(passengerId);
         Station departure = _trainCompany.getStation(departureStation);
         Station arrival = _trainCompany.getStation(arrivalStation);
-        LocalDate date = LocalDate.parse(departureDate);
-        LocalTime time = LocalTime.parse(departureTime);
+        LocalDate date = null;
+        LocalTime time = null;
+        try{
+            date = LocalDate.parse(departureDate);
+        } catch (DateTimeParseException e){
+            throw new BadDateSpecificationException(departureDate);
+        }
+
+        try{
+            time = LocalTime.parse(departureTime);
+        } catch (DateTimeParseException e){
+            throw new BadTimeSpecificationException(departureTime);
+        }
 
         return _trainCompany.searchItineraries(passenger, departure, arrival, date, time);
     }
